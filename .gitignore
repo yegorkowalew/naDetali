@@ -1,0 +1,12 @@
+syntax: glob
+src/local_settings.py
+*.pyc
+.idea/*
+.idea/workspace.xml
+*.log
+django.log
+media/*
+.vscode
+defaultdata/*
+venv/*
+test/*
