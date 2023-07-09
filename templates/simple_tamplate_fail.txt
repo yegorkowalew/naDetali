@@ -1,0 +1,19 @@
+{% extends "simple_base.txt" %}
+{% block head %}= = = = = = ПЛОХОЕ СОСТОЯНИЕ = = = = = ={% endblock %}
+
+{% block name_rus %}{{ model.name_rus }}{% endblock %}
+{% block name_ukr %}{{ model.name_ukr }}{% endblock %}
+
+{% block detail_name_rus %}{{ model.name_rus }}{% endblock %}
+{% block detail_name_ukr %}{{ model.name_ukr }}{% endblock %}
+
+{% block description_rus %}{{ model.description_fail_rus }}{% endblock %}
+{% block description_ukr %}{{ model.description_fail_ukr }}{% endblock %}
+
+{% block flaw_rus %}{{ model.flaw_perfect_rus }}{% endblock %}
+{% block flaw_ukr %}{{ model.flaw_perfect_ukr }}{% endblock %}
+
+{% block tags_rus %}{{ model.tags_rus }}{% endblock %}
+{% block tags_ukr %}{{ model.tags_ukr }}{% endblock %}
+
+{% block groupe %}{{ model.model_name }}{% endblock %}
