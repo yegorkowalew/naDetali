@@ -1,4 +1,4 @@
-import os, sys
+import os, sys, shutil
 import random
 import argparse
 from settings import (logger, brand_name, model_name, model_tag_string, 
@@ -85,8 +85,19 @@ class ModelObj:
 
 def delete_folders():
     """Delete Folders: Удаляем пустые папки с ненужными файлами описаний"""
-    logger.info('Удаляем не нужные папки с файлами')
-    pass
+    model = ModelObj(brand_name, model_name, model_tag_string, 
+                     model_tag_string_rus, model_tag_string_ukr, detail_names)
+    model_list = model.get_names_list()
+    for folder in model_list:
+        flag = True
+        for folder_file in os.listdir(folder['dir_path']):
+            if '.jpg' in folder_file or '.jpeg' in folder_file or '.png' in folder_file:
+                flag = False
+                break
+        if flag:
+            logger.info("Удаляю папку %s" % folder['dir_path'])
+            shutil.rmtree(folder['dir_path'])
+    return True
 
 def make_files():
     """Make Files: создаем папки и файлы с описаниями объявлений"""
@@ -114,15 +125,17 @@ def make_files():
         toHtml(data_list, template_dir, template_name_perfect, file_path_perfect)
         toHtml(data_list, template_dir, template_name_good, file_path_good)
         toHtml(data_list, template_dir, template_name_fail, file_path_fail)
+    return True
 
-if __name__ == "__main__":
+def main():
+    """Набор параметров для разветвления программы"""
     parser = argparse.ArgumentParser(
         description='Script for creating ads on the prom.ua',
         epilog='Created by Yegor Kowalew. Version 2.0 will be even better!'
         )
-    parser.add_argument('-mf', action='store_true', 
+    parser.add_argument('-mf', action='store_true',
                         help='Make Files for model')
-    parser.add_argument('-df', action='store_true', 
+    parser.add_argument('-df', action='store_true',
                         help='Dlete Files. Delete empty folders and files')
 
     args = parser.parse_args()
@@ -133,3 +146,7 @@ if __name__ == "__main__":
     else:
         parser.print_help(sys.stderr)
         sys.exit(1)
+
+if __name__ == "__main__":
+    """Запуск основного тела программы"""
+    main()
