@@ -1,5 +1,6 @@
-import os
+import os, sys
 import random
+import argparse
 from settings import (logger, brand_name, model_name, model_tag_string, 
                       model_tag_string_rus, model_tag_string_ukr, model_state,
                       dir_path, description_perfect_rus, description_perfect_ukr, 
@@ -82,9 +83,13 @@ class ModelObj:
             global_list.append(item_dict)
         return global_list
 
+def delete_folders():
+    """Delete Folders: Удаляем пустые папки с ненужными файлами описаний"""
+    logger.info('Удаляем не нужные папки с файлами')
+    pass
 
-
-if __name__ == "__main__":
+def make_files():
+    """Make Files: создаем папки и файлы с описаниями объявлений"""
     logger.info('Начало')
 
     model = ModelObj(brand_name, model_name, model_tag_string, 
@@ -101,7 +106,7 @@ if __name__ == "__main__":
         template_name_perfect = 'simple_tamplate_perfect.txt'
         template_name_good = 'simple_tamplate_good.txt'
         template_name_fail = 'simple_tamplate_fail.txt'
-        # print()
+        
         file_path_perfect = os.path.join(os.path.dirname(this_model['dir_path']), repalce_for_name(this_model['name_rus']), '1. Отличный - %s%s' % (repalce_for_name(this_model['name_rus']), '.txt'))
         file_path_good = os.path.join(os.path.dirname(this_model['dir_path']), repalce_for_name(this_model['name_rus']), '2. Нормальный - %s%s' % (repalce_for_name(this_model['name_rus']), '.txt'))
         file_path_fail = os.path.join(os.path.dirname(this_model['dir_path']), repalce_for_name(this_model['name_rus']), '3. Плохой - %s%s' % (repalce_for_name(this_model['name_rus']), '.txt'))
@@ -109,3 +114,22 @@ if __name__ == "__main__":
         toHtml(data_list, template_dir, template_name_perfect, file_path_perfect)
         toHtml(data_list, template_dir, template_name_good, file_path_good)
         toHtml(data_list, template_dir, template_name_fail, file_path_fail)
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description='Script for creating ads on the prom.ua',
+        epilog='Created by Yegor Kowalew. Version 2.0 will be even better!'
+        )
+    parser.add_argument('-mf', action='store_true', 
+                        help='Make Files for model')
+    parser.add_argument('-df', action='store_true', 
+                        help='Dlete Files. Delete empty folders and files')
+
+    args = parser.parse_args()
+    if args.mf:
+        make_files()
+    elif args.df:
+        delete_folders()
+    else:
+        parser.print_help(sys.stderr)
+        sys.exit(1)
