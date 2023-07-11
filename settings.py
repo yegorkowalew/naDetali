@@ -21,7 +21,7 @@ config = configparser.ConfigParser()
 # model.ini
 config.read(os.path.join(BASE_DIR, 'model.ini'), encoding="utf-8")  # читаем конфиг
 brand_name = config["Model"]["brand"]
-model_name = config["Model"]["name"]
+model_name = f"{brand_name} {config['Model']['name']}"
 model_tag_string = config["Model"]["tag_string"]
 model_tag_string_rus = config["Model"]["tag_string_rus"]
 model_tag_string_ukr = config["Model"]["tag_string_ukr"]
