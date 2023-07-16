@@ -11,11 +11,9 @@ from settings import template_dir
 from setup_names import detail_names
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
+
 def repalce_for_name(str):
     return str.replace('<', ' ').replace('>', ' ').replace(':', ' ').replace('|', ' ').replace('\\', ' ').replace('/', ' ').replace('?', ' ').replace('*', ' ')
-    # print(str)
-    # return str
-
 
 def toHtml(data_list, template_dir, template_name, html_file):
     file_loader = FileSystemLoader(template_dir)
@@ -24,11 +22,10 @@ def toHtml(data_list, template_dir, template_name, html_file):
     htmltemplate.stream(
         data_list
         ).dump(html_file)
-    # logger.info('Письмо: записан html-файл: %s' % (html_file))
+    logger.info('Сгенерирован текст.')
     return htmltemplate.render(
         data_list
         )
-    logger.info('Сгенерирован текст.')
 
 def make_folder(path):
     try:
@@ -95,7 +92,7 @@ def delete_folders():
                 flag = False
                 break
         if flag:
-            logger.info("Удаляю папку %s" % folder['dir_path'])
+            logger.info("Удаляю папку %s", folder['dir_path'])
             shutil.rmtree(folder['dir_path'])
     return True
 
@@ -148,5 +145,5 @@ def main():
         sys.exit(1)
 
 if __name__ == "__main__":
-    """Запуск основного тела программы"""
+    # Запуск основного тела программы
     main()
