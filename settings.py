@@ -13,7 +13,7 @@ TODAY = date.today()
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Путь к log-файлу
-LOG_FILE = os.path.join(BASE_DIR, 'logs', '%s%s%s' % ('log - ', TODAY.strftime('%d.%m.%Y'), '.txt'))
+LOG_FILE = os.path.join(BASE_DIR, 'logs', f"log - {TODAY.strftime('%d.%m.%Y')}.txt")
 
 # Путь к папке c конфигурационными файлами
 config = configparser.ConfigParser()
