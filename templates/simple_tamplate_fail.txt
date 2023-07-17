@@ -1,19 +1,19 @@
 {% extends "simple_base.txt" %}
 {% block head %}= = = = = = ПЛОХОЕ СОСТОЯНИЕ = = = = = ={% endblock %}
 
-{% block name_rus %}{{ model.name_rus }}{% endblock %}
-{% block name_ukr %}{{ model.name_ukr }}{% endblock %}
+{% block name %}{{ model.name }}{% endblock %}
+{% block name_ua %}{{ model.name_ua }}{% endblock %}
 
-{% block detail_name_rus %}{{ model.name_rus }}{% endblock %}
-{% block detail_name_ukr %}{{ model.name_ukr }}{% endblock %}
+{% block description_small %}{{ model.description_small }}{% endblock %}
+{% block description_small_ua %}{{ model.description_small_ua }}{% endblock %}
 
-{% block description_rus %}{{ model.description_fail_rus }}{% endblock %}
-{% block description_ukr %}{{ model.description_fail_ukr }}{% endblock %}
+{% block description %}{{ model.description_fail }}{% endblock %}
+{% block description_ua %}{{ model.description_fail_ua }}{% endblock %}
 
 {% block flaw_rus %}{{ model.flaw_perfect_rus }}{% endblock %}
 {% block flaw_ukr %}{{ model.flaw_perfect_ukr }}{% endblock %}
 
-{% block tags_rus %}{{ model.tags_rus }}{% endblock %}
-{% block tags_ukr %}{{ model.tags_ukr }}{% endblock %}
+{% block keywords %}{{ model.keywords }}{% endblock %}
+{% block keywords_ua %}{{ model.keywords_ua }}{% endblock %}
 
-{% block groupe %}{{ model.model_name }}{% endblock %}
+{% block portal %}{{ model.portal }}{% endblock %}

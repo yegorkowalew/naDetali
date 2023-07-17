@@ -1,12 +1,8 @@
 import os, sys, shutil
 import random
 import argparse
-from settings import (logger, brand_name, model_name, model_tag_string, 
-                      model_tag_string_rus, model_tag_string_ukr, model_state,
-                      dir_path, description_perfect_rus, description_perfect_ukr, 
-                      description_good_rus, description_good_ukr, description_fail_rus, 
-                      description_fail_ukr, flaw_perfect_rus, flaw_perfect_ukr, flaw_good_rus, 
-                      flaw_good_ukr, flaw_fail_rus, flaw_fail_ukr)
+from settings import logger
+from settings import model, description, flaw, dir_path
 from settings import template_dir
 from setup_names import detail_names
 from jinja2 import Environment, FileSystemLoader, select_autoescape
@@ -34,17 +30,15 @@ def make_folder(path):
         logger.warning(error)
 
 class ModelObj:
-    def __init__(self, brand, name, model_tag_string, model_tag_string_rus, 
-               model_tag_string_ukr, detail_names):
-        self.brand = brand
-        self.name = name
-        self.tag_string = model_tag_string
-        self.tag_string_rus = model_tag_string_rus
-        self.tag_string_ukr = model_tag_string_ukr
-        self.state = model_state
-        self.names_dict = detail_names
-    
+    def __init__(self, model, names_dict):
+        self.vendor = model['vendor']
+        self.model = model['model']
+        self.keywords_string = model['keywords_string']
+        self.state = model['state']
+        self.names_dict = names_dict
+
     def get_random_sentence(self, text):
+        # Получить рандомную комбинацию строк
         string_list = text.split('. ')
         random.shuffle(string_list)
         str = ''
@@ -53,38 +47,41 @@ class ModelObj:
         return str
 
     def get_names_list(self):
+        # Получить список деталей
         global_list = []
         for item in self.names_dict:
             item_dict = {
-                'model_name':self.name,
-                'name_rus': item['name_rus'],
-                'name_ukr': item['name_ukr'],
-                'tags_rus': '%s, %s, %s, %s' % (self.brand, item['tags_rus'], self.tag_string, self.tag_string_rus),
-                'tags_ukr': '%s, %s, %s, %s' % (self.brand, item['tags_ukr'], self.tag_string, self.tag_string_ukr),
-                'category': item['category'],
-                'dir_path': os.path.join(os.path.dirname(dir_path), self.brand, self.name, repalce_for_name(item['name_rus'])),
-                'description_perfect_rus': '%s %s' % (self.get_random_sentence(description_perfect_rus), item['description_rus']),
-                'description_good_rus': '%s %s' % (self.get_random_sentence(description_good_rus), item['description_rus']),
-                'description_fail_rus': '%s %s' % (self.get_random_sentence(description_fail_rus), item['description_rus']),
-                'description_perfect_ukr': '%s %s' % (self.get_random_sentence(description_perfect_ukr), item['description_ukr']),
-                'description_good_ukr': '%s %s' % (self.get_random_sentence(description_good_ukr), item['description_ukr']),
-                'description_fail_ukr': '%s %s' % (self.get_random_sentence(description_fail_ukr), item['description_ukr']),
-                'flaw_perfect_rus': '%s %s' % (self.get_random_sentence(flaw_perfect_rus), item['flaw_rus']),
-                'flaw_good_rus': '%s %s' % (self.get_random_sentence(flaw_good_rus), item['flaw_rus']),
-                'flaw_fail_rus': '%s %s' % (self.get_random_sentence(flaw_fail_rus), item['flaw_rus']),
-                'flaw_perfect_ukr': '%s %s' % (self.get_random_sentence(flaw_perfect_ukr), item['flaw_ukr']),
-                'flaw_good_ukr': '%s %s' % (self.get_random_sentence(flaw_good_ukr), item['flaw_ukr']),
-                'flaw_fail_ukr': '%s %s' % (self.get_random_sentence(flaw_fail_ukr), item['flaw_ukr']),
+                'vendor': self.vendor,
+                'model': self.model,
+                'model_name': f"{self.vendor} {self.model}",
+                'name': item['name'],
+                'name_ua': item['name_ua'],
+                'description_small': item['description_small'],
+                'description_small_ua': item['description_small_ua'],
+                'description_perfect': description['perfect'],
+                'description_good': description['good'],
+                'description_fail': description['fail'],
+                "description_perfect_ua": description['perfect_ua'],
+                "description_good_ua": description['good_ua'],
+                "description_fail_ua": description['fail_ua'],
+                "flaw_perfect": flaw['perfect'],
+                "flaw_good": flaw['good'],
+                "flaw_fail": flaw['fail'],
+                "flaw_perfect_ua": flaw['perfect_ua'],
+                "flaw_good_ua": flaw['good_ua'],
+                "flaw_fail_ua": flaw['fail_ua'],
+                'keywords':'русские теги',
+                'keywords_ua':'украинские теги',
+                'portal': item['portal'],
+                'dir_path': os.path.join(os.path.dirname(dir_path), self.vendor, self.model, repalce_for_name(item['name'])),
             }
-            # print(item_dict['dir_path'])
             global_list.append(item_dict)
         return global_list
 
 def delete_folders():
     """Delete Folders: Удаляем пустые папки с ненужными файлами описаний"""
-    model = ModelObj(brand_name, model_name, model_tag_string, 
-                     model_tag_string_rus, model_tag_string_ukr, detail_names)
-    model_list = model.get_names_list()
+    model_obj = ModelObj(model, detail_names)
+    model_list = model_obj.get_names_list()
     for folder in model_list:
         flag = True
         for folder_file in os.listdir(folder['dir_path']):
@@ -100,10 +97,9 @@ def make_files():
     """Make Files: создаем папки и файлы с описаниями объявлений"""
     logger.info('Начало')
 
-    model = ModelObj(brand_name, model_name, model_tag_string, 
-                     model_tag_string_rus, model_tag_string_ukr, detail_names)
-    model_list = model.get_names_list()
-    make_folder(os.path.join(os.path.dirname(dir_path), brand_name, model_name, '_All Photos'))
+    model_obj = ModelObj(model, detail_names)
+    model_list = model_obj.get_names_list()
+    make_folder(os.path.join(os.path.dirname(dir_path), model['vendor'], model['model'], '_All Photos'))
     
     for this_model in model_list:
         make_folder(this_model['dir_path'])
@@ -115,9 +111,9 @@ def make_files():
         template_name_good = 'simple_tamplate_good.txt'
         template_name_fail = 'simple_tamplate_fail.txt'
         
-        file_path_perfect = os.path.join(os.path.dirname(this_model['dir_path']), repalce_for_name(this_model['name_rus']), '1. Отличный - %s%s' % (repalce_for_name(this_model['name_rus']), '.txt'))
-        file_path_good = os.path.join(os.path.dirname(this_model['dir_path']), repalce_for_name(this_model['name_rus']), '2. Нормальный - %s%s' % (repalce_for_name(this_model['name_rus']), '.txt'))
-        file_path_fail = os.path.join(os.path.dirname(this_model['dir_path']), repalce_for_name(this_model['name_rus']), '3. Плохой - %s%s' % (repalce_for_name(this_model['name_rus']), '.txt'))
+        file_path_perfect = os.path.join(os.path.dirname(this_model['dir_path']), repalce_for_name(this_model['name']), '1. Отличный - %s%s' % (repalce_for_name(this_model['name']), '.txt'))
+        file_path_good = os.path.join(os.path.dirname(this_model['dir_path']), repalce_for_name(this_model['name']), '2. Нормальный - %s%s' % (repalce_for_name(this_model['name']), '.txt'))
+        file_path_fail = os.path.join(os.path.dirname(this_model['dir_path']), repalce_for_name(this_model['name']), '3. Плохой - %s%s' % (repalce_for_name(this_model['name']), '.txt'))
     
         toHtml(data_list, template_dir, template_name_perfect, file_path_perfect)
         toHtml(data_list, template_dir, template_name_good, file_path_good)

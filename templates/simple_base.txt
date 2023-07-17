@@ -1,15 +1,15 @@
 {% block head %}{% endblock %}
 
 >>> Название РУС:
-{% block name_rus %}{% endblock %}
+{% block name %}{% endblock %}
 
 >>> Название УКР:
-{% block name_ukr %}{% endblock %}
+{% block name_ua %}{% endblock %}
 
 
 >>> Описание РУС:
-<p><b>Деталь:</b>&nbsp;{% block detail_name_rus %}{% endblock %}, оригинальная, Б/У</p>
-<p><b>Описание:</b>&nbsp;{% block description_rus %}{% endblock %}</p>
+<p><b>Деталь:</b>&nbsp;{% block description_small %}{% endblock %}.</p>
+<p><b>Описание:</b>&nbsp;{% block description %}{% endblock %}</p>
 <p><b>Недостатки:</b>&nbsp;{% block flaw_rus %}{% endblock %}</p>
 <p>Больше деталей к этой модели на сайте:&nbsp;<a href="https://nadetali.com.ua" target="_blank">https://nadetali.com.ua</a></p>
 <p>По желанию клиента выполняем ремонт или замену деталей в нашем сервисном центре:&nbsp;<a href="http://chip-service.com.ua/" target="_blank">http://chip-service.com.ua</a></p>
@@ -20,8 +20,8 @@
 
 
 >>> Описание УКР:
-<p><b>Деталь:</b>&nbsp;{% block detail_name_ukr %}{% endblock %}, оригінальна, Б/В.</p>
-<p><b>Опис:</b>&nbsp;{% block description_ukr %}{% endblock %}</p>
+<p><b>Деталь:</b>&nbsp;{% block description_small_ua %}{% endblock %}.</p>
+<p><b>Опис:</b>&nbsp;{% block description_ua %}{% endblock %}</p>
 <p><b>Недоліки:</b>&nbsp;{% block flaw_ukr %}{% endblock %}</p>
 <p>Більше деталей до цієї моделі на сайті:&nbsp;<a href="https://nadetali.com.ua" target="_blank">https://nadetali.com.ua</a></p>
 <p>По бажанню клієнта виконуємо ремот або заміну деталей в нашому сервісному центрі:&nbsp;<a href="http://chip-service.com.ua/" target="_blank">http://chip-service.com.ua</a></p>
@@ -35,11 +35,11 @@
 {% block groupe %}{{ model.model_name }}{% endblock %}
 
 >>> Теги РУС:
-{% block tags_rus %}{% endblock %}
+{% block keywords %}{% endblock %}
 
 >>> Теги УКР:
-{% block tags_ukr %}{% endblock %}
+{% block keywords_ua %}{% endblock %}
 
 >>> Категория:
-{% block category %}{{ model.category }}{% endblock %}
+{% block portal %}{{ model.portal }}{% endblock %}
 
