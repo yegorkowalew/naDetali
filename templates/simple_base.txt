@@ -10,7 +10,7 @@
 >>> Описание РУС:
 <p><b>Деталь:</b>&nbsp;{% block description_small %}{% endblock %}.</p>
 <p><b>Описание:</b>&nbsp;{% block description %}{% endblock %}</p>
-<p><b>Недостатки:</b>&nbsp;{% block flaw_rus %}{% endblock %}</p>
+<p><b>Недостатки:</b>&nbsp;{% block flaw %}{% endblock %}</p>
 <p>Больше деталей к этой модели на сайте:&nbsp;<a href="https://nadetali.com.ua" target="_blank">https://nadetali.com.ua</a></p>
 <p>По желанию клиента выполняем ремонт или замену деталей в нашем сервисном центре:&nbsp;<a href="http://chip-service.com.ua/" target="_blank">http://chip-service.com.ua</a></p>
 <p>Всегда готовы ответить на любой Ваш вопрос:&nbsp;<b>+38&nbsp;(097)&nbsp;205&nbsp;77&nbsp;12</b> (Звонок, Viber, Telegram)</p>
@@ -22,7 +22,7 @@
 >>> Описание УКР:
 <p><b>Деталь:</b>&nbsp;{% block description_small_ua %}{% endblock %}.</p>
 <p><b>Опис:</b>&nbsp;{% block description_ua %}{% endblock %}</p>
-<p><b>Недоліки:</b>&nbsp;{% block flaw_ukr %}{% endblock %}</p>
+<p><b>Недоліки:</b>&nbsp;{% block flaw_ua %}{% endblock %}</p>
 <p>Більше деталей до цієї моделі на сайті:&nbsp;<a href="https://nadetali.com.ua" target="_blank">https://nadetali.com.ua</a></p>
 <p>По бажанню клієнта виконуємо ремот або заміну деталей в нашому сервісному центрі:&nbsp;<a href="http://chip-service.com.ua/" target="_blank">http://chip-service.com.ua</a></p>
 <p>Завжди готові відповісти на будь-яке Ваше питання:&nbsp;<b>+38&nbsp;(097)&nbsp;205&nbsp;77&nbsp;12</b> (Звонок, Viber, Telegram)</p>

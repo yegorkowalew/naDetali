@@ -10,8 +10,8 @@
 {% block description %}{{ model.description_fail }}{% endblock %}
 {% block description_ua %}{{ model.description_fail_ua }}{% endblock %}
 
-{% block flaw_rus %}{{ model.flaw_perfect_rus }}{% endblock %}
-{% block flaw_ukr %}{{ model.flaw_perfect_ukr }}{% endblock %}
+{% block flaw %}{{ model.flaw_perfect }}{% endblock %}
+{% block flaw_ua %}{{ model.flaw_perfect_ua }}{% endblock %}
 
 {% block keywords %}{{ model.keywords }}{% endblock %}
 {% block keywords_ua %}{{ model.keywords_ua }}{% endblock %}
