@@ -11,6 +11,13 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 def repalce_for_name(str):
     return str.replace('<', ' ').replace('>', ' ').replace(':', ' ').replace('|', ' ').replace('\\', ' ').replace('/', ' ').replace('?', ' ').replace('*', ' ')
 
+def mix_text(tags, names):
+    return_text = ''
+    for tag in tags.split(', '):
+        for name in names.split(', '):
+            return_text = f"{return_text} {tag} {name},"
+    return return_text.replace(',,', ',').replace(',  ', ', ')
+
 def toHtml(data_list, template_dir, template_name, html_file):
     file_loader = FileSystemLoader(template_dir)
     env = Environment(loader=file_loader)
@@ -70,8 +77,8 @@ class ModelObj:
                 "flaw_perfect_ua": flaw['perfect_ua'],
                 "flaw_good_ua": flaw['good_ua'],
                 "flaw_fail_ua": flaw['fail_ua'],
-                'keywords':'русские теги',
-                'keywords_ua':'украинские теги',
+                'keywords': mix_text(item['keywords'], model['keywords_string']),
+                'keywords_ua':mix_text(item['keywords_ua'], model['keywords_string']),
                 'portal': item['portal'],
                 'dir_path': os.path.join(os.path.dirname(dir_path), self.vendor, self.model, repalce_for_name(item['name'])),
             }
