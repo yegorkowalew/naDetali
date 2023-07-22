@@ -117,11 +117,11 @@ def make_files():
         template_name_perfect = 'simple_tamplate_perfect.txt'
         template_name_good = 'simple_tamplate_good.txt'
         template_name_fail = 'simple_tamplate_fail.txt'
+
+        file_path_perfect = os.path.join(this_model['dir_path'], f"1. Отличный - {repalce_for_name(this_model['name'])}.txt")
+        file_path_good = os.path.join(this_model['dir_path'], f"2. Нормальный - {repalce_for_name(this_model['name'])}.txt")
+        file_path_fail = os.path.join(this_model['dir_path'], f"2. Плохой - {repalce_for_name(this_model['name'])}.txt")
         
-        file_path_perfect = os.path.join(os.path.dirname(this_model['dir_path']), repalce_for_name(this_model['name']), '1. Отличный - %s%s' % (repalce_for_name(this_model['name']), '.txt'))
-        file_path_good = os.path.join(os.path.dirname(this_model['dir_path']), repalce_for_name(this_model['name']), '2. Нормальный - %s%s' % (repalce_for_name(this_model['name']), '.txt'))
-        file_path_fail = os.path.join(os.path.dirname(this_model['dir_path']), repalce_for_name(this_model['name']), '3. Плохой - %s%s' % (repalce_for_name(this_model['name']), '.txt'))
-    
         toHtml(data_list, template_dir, template_name_perfect, file_path_perfect)
         toHtml(data_list, template_dir, template_name_good, file_path_good)
         toHtml(data_list, template_dir, template_name_fail, file_path_fail)
