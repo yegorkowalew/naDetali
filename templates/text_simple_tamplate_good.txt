@@ -1,0 +1,19 @@
+{% extends "text_simple_base.txt" %}
+{% block head %}= = = = = = ХОРОШЕЕ СОСТОЯНИЕ = = = = = ={% endblock %}
+
+{% block name %}{{ model.name }}{% endblock %}
+{% block name_ua %}{{ model.name_ua }}{% endblock %}
+
+{% block description_small %}{{ model.description_small }}{% endblock %}
+{% block description_small_ua %}{{ model.description_small_ua }}{% endblock %}
+
+{% block description %}{{ model.description_good }}{% endblock %}
+{% block description_ua %}{{ model.description_good_ua }}{% endblock %}
+
+{% block flaw %}{{ model.flaw_perfect }}{% endblock %}
+{% block flaw_ua %}{{ model.flaw_perfect_ua }}{% endblock %}
+
+{% block keywords %}{{ model.keywords }}{% endblock %}
+{% block keywords_ua %}{{ model.keywords_ua }}{% endblock %}
+
+{% block portal %}{{ model.portal }}{% endblock %}

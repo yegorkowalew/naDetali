@@ -1,0 +1,30 @@
+{% block head %}{% endblock %}
+
+>>> Название РУС:
+{% block name %}{% endblock %}
+
+>>> Название УКР:
+{% block name_ua %}{% endblock %}
+
+
+>>> Описание РУС:
+Деталь: {% block description_small %}{% endblock %}
+Описание: {% block description %}{% endblock %}
+Недостатки: {% block flaw %}{% endblock %}
+
+>>> Описание УКР:
+Деталь: {% block description_small_ua %}{% endblock %}
+Опис: {% block description_ua %}{% endblock %}
+оліки: {% block flaw_ua %}{% endblock %}
+
+>>> Группа
+{% block groupe %}{{ model.model_name }}{% endblock %}
+
+>>> Теги РУС:
+{% block keywords %}{% endblock %}
+
+>>> Теги УКР:
+{% block keywords_ua %}{% endblock %}
+
+>>> Категория:
+{% block portal %}{{ model.portal }}{% endblock %}
