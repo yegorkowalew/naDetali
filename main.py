@@ -125,6 +125,46 @@ def make_files():
         toHtml(data_list, template_dir, template_name_perfect, file_path_perfect)
         toHtml(data_list, template_dir, template_name_good, file_path_good)
         toHtml(data_list, template_dir, template_name_fail, file_path_fail)
+
+        make_folder(f"{this_model['dir_path']}/text")
+        template_name_perfect = 'text_simple_tamplate_perfect.txt'
+        template_name_good = 'text_simple_tamplate_good.txt'
+        template_name_fail = 'text_simple_tamplate_fail.txt'
+
+        file_path_perfect = os.path.join(this_model['dir_path'], 'text', f"1. Отличный - {repalce_for_name(this_model['name'])}.txt")
+        file_path_good = os.path.join(this_model['dir_path'], 'text', f"2. Нормальный - {repalce_for_name(this_model['name'])}.txt")
+        file_path_fail = os.path.join(this_model['dir_path'], 'text', f"2. Плохой - {repalce_for_name(this_model['name'])}.txt")
+        
+        toHtml(data_list, template_dir, template_name_perfect, file_path_perfect)
+        toHtml(data_list, template_dir, template_name_good, file_path_good)
+        toHtml(data_list, template_dir, template_name_fail, file_path_fail)
+    return True
+
+def make_small_files():
+    """Make Files: создаем папки и файлы с описаниями объявлений"""
+    logger.info('Начало')
+
+    model_obj = ModelObj(model, detail_names)
+    model_list = model_obj.get_names_list()
+    make_folder(os.path.join(os.path.dirname(dir_path), model['vendor'], model['model'], '_All Photos'))
+    
+    for this_model in model_list:
+        data_list = {
+            'model': this_model,
+        }
+
+        make_folder(this_model['dir_path'])
+        template_name_perfect = 'text_simple_tamplate_perfect.txt'
+        template_name_good = 'text_simple_tamplate_good.txt'
+        template_name_fail = 'text_simple_tamplate_fail.txt'
+
+        file_path_perfect = os.path.join(this_model['dir_path'], f"1. Отличный - {repalce_for_name(this_model['name'])}.txt")
+        file_path_good = os.path.join(this_model['dir_path'], f"2. Нормальный - {repalce_for_name(this_model['name'])}.txt")
+        file_path_fail = os.path.join(this_model['dir_path'], f"2. Плохой - {repalce_for_name(this_model['name'])}.txt")
+        
+        toHtml(data_list, template_dir, template_name_perfect, file_path_perfect)
+        toHtml(data_list, template_dir, template_name_good, file_path_good)
+        toHtml(data_list, template_dir, template_name_fail, file_path_fail)
     return True
 
 def main():
@@ -135,12 +175,16 @@ def main():
         )
     parser.add_argument('-mf', action='store_true',
                         help='Make Files for model')
+    parser.add_argument('-tf', action='store_true',
+                        help='Make small text Files for model')
     parser.add_argument('-df', action='store_true',
                         help='Dlete Files. Delete empty folders and files')
 
     args = parser.parse_args()
     if args.mf:
         make_files()
+    elif args.tf:
+        make_small_files()
     elif args.df:
         delete_folders()
     else:
