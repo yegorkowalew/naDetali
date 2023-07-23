@@ -1,4 +1,4 @@
-{% extends "simple_base.txt" %}
+{% extends "text_simple_base.txt" %}
 {% block head %}= = = = = = ОТЛИЧНОЕ СОСТОЯНИЕ = = = = = ={% endblock %}
 
 {% block name %}{{ model.name }}{% endblock %}

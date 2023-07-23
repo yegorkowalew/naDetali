@@ -1,5 +1,5 @@
-{% extends "simple_base.txt" %}
-{% block head %}= = = = = = ОТЛИЧНОЕ СОСТОЯНИЕ = = = = = ={% endblock %}
+{% extends "text_simple_base.txt" %}
+{% block head %}= = = = = = ПЛОХОЕ СОСТОЯНИЕ = = = = = ={% endblock %}
 
 {% block name %}{{ model.name }}{% endblock %}
 {% block name_ua %}{{ model.name_ua }}{% endblock %}
@@ -7,8 +7,8 @@
 {% block description_small %}{{ model.description_small }}{% endblock %}
 {% block description_small_ua %}{{ model.description_small_ua }}{% endblock %}
 
-{% block description %}{{ model.description_perfect }}{% endblock %}
-{% block description_ua %}{{ model.description_perfect_ua }}{% endblock %}
+{% block description %}{{ model.description_fail }}{% endblock %}
+{% block description_ua %}{{ model.description_fail_ua }}{% endblock %}
 
 {% block flaw %}{{ model.flaw_perfect }}{% endblock %}
 {% block flaw_ua %}{{ model.flaw_perfect_ua }}{% endblock %}
