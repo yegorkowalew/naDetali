@@ -174,7 +174,7 @@ def export_xlsx():
     ex_df['Поисковые_запросы'] = df['keywords']
     ex_df['Поисковые_запросы_укр'] = df['keywords_ua']
     print(ex_df)
-    ex_df.to_excel(os.path.join(export_path, "test.xlsx"), index= False)
+    ex_df.to_excel(os.path.join(export_path, f"{model['vendor']} {model['model']} export.xlsx"), index= False)
 
 def main():
     """Набор параметров для разветвления программы"""
