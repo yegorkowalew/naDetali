@@ -5,36 +5,9 @@ from settings import logger
 from settings import model, description, flaw, dir_path
 from settings import template_dir
 from setup_names import detail_names
-from jinja2 import Environment, FileSystemLoader, select_autoescape
+from modules.helpers import repalce_for_name, mix_text
+from modules.exports import to_html, make_folder
 
-
-def repalce_for_name(str):
-    return str.replace('<', ' ').replace('>', ' ').replace(':', ' ').replace('|', ' ').replace('\\', ' ').replace('/', ' ').replace('?', ' ').replace('*', ' ')
-
-def mix_text(tags, names):
-    return_text = ''
-    for tag in tags.split(', '):
-        for name in names.split(', '):
-            return_text = f"{return_text} {tag} {name},"
-    return return_text.replace(',,', ',').replace(',  ', ', ')
-
-def toHtml(data_list, template_dir, template_name, html_file):
-    file_loader = FileSystemLoader(template_dir)
-    env = Environment(loader=file_loader)
-    htmltemplate = env.get_template(template_name)
-    htmltemplate.stream(
-        data_list
-        ).dump(html_file)
-    logger.info('Сгенерирован текст.')
-    return htmltemplate.render(
-        data_list
-        )
-
-def make_folder(path):
-    try:
-        os.makedirs(path)
-    except FileExistsError as error:
-        logger.warning(error)
 
 class ModelObj:
     def __init__(self, model, names_dict):
@@ -45,7 +18,7 @@ class ModelObj:
         self.names_dict = names_dict
 
     def get_random_sentence(self, text):
-        # Получить рандомную комбинацию строк
+        """Получить рандомную комбинацию строк"""
         string_list = text.split('. ')
         random.shuffle(string_list)
         str = ''
@@ -54,7 +27,7 @@ class ModelObj:
         return str
 
     def get_names_list(self):
-        # Получить список деталей
+        """Получить список деталей"""
         global_list = []
         for item in self.names_dict:
             item_dict = {
@@ -80,7 +53,11 @@ class ModelObj:
                 'keywords': mix_text(item['keywords'], model['keywords_string']),
                 'keywords_ua':mix_text(item['keywords_ua'], model['keywords_string']),
                 'portal': item['portal'],
-                'dir_path': os.path.join(os.path.dirname(dir_path), self.vendor, self.model, repalce_for_name(item['name'])),
+                'dir_path': os.path.join(
+                    os.path.dirname(dir_path),
+                    self.vendor,
+                    self.model,
+                    repalce_for_name(item['name'])),
             }
             global_list.append(item_dict)
         return global_list
@@ -106,7 +83,13 @@ def make_files():
 
     model_obj = ModelObj(model, detail_names)
     model_list = model_obj.get_names_list()
-    make_folder(os.path.join(os.path.dirname(dir_path), model['vendor'], model['model'], '_All Photos'))
+    make_folder(
+        os.path.join(
+            os.path.dirname(dir_path),
+            model['vendor'],
+            model['model'],
+            '_All Photos')
+            )
     
     for this_model in model_list:
         make_folder(this_model['dir_path'])
@@ -122,22 +105,9 @@ def make_files():
         file_path_good = os.path.join(this_model['dir_path'], f"2. Нормальный - {repalce_for_name(this_model['name'])}.txt")
         file_path_fail = os.path.join(this_model['dir_path'], f"2. Плохой - {repalce_for_name(this_model['name'])}.txt")
         
-        toHtml(data_list, template_dir, template_name_perfect, file_path_perfect)
-        toHtml(data_list, template_dir, template_name_good, file_path_good)
-        toHtml(data_list, template_dir, template_name_fail, file_path_fail)
-
-        make_folder(f"{this_model['dir_path']}/text")
-        template_name_perfect = 'text_simple_tamplate_perfect.txt'
-        template_name_good = 'text_simple_tamplate_good.txt'
-        template_name_fail = 'text_simple_tamplate_fail.txt'
-
-        file_path_perfect = os.path.join(this_model['dir_path'], 'text', f"1. Отличный - {repalce_for_name(this_model['name'])}.txt")
-        file_path_good = os.path.join(this_model['dir_path'], 'text', f"2. Нормальный - {repalce_for_name(this_model['name'])}.txt")
-        file_path_fail = os.path.join(this_model['dir_path'], 'text', f"2. Плохой - {repalce_for_name(this_model['name'])}.txt")
-        
-        toHtml(data_list, template_dir, template_name_perfect, file_path_perfect)
-        toHtml(data_list, template_dir, template_name_good, file_path_good)
-        toHtml(data_list, template_dir, template_name_fail, file_path_fail)
+        to_html(data_list, template_dir, template_name_perfect, file_path_perfect)
+        to_html(data_list, template_dir, template_name_good, file_path_good)
+        to_html(data_list, template_dir, template_name_fail, file_path_fail)
     return True
 
 def make_small_files():
@@ -146,8 +116,14 @@ def make_small_files():
 
     model_obj = ModelObj(model, detail_names)
     model_list = model_obj.get_names_list()
-    make_folder(os.path.join(os.path.dirname(dir_path), model['vendor'], model['model'], '_All Photos'))
-    
+    make_folder(
+        os.path.join(
+            os.path.dirname(dir_path),
+            model['vendor'],
+            model['model'],
+            '_All Photos')
+            )
+
     for this_model in model_list:
         data_list = {
             'model': this_model,
@@ -162,9 +138,9 @@ def make_small_files():
         file_path_good = os.path.join(this_model['dir_path'], f"2. Нормальный - {repalce_for_name(this_model['name'])}.txt")
         file_path_fail = os.path.join(this_model['dir_path'], f"2. Плохой - {repalce_for_name(this_model['name'])}.txt")
         
-        toHtml(data_list, template_dir, template_name_perfect, file_path_perfect)
-        toHtml(data_list, template_dir, template_name_good, file_path_good)
-        toHtml(data_list, template_dir, template_name_fail, file_path_fail)
+        to_html(data_list, template_dir, template_name_perfect, file_path_perfect)
+        to_html(data_list, template_dir, template_name_good, file_path_good)
+        to_html(data_list, template_dir, template_name_fail, file_path_fail)
     return True
 
 def main():
@@ -192,5 +168,5 @@ def main():
         sys.exit(1)
 
 if __name__ == "__main__":
-    # Запуск основного тела программы
+    """Запуск основного тела программы"""
     main()
