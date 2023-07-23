@@ -151,6 +151,26 @@ def make_small_files():
         to_html(data_list, template_dir, template_name_fail, file_path_fail)
     return True
 
+def export_xlsx():
+    """Експорт в xlsx"""
+    import pandas as pd
+
+    model_obj = ModelObj(model, detail_names)
+    model_list = model_obj.get_names_list()
+    df = pd.DataFrame.from_dict(model_list)
+    export_path = os.path.join(
+            os.path.dirname(dir_path),
+            model['vendor'],
+            model['model'],
+            '_Export')
+ 
+    make_folder(export_path)
+    # print(os.path.join(export_path, "test.xlsx"))
+    df.to_excel(os.path.join(export_path, "test.xlsx"), index= False)
+    # data = [10,20,30,40,50,60]
+    # df = pd.DataFrame(data, columns=['Numbers'])
+    print(df)
+
 def main():
     """Набор параметров для разветвления программы"""
     parser = argparse.ArgumentParser(
@@ -163,6 +183,8 @@ def main():
                         help='Make small text Files for model')
     parser.add_argument('-df', action='store_true',
                         help='Dlete Files. Delete empty folders and files')
+    parser.add_argument('-ex', action='store_true',
+                        help='Make export file')
 
     args = parser.parse_args()
     if args.mf:
@@ -171,6 +193,8 @@ def main():
         make_small_files()
     elif args.df:
         delete_folders()
+    elif args.ex:
+        export_xlsx()
     else:
         parser.print_help(sys.stderr)
         sys.exit(1)
