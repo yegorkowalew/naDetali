@@ -1,5 +1,4 @@
 import os, sys, shutil
-import random
 import argparse
 from settings import logger
 from settings import model, description, flaw, dir_path
@@ -16,15 +15,6 @@ class ModelObj:
         self.keywords_string = model['keywords_string']
         self.state = model['state']
         self.names_dict = names_dict
-
-    def get_random_sentence(self, text):
-        """Получить рандомную комбинацию строк"""
-        string_list = text.split('. ')
-        random.shuffle(string_list)
-        str = ''
-        for i in string_list:
-            str = str + i.replace('.', '')+'. '
-        return str
 
     def get_names_list(self):
         """Получить список деталей"""
@@ -101,9 +91,18 @@ def make_files():
         template_name_good = 'simple_tamplate_good.txt'
         template_name_fail = 'simple_tamplate_fail.txt'
 
-        file_path_perfect = os.path.join(this_model['dir_path'], f"1. Отличный - {repalce_for_name(this_model['name'])}.txt")
-        file_path_good = os.path.join(this_model['dir_path'], f"2. Нормальный - {repalce_for_name(this_model['name'])}.txt")
-        file_path_fail = os.path.join(this_model['dir_path'], f"2. Плохой - {repalce_for_name(this_model['name'])}.txt")
+        file_path_perfect = os.path.join(
+            this_model['dir_path'],
+            f"1. Отличный - {repalce_for_name(this_model['name'])}.txt"
+            )
+        file_path_good = os.path.join(
+            this_model['dir_path'],
+            f"2. Нормальный - {repalce_for_name(this_model['name'])}.txt"
+            )
+        file_path_fail = os.path.join(
+            this_model['dir_path'],
+            f"2. Плохой - {repalce_for_name(this_model['name'])}.txt"
+            )
         
         to_html(data_list, template_dir, template_name_perfect, file_path_perfect)
         to_html(data_list, template_dir, template_name_good, file_path_good)
@@ -134,9 +133,18 @@ def make_small_files():
         template_name_good = 'text_simple_tamplate_good.txt'
         template_name_fail = 'text_simple_tamplate_fail.txt'
 
-        file_path_perfect = os.path.join(this_model['dir_path'], f"1. Отличный - {repalce_for_name(this_model['name'])}.txt")
-        file_path_good = os.path.join(this_model['dir_path'], f"2. Нормальный - {repalce_for_name(this_model['name'])}.txt")
-        file_path_fail = os.path.join(this_model['dir_path'], f"2. Плохой - {repalce_for_name(this_model['name'])}.txt")
+        file_path_perfect = os.path.join(
+            this_model['dir_path'],
+            f"1. Отличный - {repalce_for_name(this_model['name'])}.txt"
+            )
+        file_path_good = os.path.join(
+            this_model['dir_path'],
+            f"2. Нормальный - {repalce_for_name(this_model['name'])}.txt"
+            )
+        file_path_fail = os.path.join(
+            this_model['dir_path'],
+            f"2. Плохой - {repalce_for_name(this_model['name'])}.txt"
+            )
         
         to_html(data_list, template_dir, template_name_perfect, file_path_perfect)
         to_html(data_list, template_dir, template_name_good, file_path_good)
