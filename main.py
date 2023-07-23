@@ -76,7 +76,7 @@ class ModelObj:
                 "flaw_fail": f"{item['flaw_fail']} {flaw['fail']}",
                 "flaw_perfect_ua": f"{item['flaw_perfect_ua']} {flaw['perfect_ua']}",
                 "flaw_good_ua": f"{item['flaw_good_ua']} {flaw['good_ua']}",
-                "flaw_fail_ua": f"{item['flaw_good_ua']} {flaw['fail_ua']}",
+                "flaw_fail_ua": f"{item['flaw_fail_ua']} {flaw['fail_ua']}",
                 'keywords': mix_text(item['keywords'], model['keywords_string']),
                 'keywords_ua':mix_text(item['keywords_ua'], model['keywords_string']),
                 'portal': item['portal'],
