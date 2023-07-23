@@ -158,23 +158,27 @@ def export_xlsx():
 
     model_obj = ModelObj(model, detail_names)
     model_list = model_obj.get_names_list()
-    df = pd.DataFrame.from_dict(model_list)
-    # print(df)
+    data_list = []
+    for item in model_list:
+        if os.path.exists(item['dir_path']):
+            data_list.append(item)
+
+    df = pd.DataFrame.from_dict(data_list)
     export_path = os.path.join(
             os.path.dirname(dir_path),
             model['vendor'],
             model['model'],
             '_Export')
- 
+
     make_folder(export_path)
-    # print(os.path.join(export_path, "test.xlsx"))
     ex_df = pd.DataFrame(None, columns=db_columns)
     ex_df['Название_позиции'] = df['name']
     ex_df['Название_позиции_укр'] = df['name_ua']
     ex_df['Поисковые_запросы'] = df['keywords']
     ex_df['Поисковые_запросы_укр'] = df['keywords_ua']
-    print(ex_df)
-    ex_df.to_excel(os.path.join(export_path, f"{model['vendor']} {model['model']} export.xlsx"), index= False)
+    ex_df.to_excel(
+        os.path.join(export_path,
+        f"{model['vendor']} {model['model']} export.xlsx"), index= False)
 
 def main():
     """Набор параметров для разветвления программы"""
