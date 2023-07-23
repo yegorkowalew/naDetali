@@ -176,9 +176,12 @@ def export_xlsx():
     ex_df['Название_позиции_укр'] = df['name_ua']
     ex_df['Поисковые_запросы'] = df['keywords']
     ex_df['Поисковые_запросы_укр'] = df['keywords_ua']
+
     ex_df.to_excel(
         os.path.join(export_path,
-        f"{model['vendor']} {model['model']} export.xlsx"), index= False)
+        f"{model['vendor']} {model['model']} export.xlsx"),
+        index= False,
+        sheet_name= "Export Products Sheet")
 
 def main():
     """Набор параметров для разветвления программы"""
