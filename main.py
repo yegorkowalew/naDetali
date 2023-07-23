@@ -154,10 +154,12 @@ def make_small_files():
 def export_xlsx():
     """Експорт в xlsx"""
     import pandas as pd
+    from setup_columns import db_columns
 
     model_obj = ModelObj(model, detail_names)
     model_list = model_obj.get_names_list()
     df = pd.DataFrame.from_dict(model_list)
+    # print(df)
     export_path = os.path.join(
             os.path.dirname(dir_path),
             model['vendor'],
@@ -166,10 +168,13 @@ def export_xlsx():
  
     make_folder(export_path)
     # print(os.path.join(export_path, "test.xlsx"))
-    df.to_excel(os.path.join(export_path, "test.xlsx"), index= False)
-    # data = [10,20,30,40,50,60]
-    # df = pd.DataFrame(data, columns=['Numbers'])
-    print(df)
+    ex_df = pd.DataFrame(None, columns=db_columns)
+    ex_df['Название_позиции'] = df['name']
+    ex_df['Название_позиции_укр'] = df['name_ua']
+    ex_df['Поисковые_запросы'] = df['keywords']
+    ex_df['Поисковые_запросы_укр'] = df['keywords_ua']
+    print(ex_df)
+    ex_df.to_excel(os.path.join(export_path, "test.xlsx"), index= False)
 
 def main():
     """Набор параметров для разветвления программы"""
