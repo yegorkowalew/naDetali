@@ -872,6 +872,33 @@ detail_names = [
         "flaw_fail_ua": "",
     },
     {
+        "name": 'Плата USB, RJ45, RJ14 %s (юсб, сеть, модем)' % (model_name),
+        "name_ua": 'Плата USB, audio, cardreader %s (юсб, аудіо, кардрідер)' % (model_name),
+
+        "description_small": f"Плата юсб, аудио, кардридер к ноутбуку {model_name}, оригинальная, {state}",
+        "description_small_ua": f"Плата юсб, аудіо, кардрідер до ноутбука {model_name}, оригінальна, {state_ua}",
+
+        "keywords": "плата, плата юсб, плата сеть, плата модем, ",
+        "keywords_ua": "плата, плата юсб, плата аудіо, плата модем",
+        "portal": "Адаптеры и платы расширения портов",
+        
+        "description_perfect": "",
+        "description_good": "",
+        "description_fail": "",
+
+        "description_perfect_ua": "",
+        "description_good_ua": "",
+        "description_fail_ua": "",
+
+        "flaw_perfect": "",
+        "flaw_good": "",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "",
+        "flaw_fail_ua": "",
+    },
+    {
         "name": 'Плата audio %s (аудио)' % (model_name),
         "name_ua": 'Плата audio %s (аудіо)' % (model_name),
 
