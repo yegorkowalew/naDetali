@@ -1007,6 +1007,33 @@ detail_names = [
         "flaw_fail_ua": "",
     },
     {
+        "name": 'Плата COM-порта %s (ком-порт)' % (model_name),
+        "name_ua": 'Плата COM-порту %s (ком-порт)' % (model_name),
+
+        "description_small": f"Плата USB к ноутбуку {model_name}, оригинальная, {state}",
+        "description_small_ua": f"Плата USB до ноутбука {model_name}, оригінальна, {state_ua}",
+
+        "keywords": "плата ком-порт, com-port, ком-порт, RS232",
+        "keywords_ua": "плата ком-порт, com-port, ком-порт, RS232",
+        "portal": "Адаптеры и платы расширения портов",
+        
+        "description_perfect": "",
+        "description_good": "",
+        "description_fail": "",
+
+        "description_perfect_ua": "",
+        "description_good_ua": "",
+        "description_fail_ua": "",
+
+        "flaw_perfect": "",
+        "flaw_good": "",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "",
+        "flaw_fail_ua": "",
+    },
+    {
         "name": 'Плата s-video %s' % (model_name),
         "name_ua": 'Плата s-video %s' % (model_name),
 
@@ -1763,8 +1790,8 @@ detail_names = [
         "flaw_fail_ua": "",
     },
     {
-        "name": 'Оригинальная батарея %s' % (model_name),
-        "name_ua": 'Оригінальна батарея %s' % (model_name),
+        "name": 'Батарея оригинальная %s' % (model_name),
+        "name_ua": 'Батарея оригінальна %s' % (model_name),
 
         "description_small": f"Оригинальная батарея к ноутбуку {model_name}, {state}",
         "description_small_ua": f"Оригінальна батарея до ноутбука {model_name}, {state_ua}",
@@ -1790,8 +1817,8 @@ detail_names = [
         "flaw_fail_ua": "При огляді виявлені мілкі царапки, потертості. На функціональность деталі ніяк не впливає.",
     },
     {
-        "name": 'Оригинальная батарея %s нр' % (model_name),
-        "name_ua": 'Оригінальна батарея %s нр' % (model_name),
+        "name": 'Батарея оригинальная %s нр' % (model_name),
+        "name_ua": 'Батарея оригінальна %s нр' % (model_name),
 
         "description_small": f"Оригинальная батарея к ноутбуку {model_name}, {state}, <b>не тестированная!</b>",
         "description_small_ua": f"Оригінальна батарея до ноутбука {model_name}, {state_ua}, <b>не тестована!</b>",
@@ -2025,8 +2052,35 @@ detail_names = [
         "description_fail_ua": "Накладка вимита та почищена.",
 
         "flaw_perfect": "",
-        "flaw_good": "При осмотре обнаружены мелкие царапины, потертости. На функціональность детали никак не влияет.",
-        "flaw_fail": "При осмотре обнаружены мелкие царапины, потертости. На функціональность детали никак не влияет.",
+        "flaw_good": "При осмотре обнаружены мелкие царапины, потертости. На функциональность детали никак не влияет.",
+        "flaw_fail": "При осмотре обнаружены мелкие царапины, потертости. На функциональность детали никак не влияет.",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "При огляді виявлені мілкі царапки, потертості. На функціональность деталі ніяк не впливає.",
+        "flaw_fail_ua": "При огляді виявлені мілкі царапки, потертості. На функціональность деталі ніяк не впливає.",
+    },
+    {
+        "name": 'Накладка на WEB-камеру %s' % (model_name),
+        "name_ua": 'Накладка на WEB-камеру %s' % (model_name),
+
+        "description_small": f"Накладка на WEB-камеру к ноутбуку {model_name}, оригинальная, {state}",
+        "description_small_ua": f"Накладка на WEB-камеру до ноутбука {model_name}, оригінальна, {state_ua}",
+
+        "keywords": "накладка, накладка на web-камеру, панель web-камеры, накладка на веб-камеру",
+        "keywords_ua": "накладка, накладка на web-камеру, панель web-камери, накладка на веб-камеру",
+        "portal": "Части корпуса ноутбука",
+        
+        "description_perfect": "Накладка вымыта и почищена.",
+        "description_good": "Накладка вымыта и почищена.",
+        "description_fail": "Накладка вымыта и почищена.",
+
+        "description_perfect_ua": "Накладка вимита та почищена.",
+        "description_good_ua": "Накладка вимита та почищена.",
+        "description_fail_ua": "Накладка вимита та почищена.",
+
+        "flaw_perfect": "",
+        "flaw_good": "При осмотре обнаружены мелкие царапины, потертости. На функциональность детали никак не влияет.",
+        "flaw_fail": "При осмотре обнаружены мелкие царапины, потертости. На функциональность детали никак не влияет.",
 
         "flaw_perfect_ua": "",
         "flaw_good_ua": "При огляді виявлені мілкі царапки, потертості. На функціональность деталі ніяк не впливає.",
