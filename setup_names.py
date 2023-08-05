@@ -1601,6 +1601,33 @@ detail_names = [
         "flaw_fail_ua": "",
     },
     {
+        "name": 'Модуль 3G-модем %s' % (model_name),
+        "name_ua": 'Модуль 3G-модем %s' % (model_name),
+
+        "description_small": f"Модуль 3G-модем к ноутбуку {model_name}, оригинальный, {state}",
+        "description_small_ua": f"Модуль 3G-модем до ноутбука {model_name}, оригінальний, {state_ua}",
+
+        "keywords": "модуль 3G-модем, модуль, 3G-модем, модем",
+        "keywords_ua": "модуль 3G-модем, модуль, 3G-модем, модем",
+        "portal": "Адаптеры и платы расширения портов",
+        
+        "description_perfect": "",
+        "description_good": "",
+        "description_fail": "",
+
+        "description_perfect_ua": "",
+        "description_good_ua": "",
+        "description_fail_ua": "",
+
+        "flaw_perfect": "",
+        "flaw_good": "",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "",
+        "flaw_fail_ua": "",
+    },
+    {
         "name": 'Антенна Wi-Fi левая %s' % (model_name),
         "name_ua": 'Антена Wi-Fi ліва %s' % (model_name),
 
