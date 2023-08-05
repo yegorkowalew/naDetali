@@ -1,4 +1,5 @@
 import random
+from settings import logger
 
 def repalce_for_name(str):
     """Удалить из строки лишние символы, чтоб можно было создать файл"""
@@ -9,7 +10,11 @@ def mix_text(tags, names):
     return_text = ''
     for tag in tags.split(', '):
         for name in names.split(', '):
-            return_text = f"{return_text} {tag} {name},"
+            if len(f"{return_text} {tag} {name},") > 1024:
+                logger.info(f"Сокращен текс keywords для '{tags}'")
+                return return_text.replace(',,', ',').replace(',  ', ', ')
+            else:
+                return_text = f"{return_text} {tag} {name},"
     return return_text.replace(',,', ',').replace(',  ', ', ')
 
 def get_random_sentence(self, text):
