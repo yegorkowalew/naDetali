@@ -181,7 +181,6 @@ def export_xlsx():
     ex_df['Единица_измерения'] = 'шт.'
     ex_df['Наличие'] = '!'
     ex_df['Количество'] = '1'
-    # TODO: "Адрес_подраздела". Надо сделать таблицу соответсвий.
     ex_df['Производитель'] = df['vendor']
     ex_df['Личные_заметки'] = "Y"
     ex_df['Цена_от'] = "-"
@@ -189,6 +188,17 @@ def export_xlsx():
     # ex_df['Название_Характеристики'] = "Класс качества"
     # ex_df['Значение_Характеристики'] = "Original"
 
+    from setup_portal import portal_names
+
+    def get_portal_link(s):
+        for portal_item in portal_names:
+            if portal_item['portal'] == s:
+                return portal_item['portal_link']
+        logger.warning(f"Не найдена ссылка для портала: {s}")
+        return None
+
+    ex_df['Адрес_подраздела'] = df['portal']
+    ex_df['Адрес_подраздела'] = ex_df['Адрес_подраздела'].apply(get_portal_link)
 
     ex_df.to_excel(
         os.path.join(export_path,

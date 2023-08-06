@@ -1,5 +1,5 @@
 
-detail_names = [
+portal_names = [
     {
         "portal": "Части корпуса ноутбука",
         "portal_link": "https://prom.ua/ua/Chasti-korpusa-noutbuka",
