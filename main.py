@@ -6,7 +6,7 @@ from settings import template_dir
 from setup_names import detail_names
 from modules.helpers import repalce_for_name, mix_text
 from modules.exports import to_html, make_folder
-
+from modules.xlsx_helpers import get_export_db
 
 class ModelObj:
     def __init__(self, model, names_dict):
@@ -154,8 +154,6 @@ def make_small_files():
 def export_xlsx():
     """Експорт в xlsx"""
     import pandas as pd
-    from setup_columns import db_columns
-
     model_obj = ModelObj(model, detail_names)
     model_list = model_obj.get_names_list()
     data_list = []
@@ -163,7 +161,7 @@ def export_xlsx():
         if os.path.exists(item['dir_path']):
             data_list.append(item)
 
-    df = pd.DataFrame.from_dict(data_list)
+    in_df = pd.DataFrame.from_dict(data_list)
     export_path = os.path.join(
             os.path.dirname(dir_path),
             model['vendor'],
@@ -171,12 +169,8 @@ def export_xlsx():
             '_Export')
 
     make_folder(export_path)
-    ex_df = pd.DataFrame(None, columns=db_columns)
-    ex_df['Название_позиции'] = df['name']
-    ex_df['Название_позиции_укр'] = df['name_ua']
-    ex_df['Поисковые_запросы'] = df['keywords']
-    ex_df['Поисковые_запросы_укр'] = df['keywords_ua']
 
+    ex_df = get_export_db(in_df)
     ex_df.to_excel(
         os.path.join(export_path,
         f"{model['vendor']} {model['model']} export.xlsx"),
