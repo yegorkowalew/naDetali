@@ -1601,6 +1601,33 @@ detail_names = [
         "flaw_fail_ua": "",
     },
     {
+        "name": 'Модуль видеокарты %s' % (model_name),
+        "name_ua": 'Модуль відеокарти %s' % (model_name),
+
+        "description_small": f"Модуль видеокарты к ноутбуку {model_name}, оригинальный, {state}",
+        "description_small_ua": f"Модуль відеокарти до ноутбука {model_name}, оригінальний, {state_ua}",
+
+        "keywords": "модуль видеокарты, модуль, видеокарта",
+        "keywords_ua": "модуль відеокарти, модуль, видеокарта",
+        "portal": "Адаптеры и платы расширения портов",
+        
+        "description_perfect": "",
+        "description_good": "",
+        "description_fail": "",
+
+        "description_perfect_ua": "",
+        "description_good_ua": "",
+        "description_fail_ua": "",
+
+        "flaw_perfect": "",
+        "flaw_good": "",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "",
+        "flaw_fail_ua": "",
+    },
+    {
         "name": 'Модуль 3G-модем %s' % (model_name),
         "name_ua": 'Модуль 3G-модем %s' % (model_name),
 
