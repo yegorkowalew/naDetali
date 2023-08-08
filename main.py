@@ -59,7 +59,7 @@ def delete_folders():
     for folder in model_list:
         flag = True
         for folder_file in os.listdir(folder['dir_path']):
-            if '.jpg' in folder_file or '.jpeg' in folder_file or '.png' in folder_file:
+            if '.jpg' in folder_file or '.jpeg' in folder_file or '.png' in folder_file or '.webp' in folder_file:
                 flag = False
                 break
         if flag:
