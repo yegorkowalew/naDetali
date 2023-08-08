@@ -1034,6 +1034,60 @@ detail_names = [
         "flaw_fail_ua": "",
     },
     {
+        "name": 'Плата кардридер %s (cardreader)' % (model_name),
+        "name_ua": 'Плата кардрідер %s (cardreader)' % (model_name),
+
+        "description_small": f"Плата кардридер к ноутбуку {model_name}, оригинальная, {state}",
+        "description_small_ua": f"Плата кардрідер до ноутбука {model_name}, оригінальна, {state_ua}",
+
+        "keywords": "плата кардридер, кардридер, плата кардридера",
+        "keywords_ua": "плата кардрідер, кардрідер, плата кардрідера",
+        "portal": "Адаптеры и платы расширения портов",
+        
+        "description_perfect": "",
+        "description_good": "",
+        "description_fail": "",
+
+        "description_perfect_ua": "",
+        "description_good_ua": "",
+        "description_fail_ua": "",
+
+        "flaw_perfect": "",
+        "flaw_good": "",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "",
+        "flaw_fail_ua": "",
+    },
+    {
+        "name": 'Плата USB, гнездо питания %s (юсб)' % (model_name),
+        "name_ua": 'Плата USB, гніздо живлення %s (юсб)' % (model_name),
+
+        "description_small": f"Плата USB и гнездо питания к ноутбуку {model_name}, оригинальная, {state}",
+        "description_small_ua": f"Плата USB та гніздо живлення до ноутбука {model_name}, оригінальна, {state_ua}",
+
+        "keywords": "гнездо питания, плата гнездо питания, плата usb, юсб, плата юсб",
+        "keywords_ua": "гніздо живлення, плата гніздо живлення, плата usb, юсб, плата юсб",
+        "portal": "Адаптеры и платы расширения портов",
+        
+        "description_perfect": "",
+        "description_good": "",
+        "description_fail": "",
+
+        "description_perfect_ua": "",
+        "description_good_ua": "",
+        "description_fail_ua": "",
+
+        "flaw_perfect": "",
+        "flaw_good": "",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "",
+        "flaw_fail_ua": "",
+    },
+    {
         "name": 'Плата COM-порта %s (ком-порт)' % (model_name),
         "name_ua": 'Плата COM-порту %s (ком-порт)' % (model_name),
 
