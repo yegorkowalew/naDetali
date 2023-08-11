@@ -1439,6 +1439,33 @@ detail_names = [
         "flaw_fail_ua": "",
     },
     {
+        "name": 'Плата USB, кнопка включения (питания) %s (вкл/выкл)' % (model_name),
+        "name_ua": 'Плата USB, кнопка включення (живлення) %s (вкл/викл)' % (model_name),
+
+        "description_small": f"Дополнительная плата кнопки включения и USB к ноутбуку {model_name}, оригинальная, {state}",
+        "description_small_ua": f"Додаткова плата кнопки включення (живлення) та USB до ноутбука {model_name}, оригінальна, {state_ua}",
+
+        "keywords": "плата USB, кнопка, кнопка включения, вкл, выкл, вкл/выкл",
+        "keywords_ua": "плата USB, кнопка, кнопка включення, кнопка живлення, вкл, викл, вкл/викл",
+        "portal": "Адаптеры и платы расширения портов",
+        
+        "description_perfect": "Шлейф не поврежден. Контакты не повреждены.",
+        "description_good": "Шлейф не поврежден. Контакты не повреждены.",
+        "description_fail": "Шлейф не поврежден. Контакты не повреждены.",
+
+        "description_perfect_ua": "Шлейф не пошкоджений. Контакти не пошкоджені.",
+        "description_good_ua": "Шлейф не пошкоджений. Контакти не пошкоджені.",
+        "description_fail_ua": "Шлейф не пошкоджений. Контакти не пошкоджені.",
+
+        "flaw_perfect": "",
+        "flaw_good": "",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "",
+        "flaw_fail_ua": "",
+    },
+    {
         "name": 'Плата, шлейф, кнопка включения, громкости %s' % (model_name),
         "name_ua": 'Плата, шлейф, кнопка включення, гучності %s (вкл/викл)' % (model_name),
 
@@ -1591,6 +1618,33 @@ detail_names = [
         "description_perfect_ua": "",
         "description_good_ua": "",
         "description_fail_ua": "",
+
+        "flaw_perfect": "",
+        "flaw_good": "",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "",
+        "flaw_fail_ua": "",
+    },
+    {
+        "name": 'ODD переходник SATA DVD %s' % (model_name),
+        "name_ua": "ODD перехідник SATA DVD %s" % (model_name),
+
+        "description_small": f"ODD переходник SATA DVD и шлейф к ноутбуку {model_name}, оригинальный, {state}",
+        "description_small_ua": f"ODD переходник SATA DVD та шлейф до ноутбуку {model_name}, оригінальний, {state_ua}",
+
+        "keywords": "разьем, переходник, адаптер, ODD переходник, DVD переходник",
+        "keywords_ua": "роз'єм, перехідник, адаптер, ODD перехідник, DVD перехідник",
+        "portal": "Шлейфы и разъемы для ноутбуков, компьютеров, планшетов",
+        
+        "description_perfect": "Шлейф не помятый. Контактные дорожки не повреждены.",
+        "description_good": "Шлейф не помятый. Контактные дорожки не повреждены.",
+        "description_fail": "Шлейф не помятый. Контактные дорожки не повреждены.",
+
+        "description_perfect_ua": "Шлейф не пом'ятий. Контактні дорожки не пошкоджені.",
+        "description_good_ua": "Шлейф не пом'ятий. Контактні дорожки не пошкоджені.",
+        "description_fail_ua": "Шлейф не пом'ятий. Контактні дорожки не пошкоджені.",
 
         "flaw_perfect": "",
         "flaw_good": "",
