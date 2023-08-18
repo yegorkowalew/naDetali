@@ -1709,11 +1709,11 @@ detail_names = [
         "flaw_fail_ua": "",
     },
     {
-        "name": 'Модуль видеокарты %s' % (model_name),
-        "name_ua": 'Модуль відеокарти %s' % (model_name),
+        "name": 'Видеокарта %s' % (model_name),
+        "name_ua": 'Відеокарта %s' % (model_name),
 
-        "description_small": f"Модуль видеокарты к ноутбуку {model_name}, оригинальный, {state}",
-        "description_small_ua": f"Модуль відеокарти до ноутбука {model_name}, оригінальний, {state_ua}",
+        "description_small": f"Видеокарта к ноутбуку {model_name}, оригинальная, {state}",
+        "description_small_ua": f"Відеокарта до ноутбука {model_name}, оригінальна, {state_ua}",
 
         "keywords": "модуль видеокарты, модуль, видеокарта",
         "keywords_ua": "модуль відеокарти, модуль, видеокарта",
@@ -1871,6 +1871,33 @@ detail_names = [
         "flaw_fail_ua": "",
     },
     {
+        "name": 'Декоративная рамка ВЕБ-камеры %s (WEB-camera)' % (model_name),
+        "name_ua": 'Декоративна рамка ВЕБ-камери %s (WEB-camera)' % (model_name),
+
+        "description_small": f"Декоративная рамка ВЕБ-камеры к ноутбуку {model_name}, оригинальная, {state}",
+        "description_small_ua": f"Декоративна рамка ВЕБ-камери до ноутбука {model_name}, оригінальна, {state_ua}",
+
+        "keywords": "рамка ВЕБ-камеры, рамка WEB-camera, рамка камеры, рамка видео камеры",
+        "keywords_ua": "рамка ВЕБ-камери, рамка WEB-camera, рамка камери, рамка відео камери",
+        "portal": "Камеры для портативных пк",
+        
+        "description_perfect": "",
+        "description_good": "",
+        "description_fail": "",
+
+        "description_perfect_ua": "",
+        "description_good_ua": "",
+        "description_fail_ua": "",
+
+        "flaw_perfect": "",
+        "flaw_good": "",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "",
+        "flaw_fail_ua": "",
+    },
+    {
         "name": 'Шлейф ВЕБ-камеры %s (WEB-camera)' % (model_name),
         "name_ua": 'Шлейф ВЕБ-камери %s (WEB-camera)' % (model_name),
 
@@ -1960,6 +1987,33 @@ detail_names = [
 
         "keywords": "антенна wi-fi, антенна wifi, антенна, антена, антена wifi, антена wi-fi, wifi, wi-fi",
         "keywords_ua": "антена wi-fi, антена wifi, антена, wi-fi, wifi",
+        "portal": "Адаптеры и платы расширения портов",
+        
+        "description_perfect": "",
+        "description_good": "",
+        "description_fail": "",
+
+        "description_perfect_ua": "",
+        "description_good_ua": "",
+        "description_fail_ua": "",
+
+        "flaw_perfect": "",
+        "flaw_good": "",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "",
+        "flaw_fail_ua": "",
+    },
+    {
+        "name": 'Модуль шифрования TPM %s' % (model_name),
+        "name_ua": 'Модуль шифрования TPM %s' % (model_name),
+
+        "description_small": f"Модуль шифрования TPM к ноутбуку {model_name}, оригинальный, {state}",
+        "description_small_ua": f"Антена Wi-Fi до ноутбука {model_name}, оригінальний, {state_ua}",
+
+        "keywords": "Модуль шифрования TPM, TPM модуль, TPM-модуль, TPM, модуль TPM",
+        "keywords_ua": "Модуль шифрування TPM, TPM модуль, TPM-модуль, TPM, модуль TPM",
         "portal": "Адаптеры и платы расширения портов",
         
         "description_perfect": "",
