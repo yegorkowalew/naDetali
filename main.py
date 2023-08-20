@@ -68,7 +68,30 @@ def delete_folders():
     return True
 
 def make_images():
-    pass
+
+    def get_models_from_dir(model_obj):
+        """Возвращает список объектов модели, которые есть в папке проекта"""
+        model_list = model_obj.get_names_list()
+        data_list = []
+        for item in model_list:
+            if os.path.exists(item['dir_path']):
+                data_list.append(item)
+        logger.info('Деталей в папке: %s', len(data_list))
+        return data_list
+
+    data_list = get_models_from_dir(ModelObj(model, detail_names))
+
+    def move_images_in_dir(model_list):
+        for folder in model_list:
+            destination_folder = os.path.join(folder['dir_path'], '_Photos_Original')
+            make_folder(destination_folder)
+            for folder_file in os.listdir(folder['dir_path']):
+                if '.jpg' in folder_file or '.jpeg' in folder_file or '.png' in folder_file or '.webp' in folder_file:
+                    shutil.move(os.path.join(folder['dir_path'], folder_file), destination_folder)
+
+    move_images_in_dir(data_list)
+
+    print(data_list[0]['vendor'])
 
 def make_files():
     """Make Files: создаем папки и файлы с описаниями объявлений"""
