@@ -90,8 +90,26 @@ def make_images():
                     shutil.move(os.path.join(folder['dir_path'], folder_file), destination_folder)
 
     move_images_in_dir(data_list)
+    
+    def resize_images(dir, dir_destination):
+        from PIL import Image, ImageFilter
+ 
+        for folder_file in os.listdir(dir):
+            filename = os.path.join(dir, folder_file)
+            with Image.open(filename) as img:
+                img.load()
+            if isinstance(img, Image.Image):
+                img = Image.open(filename)
+                width, height = img.size
+                new_width  = 1280
+                new_height = int(new_width * height / width)
+                img = img.resize((new_width, new_height), Image.LANCZOS)
+                img = img.filter(ImageFilter.SHARPEN)
+                img.save(os.path.join(dir_destination, f"sharpen_{folder_file}"))
 
-    # print(data_list[0]['vendor'])
+    ddir = "c:\\work\\naDetali\\test\\Fujitsu Siemens\\Fujitsu Siemens Esprimo Mobile V5535\\Оптический привод DVD-RW Fujitsu Siemens Esprimo Mobile V5535 SATA\\_Photos_Original"
+    ddir_in = "c:\\work\\naDetali\\test\\Fujitsu Siemens\\Fujitsu Siemens Esprimo Mobile V5535\\Оптический привод DVD-RW Fujitsu Siemens Esprimo Mobile V5535 SATA\\_Photos_Resize"
+    resize_images(ddir, ddir_in)
 
 def make_files():
     """Make Files: создаем папки и файлы с описаниями объявлений"""
