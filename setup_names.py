@@ -7,11 +7,11 @@ model_name = f"{vendor} {model}"
 
 detail_names = [
     {
-        "name": 'Петли (левая, правая) %s' % (model_name),
-        "name_ua": 'Петлі (ліва, права) %s' % (model_name),
+        "name": 'Петли %s (левая и правая) ' % (model_name),
+        "name_ua": 'Петлі %s (ліва та права)' % (model_name),
 
-        "description_small": f"Петли (левая, правая) к ноутбуку {model_name}, оригинальные, {state}",
-        "description_small_ua": f"Петлі (ліва, права) до ноутбуку, {model_name}, оригінальні, {state_ua}",
+        "description_small": f"Левая и правая петля к ноутбуку {model_name}, оригинальные, {state}",
+        "description_small_ua": f"Ліва та права петля до ноутбуку, {model_name}, оригінальні, {state_ua}",
 
         "keywords": "петли, петля левая, петля правая, петля, петли матрицы, петли экрана",
         "keywords_ua": "петлі, петля ліва, петля права, петля, петлі матриці, петлі екрану",
