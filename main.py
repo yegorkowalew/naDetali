@@ -91,7 +91,7 @@ def make_images():
 
     move_images_in_dir(data_list)
 
-    print(data_list[0]['vendor'])
+    # print(data_list[0]['vendor'])
 
 def make_files():
     """Make Files: создаем папки и файлы с описаниями объявлений"""
