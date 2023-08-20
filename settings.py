@@ -13,7 +13,8 @@ TODAY = date.today()
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Путь к log-файлу
-LOG_FILE = os.path.join(BASE_DIR, 'logs', f"log - {TODAY.strftime('%d.%m.%Y')}.txt")
+LOG_DIR = os.path.join(BASE_DIR, 'logs')
+LOG_FILE = os.path.join(LOG_DIR, f"log - {TODAY.strftime('%d.%m.%Y')}.txt")
 
 # Путь к папке c конфигурационными файлами
 config = configparser.ConfigParser()
@@ -50,6 +51,12 @@ flaw = config['Flaw']
 # flaw_fail_ukr = config["Flaw"]["fail_ukr"]
 
 template_dir = os.path.join(BASE_DIR, 'templates')
+
+# Создать папку для log-файла
+try:
+    os.makedirs(LOG_DIR)
+except FileExistsError as error:
+    pass
 
 logger = logging.getLogger('naDetali')
 logger.setLevel(logging.DEBUG)
