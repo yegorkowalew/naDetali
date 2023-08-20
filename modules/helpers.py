@@ -1,4 +1,4 @@
-import random
+import os, random
 from settings import logger
 
 def repalce_for_name(str):
@@ -25,3 +25,13 @@ def get_random_sentence(self, text):
     for i in string_list:
         str = str + i.replace('.', '')+'. '
     return str
+
+def get_models_from_dir(model_obj):
+    """Возвращает список объектов модели, которые есть в папке проекта"""
+    model_list = model_obj.get_names_list()
+    data_list = []
+    for item in model_list:
+        if os.path.exists(item['dir_path']):
+            data_list.append(item)
+    logger.info('Деталей в папке: %s', len(data_list))
+    return data_list

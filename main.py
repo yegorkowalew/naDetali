@@ -3,10 +3,12 @@ import argparse
 from settings import logger
 from settings import model, description, flaw, dir_path
 from settings import template_dir
+from settings import IMG_ORIGINAL_NAME, IMG_RESIZED_NAME, IMG_MAX_WIDTH
 from setup_names import detail_names
-from modules.helpers import repalce_for_name, mix_text
+from modules.helpers import repalce_for_name, mix_text, get_models_from_dir
 from modules.exports import to_html, make_folder
 from modules.xlsx_helpers import get_export_db
+from modules.images import move_images_in_dir, resize_images
 
 class ModelObj:
     def __init__(self, model, names_dict):
@@ -68,48 +70,12 @@ def delete_folders():
     return True
 
 def make_images():
-
-    def get_models_from_dir(model_obj):
-        """Возвращает список объектов модели, которые есть в папке проекта"""
-        model_list = model_obj.get_names_list()
-        data_list = []
-        for item in model_list:
-            if os.path.exists(item['dir_path']):
-                data_list.append(item)
-        logger.info('Деталей в папке: %s', len(data_list))
-        return data_list
-
     data_list = get_models_from_dir(ModelObj(model, detail_names))
-
-    def move_images_in_dir(model_list):
-        for folder in model_list:
-            destination_folder = os.path.join(folder['dir_path'], '_Photos_Original')
-            make_folder(destination_folder)
-            for folder_file in os.listdir(folder['dir_path']):
-                if '.jpg' in folder_file or '.jpeg' in folder_file or '.png' in folder_file or '.webp' in folder_file:
-                    shutil.move(os.path.join(folder['dir_path'], folder_file), destination_folder)
-
     move_images_in_dir(data_list)
-    
-    def resize_images(dir, dir_destination):
-        from PIL import Image, ImageFilter
- 
-        for folder_file in os.listdir(dir):
-            filename = os.path.join(dir, folder_file)
-            with Image.open(filename) as img:
-                img.load()
-            if isinstance(img, Image.Image):
-                img = Image.open(filename)
-                width, height = img.size
-                new_width  = 1280
-                new_height = int(new_width * height / width)
-                img = img.resize((new_width, new_height), Image.LANCZOS)
-                img = img.filter(ImageFilter.SHARPEN)
-                img.save(os.path.join(dir_destination, f"sharpen_{folder_file}"))
-
-    ddir = "c:\\work\\naDetali\\test\\Fujitsu Siemens\\Fujitsu Siemens Esprimo Mobile V5535\\Оптический привод DVD-RW Fujitsu Siemens Esprimo Mobile V5535 SATA\\_Photos_Original"
-    ddir_in = "c:\\work\\naDetali\\test\\Fujitsu Siemens\\Fujitsu Siemens Esprimo Mobile V5535\\Оптический привод DVD-RW Fujitsu Siemens Esprimo Mobile V5535 SATA\\_Photos_Resize"
-    resize_images(ddir, ddir_in)
+    for folder in data_list:
+        in_dir = os.path.join(folder['dir_path'], IMG_ORIGINAL_NAME)
+        out_dir = os.path.join(folder['dir_path'], IMG_RESIZED_NAME)
+        resize_images(in_dir, out_dir, IMG_MAX_WIDTH)
 
 def make_files():
     """Make Files: создаем папки и файлы с описаниями объявлений"""
