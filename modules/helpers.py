@@ -11,7 +11,7 @@ def mix_text(tags, names):
     for tag in tags.split(', '):
         for name in names.split(', '):
             if len(f"{return_text} {tag} {name},") > 1024:
-                logger.info(f"Сокращен текс keywords для '{tags}'")
+                logger.info('Сокращен текст keywords для: %s', tags)
                 return return_text.replace(',,', ',').replace(',  ', ', ')
             else:
                 return_text = f"{return_text} {tag} {name},"
