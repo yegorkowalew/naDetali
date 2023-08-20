@@ -67,6 +67,9 @@ def delete_folders():
             shutil.rmtree(folder['dir_path'])
     return True
 
+def make_images():
+    pass
+
 def make_files():
     """Make Files: создаем папки и файлы с описаниями объявлений"""
     logger.info('Начало')
@@ -189,6 +192,8 @@ def main():
                         help='Make small text Files for model')
     parser.add_argument('-df', action='store_true',
                         help='Dlete Files. Delete empty folders and files')
+    parser.add_argument('-mi', action='store_true',
+                        help='Make image files')
     parser.add_argument('-ex', action='store_true',
                         help='Make export file')
 
@@ -199,6 +204,8 @@ def main():
         make_small_files()
     elif args.df:
         delete_folders()
+    elif args.mi:
+        make_images()
     elif args.ex:
         export_xlsx()
     else:
