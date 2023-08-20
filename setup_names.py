@@ -7,11 +7,11 @@ model_name = f"{vendor} {model}"
 
 detail_names = [
     {
-        "name": 'Петли (левая, правая) %s' % (model_name),
-        "name_ua": 'Петлі (ліва, права) %s' % (model_name),
+        "name": 'Петли %s (левая и правая)' % (model_name),
+        "name_ua": 'Петлі %s (ліва та права)' % (model_name),
 
-        "description_small": f"Петли (левая, правая) к ноутбуку {model_name}, оригинальные, {state}",
-        "description_small_ua": f"Петлі (ліва, права) до ноутбуку, {model_name}, оригінальні, {state_ua}",
+        "description_small": f"Левая и правая петля к ноутбуку {model_name}, оригинальные, {state}",
+        "description_small_ua": f"Ліва та права петля до ноутбуку, {model_name}, оригінальні, {state_ua}",
 
         "keywords": "петли, петля левая, петля правая, петля, петли матрицы, петли экрана",
         "keywords_ua": "петлі, петля ліва, петля права, петля, петлі матриці, петлі екрану",
@@ -905,8 +905,8 @@ detail_names = [
         "description_small": f"Оптический привод DVD-RW, снятый с ноутбука {model_name}, оригинальный, {state}",
         "description_small_ua": f"Оптичний привід DVD-RW, знятий з ноутбука {model_name}, оригінальний, {state_ua}",
 
-        "keywords": "оптический привод, привод, dvd-rw, dvd-r",
-        "keywords_ua": "оптичний привід, привід, dvd-rw, dvd-r",
+        "keywords": "оптический привод, привод, dvd, dvd-rw, dvd-r",
+        "keywords_ua": "оптичний привід, привід, dvd, dvd-rw, dvd-r",
         "portal": "Оптические приводы",
         
         "description_perfect": "",
@@ -926,14 +926,149 @@ detail_names = [
         "flaw_fail_ua": "",
     },
     {
+        "name": 'Оптический привод DVD-RW %s IDE нр' % (model_name),
+        "name_ua": 'Оптичний привід DVD-RW %s IDE нр' % (model_name),
+
+        "description_small": f"Оптический привод DVD-RW, снятый с ноутбука {model_name}, оригинальный, {state}",
+        "description_small_ua": f"Оптичний привід DVD-RW, знятий з ноутбука {model_name}, оригінальний, {state_ua}",
+
+        "keywords": "оптический привод, привод, dvd, dvd-rw, dvd-r, ide dvd",
+        "keywords_ua": "оптичний привід, привід, dvd, dvd-rw, dvd-r, ide dvd",
+        "portal": "Оптические приводы",
+        
+        "description_perfect": "Разъем привода IDE. Оригинальная, сервисная накладка, в комплекте с приводом.",
+        "description_good": "Разъем привода IDE. Оригинальная, сервисная накладка, в комплекте с приводом.",
+        "description_fail": "Разъем привода IDE. Оригинальная, сервисная накладка, в комплекте с приводом.",
+
+        "description_perfect_ua": "Роз'єм приводу IDE. Оригінальна, сервісна накладка, в комплекті з приводом.",
+        "description_good_ua": "Роз'єм приводу IDE. Оригінальна, сервісна накладка, в комплекті з приводом.",
+        "description_fail_ua": "Роз'єм приводу IDE. Оригінальна, сервісна накладка, в комплекті з приводом.",
+
+        "flaw_perfect": "",
+        "flaw_good": "",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "",
+        "flaw_fail_ua": "",
+    },
+    {
+        "name": 'Оптический привод DVD-RW %s IDE, накладка' % (model_name),
+        "name_ua": 'Оптичний привід DVD-RW %s IDE, накладка' % (model_name),
+
+        "description_small": f"Оптический привод DVD-RW, снятый с ноутбука {model_name}, оригинальный, {state}",
+        "description_small_ua": f"Оптичний привід DVD-RW, знятий з ноутбука {model_name}, оригінальний, {state_ua}",
+
+        "keywords": "оптический привод, привод, dvd, dvd-rw, dvd-r, ide dvd",
+        "keywords_ua": "оптичний привід, привід, dvd, dvd-rw, dvd-r, ide dvd",
+        "portal": "Оптические приводы",
+        
+        "description_perfect": "Разъем привода IDE. Оригинальная, сервисная накладка, в комплекте с приводом.",
+        "description_good": "Разъем привода IDE. Оригинальная, сервисная накладка, в комплекте с приводом.",
+        "description_fail": "Разъем привода IDE. Оригинальная, сервисная накладка, в комплекте с приводом.",
+
+        "description_perfect_ua": "Роз'єм приводу IDE. Оригінальна, сервісна накладка, в комплекті з приводом.",
+        "description_good_ua": "Роз'єм приводу IDE. Оригінальна, сервісна накладка, в комплекті з приводом.",
+        "description_fail_ua": "Роз'єм приводу IDE. Оригінальна, сервісна накладка, в комплекті з приводом.",
+
+        "flaw_perfect": "",
+        "flaw_good": "",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "",
+        "flaw_fail_ua": "",
+    },
+    {
+        "name": 'Оптический привод DVD-RW %s SATA' % (model_name),
+        "name_ua": 'Оптичний привід DVD-RW %s SATA' % (model_name),
+
+        "description_small": f"Оптический привод DVD-RW, снятый с ноутбука {model_name}, оригинальный, {state}",
+        "description_small_ua": f"Оптичний привід DVD-RW, знятий з ноутбука {model_name}, оригінальний, {state_ua}",
+
+        "keywords": "оптический привод, привод, dvd, dvd-rw, dvd-r, SATA dvd",
+        "keywords_ua": "оптичний привід, привід, dvd, dvd-rw, dvd-r, SATA dvd",
+        "portal": "Оптические приводы",
+        
+        "description_perfect": "Разъем привода SATA.",
+        "description_good": "Разъем привода SATA.",
+        "description_fail": "Разъем привода SATA.",
+
+        "description_perfect_ua": "Роз'єм приводу SATA.",
+        "description_good_ua": "Роз'єм приводу SATA.",
+        "description_fail_ua": "Роз'єм приводу SATA.",
+
+        "flaw_perfect": "",
+        "flaw_good": "",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "",
+        "flaw_fail_ua": "",
+    },
+    {
+        "name": 'Оптический привод DVD-RW %s SATA нр' % (model_name),
+        "name_ua": 'Оптичний привід DVD-RW %s SATA нр' % (model_name),
+
+        "description_small": f"Оптический привод DVD-RW, снятый с ноутбука {model_name}, оригинальный, {state}",
+        "description_small_ua": f"Оптичний привід DVD-RW, знятий з ноутбука {model_name}, оригінальний, {state_ua}",
+
+        "keywords": "оптический привод, привод, dvd, dvd-rw, dvd-r, SATA dvd",
+        "keywords_ua": "оптичний привід, привід, dvd, dvd-rw, dvd-r, SATA dvd",
+        "portal": "Оптические приводы",
+        
+        "description_perfect": "Разъем привода SATA.",
+        "description_good": "Разъем привода SATA.",
+        "description_fail": "Разъем привода SATA.",
+
+        "description_perfect_ua": "Роз'єм приводу SATA.",
+        "description_good_ua": "Роз'єм приводу SATA.",
+        "description_fail_ua": "Роз'єм приводу SATA.",
+
+        "flaw_perfect": "",
+        "flaw_good": "",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "",
+        "flaw_fail_ua": "",
+    },
+    {
+        "name": 'Оптический привод DVD-RW %s SATA, накладка' % (model_name),
+        "name_ua": 'Оптичний привід DVD-RW %s SATA, накладка' % (model_name),
+
+        "description_small": f"Оптический привод DVD-RW, снятый с ноутбука {model_name}, оригинальный, {state}",
+        "description_small_ua": f"Оптичний привід DVD-RW, знятий з ноутбука {model_name}, оригінальний, {state_ua}",
+
+        "keywords": "оптический привод, привод, dvd, dvd-rw, dvd-r, SATA dvd",
+        "keywords_ua": "оптичний привід, привід, dvd, dvd-rw, dvd-r, SATA dvd",
+        "portal": "Оптические приводы",
+        
+        "description_perfect": "Разъем привода SATA. Оригинальная, сервисная накладка, в комплекте с приводом.",
+        "description_good": "Разъем привода SATA. Оригинальная, сервисная накладка, в комплекте с приводом.",
+        "description_fail": "Разъем привода SATA. Оригинальная, сервисная накладка, в комплекте с приводом.",
+
+        "description_perfect_ua": "Роз'єм приводу SATA. Оригінальна, сервісна накладка, в комплекті з приводом.",
+        "description_good_ua": "Роз'єм приводу SATA. Оригінальна, сервісна накладка, в комплекті з приводом.",
+        "description_fail_ua": "Роз'єм приводу SATA. Оригінальна, сервісна накладка, в комплекті з приводом.",
+
+        "flaw_perfect": "",
+        "flaw_good": "",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "",
+        "flaw_fail_ua": "",
+    },
+    {
         "name": 'Оптический привод CD-RW %s' % (model_name),
         "name_ua": 'Оптичний привід CD-RW %s' % (model_name),
 
         "description_small": f"Оптический привод CD-RW, снятый с ноутбука {model_name}, оригинальный, {state}",
         "description_small_ua": f"Оптичний привід CD-RW, знятий з ноутбука {model_name}, оригінальний, {state_ua}",
 
-        "keywords": "оптический привод, привод, dvd-rw, dvd-r",
-        "keywords_ua": "оптичний привід, привід, dvd-rw, dvd-r",
+        "keywords": "оптический привод, привод, cd, Cd-rw, dvd-r",
+        "keywords_ua": "оптичний привід, привід, cd, Cd-rw, dvd-r",
         "portal": "Оптические приводы",
         
         "description_perfect": "",
@@ -943,6 +1078,141 @@ detail_names = [
         "description_perfect_ua": "",
         "description_good_ua": "",
         "description_fail_ua": "",
+
+        "flaw_perfect": "",
+        "flaw_good": "",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "",
+        "flaw_fail_ua": "",
+    },
+    {
+        "name": 'Оптический привод CD-RW %s IDE нр' % (model_name),
+        "name_ua": 'Оптичний привід CD-RW %s IDE нр' % (model_name),
+
+        "description_small": f"Оптический привод CD-RW, снятый с ноутбука {model_name}, оригинальный, {state}",
+        "description_small_ua": f"Оптичний привід CD-RW, знятий з ноутбука {model_name}, оригінальний, {state_ua}",
+
+        "keywords": "оптический привод, привод, cd, Cd-rw, dvd-r, ide dvd",
+        "keywords_ua": "оптичний привід, привід, cd, Cd-rw, dvd-r, ide dvd",
+        "portal": "Оптические приводы",
+        
+        "description_perfect": "Разъем привода IDE. Оригинальная, сервисная накладка, в комплекте с приводом.",
+        "description_good": "Разъем привода IDE. Оригинальная, сервисная накладка, в комплекте с приводом.",
+        "description_fail": "Разъем привода IDE. Оригинальная, сервисная накладка, в комплекте с приводом.",
+
+        "description_perfect_ua": "Роз'єм приводу IDE. Оригінальна, сервісна накладка, в комплекті з приводом.",
+        "description_good_ua": "Роз'єм приводу IDE. Оригінальна, сервісна накладка, в комплекті з приводом.",
+        "description_fail_ua": "Роз'єм приводу IDE. Оригінальна, сервісна накладка, в комплекті з приводом.",
+
+        "flaw_perfect": "",
+        "flaw_good": "",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "",
+        "flaw_fail_ua": "",
+    },
+    {
+        "name": 'Оптический привод CD-RW %s IDE, накладка' % (model_name),
+        "name_ua": 'Оптичний привід CD-RW %s IDE, накладка' % (model_name),
+
+        "description_small": f"Оптический привод CD-RW, снятый с ноутбука {model_name}, оригинальный, {state}",
+        "description_small_ua": f"Оптичний привід CD-RW, знятий з ноутбука {model_name}, оригінальний, {state_ua}",
+
+        "keywords": "оптический привод, привод, cd, Cd-rw, dvd-r, ide dvd",
+        "keywords_ua": "оптичний привід, привід, cd, Cd-rw, dvd-r, ide dvd",
+        "portal": "Оптические приводы",
+        
+        "description_perfect": "Разъем привода IDE. Оригинальная, сервисная накладка, в комплекте с приводом.",
+        "description_good": "Разъем привода IDE. Оригинальная, сервисная накладка, в комплекте с приводом.",
+        "description_fail": "Разъем привода IDE. Оригинальная, сервисная накладка, в комплекте с приводом.",
+
+        "description_perfect_ua": "Роз'єм приводу IDE. Оригінальна, сервісна накладка, в комплекті з приводом.",
+        "description_good_ua": "Роз'єм приводу IDE. Оригінальна, сервісна накладка, в комплекті з приводом.",
+        "description_fail_ua": "Роз'єм приводу IDE. Оригінальна, сервісна накладка, в комплекті з приводом.",
+
+        "flaw_perfect": "",
+        "flaw_good": "",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "",
+        "flaw_fail_ua": "",
+    },
+    {
+        "name": 'Оптический привод CD-RW %s SATA' % (model_name),
+        "name_ua": 'Оптичний привід CD-RW %s SATA' % (model_name),
+
+        "description_small": f"Оптический привод CD-RW, снятый с ноутбука {model_name}, оригинальный, {state}",
+        "description_small_ua": f"Оптичний привід CD-RW, знятий з ноутбука {model_name}, оригінальний, {state_ua}",
+
+        "keywords": "оптический привод, привод, cd, Cd-rw, dvd-r, SATA dvd",
+        "keywords_ua": "оптичний привід, привід, cd, Cd-rw, dvd-r, SATA dvd",
+        "portal": "Оптические приводы",
+        
+        "description_perfect": "Разъем привода SATA.",
+        "description_good": "Разъем привода SATA.",
+        "description_fail": "Разъем привода SATA.",
+
+        "description_perfect_ua": "Роз'єм приводу SATA.",
+        "description_good_ua": "Роз'єм приводу SATA.",
+        "description_fail_ua": "Роз'єм приводу SATA.",
+
+        "flaw_perfect": "",
+        "flaw_good": "",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "",
+        "flaw_fail_ua": "",
+    },
+    {
+        "name": 'Оптический привод CD-RW %s SATA нр' % (model_name),
+        "name_ua": 'Оптичний привід CD-RW %s SATA нр' % (model_name),
+
+        "description_small": f"Оптический привод CD-RW, снятый с ноутбука {model_name}, оригинальный, {state}",
+        "description_small_ua": f"Оптичний привід CD-RW, знятий з ноутбука {model_name}, оригінальний, {state_ua}",
+
+        "keywords": "оптический привод, привод, cd, Cd-rw, dvd-r, SATA dvd",
+        "keywords_ua": "оптичний привід, привід, cd, Cd-rw, dvd-r, SATA dvd",
+        "portal": "Оптические приводы",
+        
+        "description_perfect": "Разъем привода SATA.",
+        "description_good": "Разъем привода SATA.",
+        "description_fail": "Разъем привода SATA.",
+
+        "description_perfect_ua": "Роз'єм приводу SATA.",
+        "description_good_ua": "Роз'єм приводу SATA.",
+        "description_fail_ua": "Роз'єм приводу SATA.",
+
+        "flaw_perfect": "",
+        "flaw_good": "",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "",
+        "flaw_fail_ua": "",
+    },
+    {
+        "name": 'Оптический привод CD-RW %s SATA, накладка' % (model_name),
+        "name_ua": 'Оптичний привід CD-RW %s SATA, накладка' % (model_name),
+
+        "description_small": f"Оптический привод CD-RW, снятый с ноутбука {model_name}, оригинальный, {state}",
+        "description_small_ua": f"Оптичний привід CD-RW, знятий з ноутбука {model_name}, оригінальний, {state_ua}",
+
+        "keywords": "оптический привод, привод, cd, Cd-rw, dvd-r, SATA dvd",
+        "keywords_ua": "оптичний привід, привід, cd, Cd-rw, dvd-r, SATA dvd",
+        "portal": "Оптические приводы",
+        
+        "description_perfect": "Разъем привода SATA. Оригинальная, сервисная накладка, в комплекте с приводом.",
+        "description_good": "Разъем привода SATA. Оригинальная, сервисная накладка, в комплекте с приводом.",
+        "description_fail": "Разъем привода SATA. Оригинальная, сервисная накладка, в комплекте с приводом.",
+
+        "description_perfect_ua": "Роз'єм приводу SATA. Оригінальна, сервісна накладка, в комплекті з приводом.",
+        "description_good_ua": "Роз'єм приводу SATA. Оригінальна, сервісна накладка, в комплекті з приводом.",
+        "description_fail_ua": "Роз'єм приводу SATA. Оригінальна, сервісна накладка, в комплекті з приводом.",
 
         "flaw_perfect": "",
         "flaw_good": "",
