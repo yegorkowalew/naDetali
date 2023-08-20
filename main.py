@@ -46,7 +46,7 @@ class ModelObj:
                 'dir_path': os.path.join(
                     os.path.dirname(dir_path),
                     self.vendor,
-                    self.model,
+                    f"{self.vendor} {self.model}",
                     repalce_for_name(item['name'])),
             }
             global_list.append(item_dict)
@@ -77,7 +77,7 @@ def make_files():
         os.path.join(
             os.path.dirname(dir_path),
             model['vendor'],
-            model['model'],
+            f"{model['vendor']} {model['model']}",
             '_All Photos')
             )
     
