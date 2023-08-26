@@ -2,10 +2,11 @@ import os, shutil
 from .exports import make_folder
 from PIL import Image, ImageFilter
 from settings import logger
+from progress.bar import Bar
 
 def flip_images(dir):
     """Повернуть изображение чтоб оно было горизонтальным"""
-    logger.info('Файлов в папке: %s', len(os.listdir(dir)))
+    bar = Bar('ChargingBar', max=len(os.listdir(dir)), suffix='%(index)d/%(max)d, %(elapsed)ds')
     for folder_file in os.listdir(dir):
         filename = os.path.join(dir, folder_file)
         with Image.open(filename) as img:
@@ -14,7 +15,8 @@ def flip_images(dir):
             if img.size[0]<img.size[1]:
                 converted_img = img.transpose(Image.ROTATE_90)
                 converted_img.save(filename)
-                logger.info('Перевернул изображение: %s', filename)
+        bar.next()
+    bar.finish()
 
 def move_images_in_dir(model_list):
     """Из папки модели переместить фотографии в подпапку с оригиналами фотографий"""
