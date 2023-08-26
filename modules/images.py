@@ -30,7 +30,10 @@ def move_images_in_dir(model_list):
 def resize_images(dir, dir_destination, new_width):
     """В папке с изображениями поменять размер каждого изображения
     и переместить в папку назначения"""
+    last_folder = dir_destination.split("\\")[-2]
+    logger.info('Ресайз и перемещение фотографий в папке: %s', f'{last_folder}')
     make_folder(dir_destination)
+    bar = ChargingBar('Обработка:', max=len(os.listdir(dir)), suffix='%(index)d/%(max)d, %(elapsed)ds')
     for folder_file in os.listdir(dir):
         filename = os.path.join(dir, folder_file)
         with Image.open(filename) as img:
@@ -42,5 +45,5 @@ def resize_images(dir, dir_destination, new_width):
             img = img.resize((new_width, new_height), Image.LANCZOS)
             img = img.filter(ImageFilter.SHARPEN)
             img.save(os.path.join(dir_destination, folder_file))
-            last_folder = dir_destination.split("\\")[-2]
-            logger.info('Ресайз и перемещение фотографий в папке: %s', f'{last_folder}/{folder_file}')
+        bar.next()
+    bar.finish()
