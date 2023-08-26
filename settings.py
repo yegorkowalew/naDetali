@@ -65,7 +65,7 @@ except FileExistsError as error:
     pass
 
 logger = logging.getLogger('naDetali')
-logger.setLevel(logging.DEBUG)
+logger.setLevel(logging.WARNING)
 fh = logging.FileHandler(LOG_FILE)
 fh.setLevel(logging.DEBUG)
 ch = logging.StreamHandler()

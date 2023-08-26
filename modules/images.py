@@ -2,7 +2,7 @@ import os, shutil
 from .exports import make_folder
 from PIL import Image, ImageFilter
 from settings import logger
-from progress.bar import Bar, ChargingBar
+from progress.bar import ChargingBar
 
 def flip_images(dir):
     """Повернуть изображение чтоб оно было горизонтальным"""

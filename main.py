@@ -9,6 +9,7 @@ from modules.helpers import repalce_for_name, mix_text, get_models_from_dir
 from modules.exports import to_html, make_folder
 from modules.xlsx_helpers import get_export_db
 from modules.images import move_images_in_dir, resize_images, flip_images
+from progress.bar import ChargingBar
 
 class ModelObj:
     def __init__(self, model, names_dict):
@@ -94,18 +95,19 @@ def rotate_images():
 
 def make_files():
     """Make Files: создаем папки и файлы с описаниями объявлений"""
-    logger.info('Начало')
+    logger.info('Создать папки и файлы с описаниями объявлений')
 
     model_obj = ModelObj(model, detail_names)
     model_list = model_obj.get_names_list()
-    make_folder(
+    make_folder( 
+        # ! Поменять на all_photos_dir
         os.path.join(
             os.path.dirname(dir_path),
             model['vendor'],
             f"{model['vendor']} {model['model']}",
             '_All Photos')
             )
-    
+    bar = ChargingBar('Обработка:', max=len(model_list), suffix='%(index)d/%(max)d, %(elapsed)ds')
     for this_model in model_list:
         make_folder(this_model['dir_path'])
     
@@ -126,12 +128,14 @@ def make_files():
             )
         file_path_fail = os.path.join(
             this_model['dir_path'],
-            f"2. Плохой - {repalce_for_name(this_model['name'])}.txt"
+            f"3. Плохой - {repalce_for_name(this_model['name'])}.txt"
             )
         
         to_html(data_list, template_dir, template_name_perfect, file_path_perfect)
         to_html(data_list, template_dir, template_name_good, file_path_good)
         to_html(data_list, template_dir, template_name_fail, file_path_fail)
+        bar.next()
+    bar.finish()
     return True
 
 def make_small_files():
@@ -141,6 +145,7 @@ def make_small_files():
     model_obj = ModelObj(model, detail_names)
     model_list = model_obj.get_names_list()
     make_folder(
+        # ! Поменять на all_photos_dir
         os.path.join(
             os.path.dirname(dir_path),
             model['vendor'],
