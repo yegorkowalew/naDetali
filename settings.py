@@ -35,6 +35,7 @@ model = config['Model']
 # model_state = config["Model"]["state"]
 
 dir_path = config["Path"]["directory"]
+all_photos_dir_name = config["Path"]["all_photos_dir_name"]
 
 # description.ini
 config.read(os.path.join(BASE_DIR, 'description.ini'), encoding="utf-8")  # читаем конфиг
@@ -64,7 +65,7 @@ except FileExistsError as error:
     pass
 
 logger = logging.getLogger('naDetali')
-logger.setLevel(logging.DEBUG)
+logger.setLevel(logging.WARNING)
 fh = logging.FileHandler(LOG_FILE)
 fh.setLevel(logging.DEBUG)
 ch = logging.StreamHandler()
