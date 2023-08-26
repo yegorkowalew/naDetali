@@ -9,11 +9,17 @@
 > 
 > optional arguments:
 >   -h, --help  show this help message and exit
+>
 >   -mf         Make Files for model
+>
 >   -tf         Make small text Files for model
+>
 >   -df         Delete Files. Delete empty folders and files
+>
 >   -mi         Make image files
+>
 >   -ri         Rotate image files
+>
 >   -ex         Make export file
 
 
