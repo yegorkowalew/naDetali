@@ -68,6 +68,7 @@ def delete_folders():
     """Delete Folders: Удаляем пустые папки с ненужными файлами описаний"""
     model_obj = ModelObj(model, detail_names)
     model_list = model_obj.get_names_list()
+    bar = ChargingBar('Обработка:', max=len(model_list), suffix='%(index)d/%(max)d, %(elapsed)ds')
     for folder in model_list:
         flag = True
         for folder_file in os.listdir(folder['dir_path']):
@@ -77,6 +78,8 @@ def delete_folders():
         if flag:
             logger.info("Удаляю папку %s", folder['dir_path'])
             shutil.rmtree(folder['dir_path'])
+        bar.next()
+    bar.finish()
     return True
 
 def make_images():
@@ -218,7 +221,7 @@ def main():
     parser.add_argument('-tf', action='store_true',
                         help='Make small text Files for model')
     parser.add_argument('-df', action='store_true',
-                        help='Dlete Files. Delete empty folders and files')
+                        help='Delete Files. Delete empty folders and files')
     parser.add_argument('-mi', action='store_true',
                         help='Make image files')
     parser.add_argument('-ri', action='store_true',
