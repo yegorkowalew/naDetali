@@ -1,5 +1,6 @@
 import os, random
 from settings import logger
+from progress.spinner import MoonSpinner
 
 def repalce_for_name(str):
     """Удалить из строки лишние символы, чтоб можно было создать файл"""
@@ -8,6 +9,7 @@ def repalce_for_name(str):
 def mix_text(tags, names):
     """К каждому тегу добавить название модели"""
     return_text = ''
+    spinner = MoonSpinner('Генерирую теги ')
     for tag in tags.split(', '):
         for name in names.split(', '):
             if len(f"{return_text} {tag} {name},") > 1024:
@@ -15,6 +17,7 @@ def mix_text(tags, names):
                 return return_text.replace(',,', ',').replace(',  ', ', ')
             else:
                 return_text = f"{return_text} {tag} {name},"
+            spinner.next()
     return return_text.replace(',,', ',').replace(',  ', ', ')
 
 def get_random_sentence(self, text):

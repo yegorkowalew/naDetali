@@ -6,7 +6,7 @@ from progress.bar import ChargingBar
 
 def flip_images(dir):
     """Повернуть изображение чтоб оно было горизонтальным"""
-    bar = ChargingBar('Обработка:', max=len(os.listdir(dir)), suffix='%(index)d/%(max)d, %(elapsed)ds')
+    bar = ChargingBar('Обработка:', max=len(os.listdir(dir)), suffix='%(index)d/%(max)d, %(elapsed)ds', color='green')
     for folder_file in os.listdir(dir):
         filename = os.path.join(dir, folder_file)
         with Image.open(filename) as img:
@@ -33,7 +33,7 @@ def resize_images(dir, dir_destination, new_width):
     last_folder = dir_destination.split("\\")[-2]
     logger.info('Ресайз и перемещение фотографий в папке: %s', f'{last_folder}')
     make_folder(dir_destination)
-    bar = ChargingBar('Обработка:', max=len(os.listdir(dir)), suffix='%(index)d/%(max)d, %(elapsed)ds')
+    bar = ChargingBar('Обработка:', max=len(os.listdir(dir)), suffix='%(index)d/%(max)d, %(elapsed)ds', color='green')
     for folder_file in os.listdir(dir):
         filename = os.path.join(dir, folder_file)
         with Image.open(filename) as img:

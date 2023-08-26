@@ -68,7 +68,7 @@ def delete_folders():
     """Delete Folders: Удаляем пустые папки с ненужными файлами описаний"""
     model_obj = ModelObj(model, detail_names)
     model_list = model_obj.get_names_list()
-    bar = ChargingBar('Обработка:', max=len(model_list), suffix='%(index)d/%(max)d, %(elapsed)ds')
+    bar = ChargingBar('Обработка:', max=len(model_list), suffix='%(index)d/%(max)d, %(elapsed)ds', color='green')
     for folder in model_list:
         flag = True
         for folder_file in os.listdir(folder['dir_path']):
@@ -103,7 +103,7 @@ def make_files():
     model_obj = ModelObj(model, detail_names)
     model_list = model_obj.get_names_list()
     make_folder(model_obj.all_photos_dir)
-    bar = ChargingBar('Обработка:', max=len(model_list), suffix='%(index)d/%(max)d, %(elapsed)ds')
+    bar = ChargingBar('Обработка:', max=len(model_list), suffix='%(index)d/%(max)d, %(elapsed)ds', color='green')
     for this_model in model_list:
         make_folder(this_model['dir_path'])
     
