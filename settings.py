@@ -35,6 +35,7 @@ model = config['Model']
 # model_state = config["Model"]["state"]
 
 dir_path = config["Path"]["directory"]
+all_photos_dir_name = config["Path"]["all_photos_dir_name"]
 
 # description.ini
 config.read(os.path.join(BASE_DIR, 'description.ini'), encoding="utf-8")  # читаем конфиг

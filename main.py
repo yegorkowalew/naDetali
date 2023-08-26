@@ -1,14 +1,14 @@
 import os, sys, shutil
 import argparse
 from settings import logger
-from settings import model, description, flaw, dir_path
+from settings import model, description, flaw, dir_path, all_photos_dir_name
 from settings import template_dir
 from settings import IMG_ORIGINAL_NAME, IMG_RESIZED_NAME, IMG_MAX_WIDTH
 from setup_names import detail_names
 from modules.helpers import repalce_for_name, mix_text, get_models_from_dir
 from modules.exports import to_html, make_folder
 from modules.xlsx_helpers import get_export_db
-from modules.images import move_images_in_dir, resize_images
+from modules.images import move_images_in_dir, resize_images, flip_images
 
 class ModelObj:
     def __init__(self, model, names_dict):
@@ -17,6 +17,15 @@ class ModelObj:
         self.keywords_string = model['keywords_string']
         self.state = model['state']
         self.names_dict = names_dict
+
+        # Dirs
+        # папка всех фотографий:
+        self.all_photos_dir = os.path.join(
+            dir_path,
+            self.vendor,
+            f"{self.vendor} {self.model}",
+            all_photos_dir_name
+        )
 
     def get_names_list(self):
         """Получить список деталей"""
@@ -76,6 +85,12 @@ def make_images():
         in_dir = os.path.join(folder['dir_path'], IMG_ORIGINAL_NAME)
         out_dir = os.path.join(folder['dir_path'], IMG_RESIZED_NAME)
         resize_images(in_dir, out_dir, IMG_MAX_WIDTH)
+
+def rotate_images():
+    """Перевернуть вертикальные изображения в папке _All_Photos"""
+    logger.info('Перевернуть вертикальные изображения в папке _All_Photos')
+    model_obj = ModelObj(model, detail_names)
+    flip_images(model_obj.all_photos_dir)
 
 def make_files():
     """Make Files: создаем папки и файлы с описаниями объявлений"""
@@ -201,6 +216,8 @@ def main():
                         help='Dlete Files. Delete empty folders and files')
     parser.add_argument('-mi', action='store_true',
                         help='Make image files')
+    parser.add_argument('-ri', action='store_true',
+                        help='Rotate image files')
     parser.add_argument('-ex', action='store_true',
                         help='Make export file')
 
@@ -213,6 +230,8 @@ def main():
         delete_folders()
     elif args.mi:
         make_images()
+    elif args.ri:
+        rotate_images()
     elif args.ex:
         export_xlsx()
     else:

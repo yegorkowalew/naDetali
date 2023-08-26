@@ -5,15 +5,16 @@ from settings import logger
 
 def flip_images(dir):
     """Повернуть изображение чтоб оно было горизонтальным"""
+    logger.info('Файлов в папке: %s', len(os.listdir(dir)))
     for folder_file in os.listdir(dir):
-        if '.jpg' in folder_file or '.jpeg' in folder_file or '.png' in folder_file or '.webp' in folder_file:
-            filename = os.path.join(dir, folder_file)
-            with Image.open(filename) as img:
-                img.load()
-            if isinstance(img, Image.Image):
-                if img.size[0]<img.size[1]:
-                    converted_img = img.transpose(Image.ROTATE_90)
-                    converted_img.save(filename)
+        filename = os.path.join(dir, folder_file)
+        with Image.open(filename) as img:
+            img.load()
+        if isinstance(img, Image.Image):
+            if img.size[0]<img.size[1]:
+                converted_img = img.transpose(Image.ROTATE_90)
+                converted_img.save(filename)
+                logger.info('Перевернул изображение: %s', filename)
 
 def move_images_in_dir(model_list):
     """Из папки модели переместить фотографии в подпапку с оригиналами фотографий"""
