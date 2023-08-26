@@ -102,14 +102,7 @@ def make_files():
 
     model_obj = ModelObj(model, detail_names)
     model_list = model_obj.get_names_list()
-    make_folder( 
-        # ! Поменять на all_photos_dir
-        os.path.join(
-            os.path.dirname(dir_path),
-            model['vendor'],
-            f"{model['vendor']} {model['model']}",
-            '_All Photos')
-            )
+    make_folder(model_obj.all_photos_dir)
     bar = ChargingBar('Обработка:', max=len(model_list), suffix='%(index)d/%(max)d, %(elapsed)ds')
     for this_model in model_list:
         make_folder(this_model['dir_path'])
