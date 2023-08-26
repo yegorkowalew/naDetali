@@ -2,11 +2,11 @@ import os, shutil
 from .exports import make_folder
 from PIL import Image, ImageFilter
 from settings import logger
-from progress.bar import Bar
+from progress.bar import Bar, ChargingBar
 
 def flip_images(dir):
     """Повернуть изображение чтоб оно было горизонтальным"""
-    bar = Bar('ChargingBar', max=len(os.listdir(dir)), suffix='%(index)d/%(max)d, %(elapsed)ds')
+    bar = ChargingBar('Обработка:', max=len(os.listdir(dir)), suffix='%(index)d/%(max)d, %(elapsed)ds')
     for folder_file in os.listdir(dir):
         filename = os.path.join(dir, folder_file)
         with Image.open(filename) as img:
