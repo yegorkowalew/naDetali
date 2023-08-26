@@ -44,6 +44,5 @@ class TestDetailNames(unittest.TestCase):
             self.assertTrue(len(detail.get("keywords_ua"))>0)
             self.assertTrue(len(detail.get("portal"))>0)
 
-
 if __name__ == "__main__":
     unittest.main()
