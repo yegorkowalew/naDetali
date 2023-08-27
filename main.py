@@ -26,11 +26,15 @@ class ModelObj:
         self.names_dict = names_dict
 
         # Dirs
-        # папка всех фотографий:
-        self.all_photos_dir = os.path.join(
+        # папка модели ноутбука
+        self.model_dir = os.path.join(
             dir_path,
             self.vendor,
             f"{self.vendor} {self.model}",
+        )
+        # папка всех фотографий:
+        self.all_photos_dir = os.path.join(
+            self.model_dir,
             all_photos_dir_name
         )
 
@@ -61,11 +65,7 @@ class ModelObj:
                 'keywords': mix_text(item['keywords'], model['keywords_string']),
                 'keywords_ua':mix_text(item['keywords_ua'], model['keywords_string']),
                 'portal': item['portal'],
-                'dir_path': os.path.join(
-                    os.path.dirname(dir_path),
-                    self.vendor,
-                    f"{self.vendor} {self.model}",
-                    repalce_for_name(item['name'])),
+                'dir_path': os.path.join(self.model_dir, repalce_for_name(item['name'])),
             }
             global_list.append(item_dict)
         return global_list
