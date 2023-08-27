@@ -11,7 +11,7 @@ from settings import template_dir
 from settings import IMG_ORIGINAL_NAME, IMG_RESIZED_NAME, IMG_MAX_WIDTH
 from setup_names import detail_names
 from modules.helpers import repalce_for_name, mix_text, get_models_from_dir
-from modules.exports import to_html, make_folder
+from modules.exports import to_html, make_folder, file_generate
 from modules.xlsx_helpers import get_export_db
 from modules.images import move_images_in_dir, resize_images, flip_images
 
@@ -70,6 +70,12 @@ class ModelObj:
             global_list.append(item_dict)
         return global_list
 
+    def make_files(self):
+        """Создает файлы и папки"""
+        names_list = self.get_names_list()
+        make_folder(self.all_photos_dir)
+        file_generate(names_list)
+
 def delete_folders():
     """Delete Folders: Удаляем пустые папки с ненужными файлами описаний"""
     model_obj = ModelObj(model, detail_names)
@@ -106,39 +112,8 @@ def rotate_images():
 def make_files():
     """Make Files: создаем папки и файлы с описаниями объявлений"""
     logger.info('Создать папки и файлы с описаниями объявлений')
-
     model_obj = ModelObj(model, detail_names)
-    model_list = model_obj.get_names_list()
-    make_folder(model_obj.all_photos_dir)
-    progress_bar = ChargingBar('Обработка:', max=len(model_list), suffix='%(index)d/%(max)d, %(elapsed)ds', color='green')
-    for this_model in model_list:
-        make_folder(this_model['dir_path'])
-
-        data_list = {
-            'model': this_model,
-        }
-        template_name_perfect = 'simple_tamplate_perfect.txt'
-        template_name_good = 'simple_tamplate_good.txt'
-        template_name_fail = 'simple_tamplate_fail.txt'
-
-        file_path_perfect = os.path.join(
-            this_model['dir_path'],
-            f"1. Отличный - {repalce_for_name(this_model['name'])}.txt"
-            )
-        file_path_good = os.path.join(
-            this_model['dir_path'],
-            f"2. Нормальный - {repalce_for_name(this_model['name'])}.txt"
-            )
-        file_path_fail = os.path.join(
-            this_model['dir_path'],
-            f"3. Плохой - {repalce_for_name(this_model['name'])}.txt"
-            )
-
-        to_html(data_list, template_dir, template_name_perfect, file_path_perfect)
-        to_html(data_list, template_dir, template_name_good, file_path_good)
-        to_html(data_list, template_dir, template_name_fail, file_path_fail)
-        progress_bar.next()
-    progress_bar.finish()
+    model_obj.make_files()
     return True
 
 def make_small_files():

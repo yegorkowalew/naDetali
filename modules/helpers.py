@@ -1,4 +1,7 @@
-import os, random
+"""Copyright (c) 2023 Yegor Kowalew <kowalew.backup@gmail.com>"""
+
+import os
+import random
 from settings import logger
 from progress.spinner import MoonSpinner
 
