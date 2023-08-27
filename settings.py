@@ -21,6 +21,9 @@ IMG_ORIGINAL_NAME = '_Photos_Original'
 IMG_RESIZED_NAME = '_Photos_Edited'
 IMG_MAX_WIDTH = 1280
 
+# Работа с експортом
+XLSX_DIR_NAME = '_Export'
+
 # Путь к папке c конфигурационными файлами
 config = configparser.ConfigParser()
 

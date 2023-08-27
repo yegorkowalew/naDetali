@@ -1,7 +1,9 @@
-
-from settings import logger
-from setup_portal import portal_names
+import os
 import pandas as pd
+from modules.exports import make_folder
+from settings import logger
+from settings import XLSX_DIR_NAME
+from setup_portal import portal_names
 from setup_columns import db_columns
 
 def get_portal_link(s):
@@ -38,3 +40,25 @@ def get_export_db(in_df):
     # изменения в столбцах таблицы
     ex_df['Адрес_подраздела'] = ex_df['Адрес_подраздела'].apply(get_portal_link)
     return ex_df
+
+def export_xlsx(model_obj):
+    """Експорт в xlsx"""
+    model_list = model_obj.get_names_list()
+    data_list = []
+    for item in model_list:
+        if os.path.exists(item['dir_path']):
+            data_list.append(item)
+
+    in_df = pd.DataFrame.from_dict(data_list)
+    export_path = os.path.join(
+            model_obj.model_dir,
+            XLSX_DIR_NAME)
+
+    make_folder(export_path)
+
+    ex_df = get_export_db(in_df)
+    ex_df.to_excel(
+        os.path.join(export_path,
+        f"{model_obj.vendor} {model_obj.model} export.xlsx"),
+        index= False,
+        sheet_name= "Export Products Sheet")

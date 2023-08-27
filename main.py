@@ -9,7 +9,7 @@ from settings import IMG_ORIGINAL_NAME, IMG_RESIZED_NAME, IMG_MAX_WIDTH
 from setup_names import detail_names
 from modules.helpers import repalce_for_name, mix_text, get_models_from_dir
 from modules.exports import make_folder, files_generate, files_remove
-from modules.xlsx_helpers import get_export_db
+from modules.xlsx_helpers import export_xlsx
 from modules.images import move_images_in_dir, resize_images, flip_images
 
 
@@ -91,6 +91,10 @@ class ModelObj:
             out_dir = os.path.join(folder['dir_path'], IMG_RESIZED_NAME)
             resize_images(in_dir, out_dir, IMG_MAX_WIDTH)
 
+    def create_xlsx_file(self):
+        """Создать xlsx-файл для импорта"""
+        export_xlsx(self)
+
 def make_files():
     """Make Files: создаем папки и файлы с описаниями объявлений"""
     logger.info('Создать папки и файлы с описаниями объявлений')
@@ -121,31 +125,11 @@ def make_images():
     model_obj = ModelObj(model, detail_names)
     model_obj.create_images()
 
-def export_xlsx():
-    """Експорт в xlsx"""
-    import pandas as pd
+def export_to_xlsx():
+    """Make xlsx file"""
+    logger.info('Создать xlsx-файл для импорта')
     model_obj = ModelObj(model, detail_names)
-    model_list = model_obj.get_names_list()
-    data_list = []
-    for item in model_list:
-        if os.path.exists(item['dir_path']):
-            data_list.append(item)
-
-    in_df = pd.DataFrame.from_dict(data_list)
-    export_path = os.path.join(
-            os.path.dirname(dir_path),
-            model['vendor'],
-            model['model'],
-            '_Export')
-
-    make_folder(export_path)
-
-    ex_df = get_export_db(in_df)
-    ex_df.to_excel(
-        os.path.join(export_path,
-        f"{model['vendor']} {model['model']} export.xlsx"),
-        index= False,
-        sheet_name= "Export Products Sheet")
+    model_obj.create_xlsx_file()
 
 def main():
     """Набор параметров для разветвления программы"""
@@ -178,7 +162,7 @@ def main():
     elif args.ri:
         rotate_images()
     elif args.ex:
-        export_xlsx()
+        export_to_xlsx()
     else:
         parser.print_help(sys.stderr)
         sys.exit(1)
