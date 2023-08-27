@@ -1,5 +1,10 @@
-import os, sys, shutil
+"""Copyright (c) 2023 Yegor Kowalew <kowalew.backup@gmail.com>"""
+
+import os
+import sys
+import shutil
 import argparse
+from progress.bar import ChargingBar
 from settings import logger
 from settings import model, description, flaw, dir_path, all_photos_dir_name
 from settings import template_dir
@@ -9,14 +14,15 @@ from modules.helpers import repalce_for_name, mix_text, get_models_from_dir
 from modules.exports import to_html, make_folder
 from modules.xlsx_helpers import get_export_db
 from modules.images import move_images_in_dir, resize_images, flip_images
-from progress.bar import ChargingBar
+
 
 class ModelObj:
-    def __init__(self, model, names_dict):
-        self.vendor = model['vendor']
-        self.model = model['model']
-        self.keywords_string = model['keywords_string']
-        self.state = model['state']
+    """Основной класс деталей модели ноутбука"""
+    def __init__(self, model_cfg, names_dict):
+        self.vendor = model_cfg['vendor']
+        self.model = model_cfg['model']
+        self.keywords_string = model_cfg['keywords_string']
+        self.state = model_cfg['state']
         self.names_dict = names_dict
 
         # Dirs
@@ -68,7 +74,7 @@ def delete_folders():
     """Delete Folders: Удаляем пустые папки с ненужными файлами описаний"""
     model_obj = ModelObj(model, detail_names)
     model_list = model_obj.get_names_list()
-    bar = ChargingBar('Обработка:', max=len(model_list), suffix='%(index)d/%(max)d, %(elapsed)ds', color='green')
+    progress_bar = ChargingBar('Обработка:', max=len(model_list), suffix='%(index)d/%(max)d, %(elapsed)ds', color='green')
     for folder in model_list:
         flag = True
         for folder_file in os.listdir(folder['dir_path']):
@@ -78,11 +84,12 @@ def delete_folders():
         if flag:
             logger.info("Удаляю папку %s", folder['dir_path'])
             shutil.rmtree(folder['dir_path'])
-        bar.next()
-    bar.finish()
+        progress_bar.next()
+    progress_bar.finish()
     return True
 
 def make_images():
+    """Создать папки для изображений и переместить их туда"""
     data_list = get_models_from_dir(ModelObj(model, detail_names))
     move_images_in_dir(data_list)
     for folder in data_list:
@@ -103,10 +110,10 @@ def make_files():
     model_obj = ModelObj(model, detail_names)
     model_list = model_obj.get_names_list()
     make_folder(model_obj.all_photos_dir)
-    bar = ChargingBar('Обработка:', max=len(model_list), suffix='%(index)d/%(max)d, %(elapsed)ds', color='green')
+    progress_bar = ChargingBar('Обработка:', max=len(model_list), suffix='%(index)d/%(max)d, %(elapsed)ds', color='green')
     for this_model in model_list:
         make_folder(this_model['dir_path'])
-    
+
         data_list = {
             'model': this_model,
         }
@@ -126,12 +133,12 @@ def make_files():
             this_model['dir_path'],
             f"3. Плохой - {repalce_for_name(this_model['name'])}.txt"
             )
-        
+
         to_html(data_list, template_dir, template_name_perfect, file_path_perfect)
         to_html(data_list, template_dir, template_name_good, file_path_good)
         to_html(data_list, template_dir, template_name_fail, file_path_fail)
-        bar.next()
-    bar.finish()
+        progress_bar.next()
+    progress_bar.finish()
     return True
 
 def make_small_files():
@@ -164,7 +171,7 @@ def make_small_files():
             this_model['dir_path'],
             f"2. Плохой - {repalce_for_name(this_model['name'])}.txt"
             )
-        
+
         to_html(data_list, template_dir, template_name_perfect, file_path_perfect)
         to_html(data_list, template_dir, template_name_good, file_path_good)
         to_html(data_list, template_dir, template_name_fail, file_path_fail)
@@ -233,5 +240,4 @@ def main():
         sys.exit(1)
 
 if __name__ == "__main__":
-    """Запуск основного тела программы"""
     main()
