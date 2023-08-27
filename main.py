@@ -79,6 +79,10 @@ class ModelObj:
         names_list = self.get_names_list()
         files_remove(names_list)
 
+    def rotate_images(self):
+        """Повернуть вертикальные изображения в папке на 90 градусов"""
+        flip_images(self.all_photos_dir)
+
 def make_files():
     """Make Files: создаем папки и файлы с описаниями объявлений"""
     logger.info('Создать папки и файлы с описаниями объявлений')
@@ -91,6 +95,12 @@ def delete_files():
     model_obj = ModelObj(model, detail_names)
     model_obj.remove_files()
 
+def rotate_images():
+    """Перевернуть вертикальные изображения в папке _All_Photos"""
+    logger.info('Перевернуть вертикальные изображения в папке _All_Photos')
+    model_obj = ModelObj(model, detail_names)
+    model_obj.rotate_images()
+
 def make_images():
     """Создать папки для изображений и переместить их туда"""
     data_list = get_models_from_dir(ModelObj(model, detail_names))
@@ -99,12 +109,6 @@ def make_images():
         in_dir = os.path.join(folder['dir_path'], IMG_ORIGINAL_NAME)
         out_dir = os.path.join(folder['dir_path'], IMG_RESIZED_NAME)
         resize_images(in_dir, out_dir, IMG_MAX_WIDTH)
-
-def rotate_images():
-    """Перевернуть вертикальные изображения в папке _All_Photos"""
-    logger.info('Перевернуть вертикальные изображения в папке _All_Photos')
-    model_obj = ModelObj(model, detail_names)
-    flip_images(model_obj.all_photos_dir)
 
 def make_small_files():
     """Make Files: создаем папки и файлы с описаниями объявлений"""
