@@ -15,6 +15,9 @@ class TestModelObj(unittest.TestCase):
         self.assertTrue(len(self.model_obj.keywords_string)>0)
         self.assertTrue(len(self.model_obj.state)>0)
         self.assertTrue(len(self.model_obj.names_dict)>0)
+        # Пути
+        self.assertTrue(len(self.model_obj.model_dir)>0)
+        self.assertTrue(len(self.model_obj.all_photos_dir)>0)
 
     def test_get_names_list(self):
         # Поля объектов модели заполнены
