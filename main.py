@@ -95,42 +95,6 @@ class ModelObj:
         """Создать xlsx-файл для импорта"""
         export_xlsx(self)
 
-def make_files():
-    """Make Files: создаем папки и файлы с описаниями объявлений"""
-    logger.info('Создать папки и файлы с описаниями объявлений')
-    model_obj = ModelObj(model, detail_names)
-    model_obj.create_files('text')
-
-def make_small_files():
-    """Make Small Files: создаем папки и файлы с описаниями объявлений"""
-    logger.info('Создать папки и файлы с описаниями объявлений')
-    model_obj = ModelObj(model, detail_names)
-    model_obj.create_files('simple')
-
-def delete_files():
-    """Delete Files: Удаляем пустые папки с ненужными файлами описаний"""
-    logger.info('Удалить пустые папки с ненужными файлами описаний')
-    model_obj = ModelObj(model, detail_names)
-    model_obj.remove_files()
-
-def rotate_images():
-    """Rotate Images: Перевернуть вертикальные изображения в папке _All_Photos"""
-    logger.info('Перевернуть вертикальные изображения в папке _All_Photos')
-    model_obj = ModelObj(model, detail_names)
-    model_obj.rotate_images()
-
-def make_images():
-    """Make Images: Создать папки для изображений и переместить их туда"""
-    logger.info('Создать папки для изображений и переместить их туда')
-    model_obj = ModelObj(model, detail_names)
-    model_obj.create_images()
-
-def export_to_xlsx():
-    """Make xlsx file"""
-    logger.info('Создать xlsx-файл для импорта')
-    model_obj = ModelObj(model, detail_names)
-    model_obj.create_xlsx_file()
-
 def main():
     """Набор параметров для разветвления программы"""
     parser = argparse.ArgumentParser(
@@ -151,18 +115,26 @@ def main():
                         help='Make export file')
 
     args = parser.parse_args()
+
+    model_obj = ModelObj(model, detail_names)
     if args.mf:
-        make_files()
+        logger.info('Создать папки и файлы с описаниями объявлений')
+        model_obj.create_files('simple')
     elif args.tf:
-        make_small_files()
+        logger.info('Создать папки и файлы с описаниями объявлений')
+        model_obj.create_files('text')
     elif args.df:
-        delete_files()
+        logger.info('Удалить пустые папки с ненужными файлами описаний')
+        model_obj.remove_files()
     elif args.mi:
-        make_images()
+        logger.info('Создать папки для изображений и переместить их туда')
+        model_obj.create_images()
     elif args.ri:
-        rotate_images()
+        logger.info('Перевернуть вертикальные изображения в папке _All_Photos')
+        model_obj.rotate_images()
     elif args.ex:
-        export_to_xlsx()
+        logger.info('Создать xlsx-файл для импорта')
+        model_obj.create_xlsx_file()
     else:
         parser.print_help(sys.stderr)
         sys.exit(1)
