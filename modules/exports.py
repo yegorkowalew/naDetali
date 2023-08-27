@@ -26,7 +26,7 @@ def make_folder(path):
     except FileExistsError as error:
         logger.warning(error)
 
-def file_generate(model_list):
+def files_generate(model_list):
     """Создает файлы експорта"""
     progress_bar = ChargingBar('Обработка:', max=len(model_list), suffix='%(index)d/%(max)d, %(elapsed)ds', color='green')
     for this_model in model_list:

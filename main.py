@@ -11,7 +11,7 @@ from settings import template_dir
 from settings import IMG_ORIGINAL_NAME, IMG_RESIZED_NAME, IMG_MAX_WIDTH
 from setup_names import detail_names
 from modules.helpers import repalce_for_name, mix_text, get_models_from_dir
-from modules.exports import to_html, make_folder, file_generate
+from modules.exports import to_html, make_folder, files_generate
 from modules.xlsx_helpers import get_export_db
 from modules.images import move_images_in_dir, resize_images, flip_images
 
@@ -74,7 +74,7 @@ class ModelObj:
         """Создает файлы и папки"""
         names_list = self.get_names_list()
         make_folder(self.all_photos_dir)
-        file_generate(names_list)
+        files_generate(names_list)
 
 def delete_folders():
     """Delete Folders: Удаляем пустые папки с ненужными файлами описаний"""
