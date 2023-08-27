@@ -87,3 +87,38 @@ def files_remove(model_list):
             shutil.rmtree(folder['dir_path'])
         progress_bar.next()
     progress_bar.finish()
+
+def get_html_text(lang, state):
+    templ_dir = 'templates'
+    file_loader = FileSystemLoader(templ_dir)
+    env = Environment(loader=file_loader)
+    # htmltemplate = env.get_template("html_template_ru.html")
+    # html_template_string = htmltemplate.render(name = "John")
+
+    if lang == 'rus':
+        if state == 'perfect':
+            htmltemplate = env.get_template("html_template_ru.html")
+            html_template_string = htmltemplate.render(name = "John")
+            return html_template_string
+        elif state == 'good':
+            htmltemplate = env.get_template("html_template_ru.html")
+            html_template_string = htmltemplate.render(name = "John")
+            return html_template_string
+        elif state == 'fail':
+            htmltemplate = env.get_template("html_template_ru.html")
+            html_template_string = htmltemplate.render(name = "John")
+            return html_template_string
+    if lang == 'ukr':
+        if state == 'perfect':
+            htmltemplate = env.get_template("html_template_ua.html")
+            html_template_string = htmltemplate.render(name = "John")
+            return html_template_string
+        elif state == 'good':
+            htmltemplate = env.get_template("html_template_ua.html")
+            html_template_string = htmltemplate.render(name = "John")
+            return html_template_string
+        elif state == 'fail':
+            htmltemplate = env.get_template("html_template_ua.html")
+            html_template_string = htmltemplate.render(name = "John")
+            return html_template_string
+    return None

@@ -14,6 +14,32 @@ def get_portal_link(s):
     logger.warning("Не найдена ссылка для портала: %s", s)
     return None
 
+def get_description(path):
+    """Получить цифру качества из пути к каталогу детали"""
+    if os.path.exists(path):
+        return os.listdir(path)[0].split('.')[0]
+    return None
+
+def get_html_description_rus(row):
+    """Получить цифру качества из пути к каталогу детали"""
+    if row['Описание'] == '1':
+        return row['html_description_perfect']
+    elif row['Описание'] == '2':
+        return row['html_description_good']
+    elif row['Описание'] == '3':
+        return row['html_description_fail']
+    return row['Описание']
+
+def get_html_description_ukr(row):
+    """Получить цифру качества из пути к каталогу детали"""
+    if row['Описание'] == '1':
+        return row['html_description_perfect_ua']
+    elif row['Описание'] == '2':
+        return row['html_description_good_ua']
+    elif row['Описание'] == '3':
+        return row['html_description_fail_ua']
+    return row['Описание']
+
 def get_export_db(in_df):
     """Генерирует датафрейм для сохранения в файл експорта
     db_columns: имена столбцов датафрейма
@@ -24,6 +50,8 @@ def get_export_db(in_df):
     ex_df['Название_позиции_укр'] = in_df['name_ua']
     ex_df['Поисковые_запросы'] = in_df['keywords']
     ex_df['Поисковые_запросы_укр'] = in_df['keywords_ua']
+    ex_df['Описание'] = in_df['dir_path']
+    ex_df['Описание_укр'] = in_df['dir_path']
     ex_df['Тип_товара'] = 'r'
     ex_df['Валюта'] = 'UAH'
     ex_df['Единица_измерения'] = 'шт.'
@@ -36,9 +64,20 @@ def get_export_db(in_df):
     ex_df['Адрес_подраздела'] = in_df['portal']
     # ex_df['Название_Характеристики'] = "Класс качества"
     # ex_df['Значение_Характеристики'] = "Original"
+    ex_df['html_description_perfect'] = in_df['html_description_perfect']
+    ex_df['html_description_good'] = in_df['html_description_good']
+    ex_df['html_description_fail'] = in_df['html_description_fail']
+    ex_df['html_description_perfect_ua'] = in_df['html_description_perfect_ua']
+    ex_df['html_description_good_ua'] = in_df['html_description_good_ua']
+    ex_df['html_description_fail_ua'] = in_df['html_description_fail_ua']
 
     # изменения в столбцах таблицы
     ex_df['Адрес_подраздела'] = ex_df['Адрес_подраздела'].apply(get_portal_link)
+    # Генерация описания
+    ex_df['Описание'] = ex_df['Описание'].apply(get_description)
+    ex_df['Описание_укр'] = ex_df['Описание_укр'].apply(get_description)
+    ex_df['Описание'] = ex_df.apply(get_html_description_rus, axis=1)
+    ex_df['Описание_укр'] = ex_df.apply(get_html_description_ukr, axis=1)
     return ex_df
 
 def export_xlsx(model_obj):

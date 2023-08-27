@@ -8,7 +8,7 @@ from settings import model, description, flaw, dir_path, all_photos_dir_name
 from settings import IMG_ORIGINAL_NAME, IMG_RESIZED_NAME, IMG_MAX_WIDTH
 from setup_names import detail_names
 from modules.helpers import repalce_for_name, mix_text, get_models_from_dir
-from modules.exports import make_folder, files_generate, files_remove
+from modules.exports import make_folder, files_generate, files_remove, get_html_text
 from modules.xlsx_helpers import export_xlsx
 from modules.images import move_images_in_dir, resize_images, flip_images
 
@@ -63,6 +63,14 @@ class ModelObj:
                 'keywords_ua':mix_text(item['keywords_ua'], model['keywords_string']),
                 'portal': item['portal'],
                 'dir_path': os.path.join(self.model_dir, repalce_for_name(item['name'])),
+
+                # хтмл текст для ексель таблиц
+                "html_description_perfect": get_html_text('rus', 'perfect'),
+                "html_description_good": get_html_text('rus', 'good'),
+                "html_description_fail": get_html_text('rus', 'fail'),
+                "html_description_perfect_ua": get_html_text('ukr', 'perfect'),
+                "html_description_good_ua": get_html_text('ukr', 'good'),
+                "html_description_fail_ua": get_html_text('ukr', 'fail'),
             }
             global_list.append(item_dict)
         return global_list
