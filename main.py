@@ -70,7 +70,7 @@ class ModelObj:
             global_list.append(item_dict)
         return global_list
 
-    def make_files(self):
+    def create_files(self):
         """Создает файлы и папки"""
         names_list = self.get_names_list()
         make_folder(self.all_photos_dir)
@@ -113,7 +113,7 @@ def make_files():
     """Make Files: создаем папки и файлы с описаниями объявлений"""
     logger.info('Создать папки и файлы с описаниями объявлений')
     model_obj = ModelObj(model, detail_names)
-    model_obj.make_files()
+    model_obj.create_files()
     return True
 
 def make_small_files():
