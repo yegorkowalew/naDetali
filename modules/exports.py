@@ -27,30 +27,40 @@ def make_folder(path):
     except FileExistsError as error:
         logger.warning(error)
 
-def files_generate(model_list):
+def files_generate(model_list, files_type):
     """Создает файлы експорта"""
-    progress_bar = ChargingBar('Обработка:', max=len(model_list), suffix='%(index)d/%(max)d, %(elapsed)ds', color='green')
+    progress_bar = ChargingBar(
+        'Обработка:',
+        max=len(model_list),
+        suffix='%(index)d/%(max)d, %(elapsed)ds',
+        color='green'
+    )
+    if files_type == 'simple':
+        template_name_perfect = 'simple_tamplate_perfect.txt'
+        template_name_good = 'simple_tamplate_good.txt'
+        template_name_fail = 'simple_tamplate_fail.txt'
+    else:
+        template_name_perfect = 'text_simple_tamplate_perfect.txt'
+        template_name_good = 'text_simple_tamplate_good.txt'
+        template_name_fail = 'text_simple_tamplate_fail.txt'
+
     for this_model in model_list:
         make_folder(this_model['dir_path'])
 
         data_list = {
             'model': this_model,
         }
-        template_name_perfect = 'simple_tamplate_perfect.txt'
-        template_name_good = 'simple_tamplate_good.txt'
-        template_name_fail = 'simple_tamplate_fail.txt'
-
         file_path_perfect = os.path.join(
             this_model['dir_path'],
-            f"1. Отличный - {repalce_for_name(this_model['name'])}.txt"
+            f"1. Отличный - {files_type} - {repalce_for_name(this_model['name'])}.txt"
             )
         file_path_good = os.path.join(
             this_model['dir_path'],
-            f"2. Нормальный - {repalce_for_name(this_model['name'])}.txt"
+            f"2. Нормальный - {files_type} - {repalce_for_name(this_model['name'])}.txt"
             )
         file_path_fail = os.path.join(
             this_model['dir_path'],
-            f"3. Плохой - {repalce_for_name(this_model['name'])}.txt"
+            f"3. Плохой - {files_type} - {repalce_for_name(this_model['name'])}.txt"
             )
 
         to_html(data_list, template_dir, template_name_perfect, file_path_perfect)
