@@ -2,16 +2,14 @@
 
 import os
 import sys
-import shutil
 import argparse
-from progress.bar import ChargingBar
 from settings import logger
 from settings import model, description, flaw, dir_path, all_photos_dir_name
 from settings import template_dir
 from settings import IMG_ORIGINAL_NAME, IMG_RESIZED_NAME, IMG_MAX_WIDTH
 from setup_names import detail_names
 from modules.helpers import repalce_for_name, mix_text, get_models_from_dir
-from modules.exports import to_html, make_folder, files_generate
+from modules.exports import to_html, make_folder, files_generate, files_remove
 from modules.xlsx_helpers import get_export_db
 from modules.images import move_images_in_dir, resize_images, flip_images
 
@@ -76,23 +74,22 @@ class ModelObj:
         make_folder(self.all_photos_dir)
         files_generate(names_list)
 
-def delete_folders():
-    """Delete Folders: Удаляем пустые папки с ненужными файлами описаний"""
+    def remove_files(self):
+        """Удаляет пустые файлы и папки"""
+        names_list = self.get_names_list()
+        files_remove(names_list)
+
+def make_files():
+    """Make Files: создаем папки и файлы с описаниями объявлений"""
+    logger.info('Создать папки и файлы с описаниями объявлений')
     model_obj = ModelObj(model, detail_names)
-    model_list = model_obj.get_names_list()
-    progress_bar = ChargingBar('Обработка:', max=len(model_list), suffix='%(index)d/%(max)d, %(elapsed)ds', color='green')
-    for folder in model_list:
-        flag = True
-        for folder_file in os.listdir(folder['dir_path']):
-            if '.jpg' in folder_file or '.jpeg' in folder_file or '.png' in folder_file or '.webp' in folder_file:
-                flag = False
-                break
-        if flag:
-            logger.info("Удаляю папку %s", folder['dir_path'])
-            shutil.rmtree(folder['dir_path'])
-        progress_bar.next()
-    progress_bar.finish()
-    return True
+    model_obj.create_files()
+
+def delete_files():
+    """Delete Files: Удаляем пустые папки с ненужными файлами описаний"""
+    logger.info('Удалить пустые папки с ненужными файлами описаний')
+    model_obj = ModelObj(model, detail_names)
+    model_obj.remove_files()
 
 def make_images():
     """Создать папки для изображений и переместить их туда"""
@@ -108,13 +105,6 @@ def rotate_images():
     logger.info('Перевернуть вертикальные изображения в папке _All_Photos')
     model_obj = ModelObj(model, detail_names)
     flip_images(model_obj.all_photos_dir)
-
-def make_files():
-    """Make Files: создаем папки и файлы с описаниями объявлений"""
-    logger.info('Создать папки и файлы с описаниями объявлений')
-    model_obj = ModelObj(model, detail_names)
-    model_obj.create_files()
-    return True
 
 def make_small_files():
     """Make Files: создаем папки и файлы с описаниями объявлений"""
@@ -203,7 +193,7 @@ def main():
     elif args.tf:
         make_small_files()
     elif args.df:
-        delete_folders()
+        delete_files()
     elif args.mi:
         make_images()
     elif args.ri:

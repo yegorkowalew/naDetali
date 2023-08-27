@@ -1,6 +1,7 @@
 """Copyright (c) 2023 Yegor Kowalew <kowalew.backup@gmail.com>"""
 
 import os
+import shutil
 from jinja2 import Environment, FileSystemLoader
 from progress.bar import ChargingBar
 from settings import logger, template_dir
@@ -55,5 +56,24 @@ def files_generate(model_list):
         to_html(data_list, template_dir, template_name_perfect, file_path_perfect)
         to_html(data_list, template_dir, template_name_good, file_path_good)
         to_html(data_list, template_dir, template_name_fail, file_path_fail)
+        progress_bar.next()
+    progress_bar.finish()
+
+def files_remove(model_list):
+    progress_bar = ChargingBar(
+        'Обработка:',
+        max=len(model_list),
+        suffix='%(index)d/%(max)d, %(elapsed)ds',
+        color='green'
+    )
+    for folder in model_list:
+        flag = True
+        for folder_file in os.listdir(folder['dir_path']):
+            if '.jpg' in folder_file or '.jpeg' in folder_file or '.png' in folder_file or '.webp' in folder_file:
+                flag = False
+                break
+        if flag:
+            logger.info("Удаляю папку %s", folder['dir_path'])
+            shutil.rmtree(folder['dir_path'])
         progress_bar.next()
     progress_bar.finish()
