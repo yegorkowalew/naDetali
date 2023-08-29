@@ -712,8 +712,8 @@ detail_names = [
         "name": 'Клавиатура %s нр' % (model_name),
         "name_ua": 'Клавіатура %s нр' % (model_name),
 
-        "description_small": f"Клавиатура ноутбука {model_name}, оригинальная, {state}, не работающая.",
-        "description_small_ua": f"Клавіатура ноутбука {model_name}, оригінальна, {state_ua} не працююча.",
+        "description_small": f"Клавиатура ноутбука {model_name}, оригинальная, {state}, не работающая",
+        "description_small_ua": f"Клавіатура ноутбука {model_name}, оригінальна, {state_ua} не працююча",
 
         "keywords": "клавиатура, клава, keyboard, клавиатура ноутбука, клавиатурный блок",
         "keywords_ua": "клавіатура, клава, keyboard, клавіатура ноутбука, клавіатурний блок",
