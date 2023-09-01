@@ -64,14 +64,15 @@ class ModelObj:
                 'portal': item['portal'],
                 'dir_path': os.path.join(self.model_dir, repalce_for_name(item['name'])),
 
-                # хтмл текст для ексель таблиц
-                "html_description_perfect": get_html_text('rus', 'perfect'),
-                "html_description_good": get_html_text('rus', 'good'),
-                "html_description_fail": get_html_text('rus', 'fail'),
-                "html_description_perfect_ua": get_html_text('ukr', 'perfect'),
-                "html_description_good_ua": get_html_text('ukr', 'good'),
-                "html_description_fail_ua": get_html_text('ukr', 'fail'),
             }
+            # хтмл текст для ексель таблиц
+            data_list = item_dict
+            item_dict["html_description_perfect"] = get_html_text('rus', 'perfect', data_list)
+            item_dict["html_description_good"] = get_html_text('rus', 'good', data_list)
+            item_dict["html_description_fail"] = get_html_text('rus', 'fail', data_list)
+            item_dict["html_description_perfect_ua"] = get_html_text('ukr', 'perfect', data_list)
+            item_dict["html_description_good_ua"] = get_html_text('ukr', 'good', data_list)
+            item_dict["html_description_fail_ua"] = get_html_text('ukr', 'fail', data_list)
             global_list.append(item_dict)
         return global_list
 

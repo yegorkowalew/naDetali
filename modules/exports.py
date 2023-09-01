@@ -88,37 +88,40 @@ def files_remove(model_list):
         progress_bar.next()
     progress_bar.finish()
 
-def get_html_text(lang, state):
+def get_html_text(lang, state, data_list):
     templ_dir = 'templates'
     file_loader = FileSystemLoader(templ_dir)
     env = Environment(loader=file_loader)
-    # htmltemplate = env.get_template("html_template_ru.html")
-    # html_template_string = htmltemplate.render(name = "John")
-
     if lang == 'rus':
         if state == 'perfect':
             htmltemplate = env.get_template("html_template_ru.html")
-            html_template_string = htmltemplate.render(name = "John")
+            data_list['state'] = 'perfect'
+            html_template_string = htmltemplate.render(data_list)
             return html_template_string
         elif state == 'good':
             htmltemplate = env.get_template("html_template_ru.html")
-            html_template_string = htmltemplate.render(name = "John")
+            data_list['state'] = 'good'
+            html_template_string = htmltemplate.render(data_list)
             return html_template_string
         elif state == 'fail':
             htmltemplate = env.get_template("html_template_ru.html")
-            html_template_string = htmltemplate.render(name = "John")
+            data_list['state'] = 'fail'
+            html_template_string = htmltemplate.render(data_list)
             return html_template_string
     if lang == 'ukr':
         if state == 'perfect':
             htmltemplate = env.get_template("html_template_ua.html")
-            html_template_string = htmltemplate.render(name = "John")
+            data_list['state'] = 'perfect'
+            html_template_string = htmltemplate.render(data_list)
             return html_template_string
         elif state == 'good':
             htmltemplate = env.get_template("html_template_ua.html")
-            html_template_string = htmltemplate.render(name = "John")
+            data_list['state'] = 'good'
+            html_template_string = htmltemplate.render(data_list)
             return html_template_string
         elif state == 'fail':
             htmltemplate = env.get_template("html_template_ua.html")
-            html_template_string = htmltemplate.render(name = "John")
+            data_list['state'] = 'fail'
+            html_template_string = htmltemplate.render(data_list)
             return html_template_string
     return None

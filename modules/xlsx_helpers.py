@@ -32,13 +32,13 @@ def get_html_description_rus(row):
 
 def get_html_description_ukr(row):
     """Получить цифру качества из пути к каталогу детали"""
-    if row['Описание'] == '1':
+    if row['Описание_укр'] == '1':
         return row['html_description_perfect_ua']
-    elif row['Описание'] == '2':
+    elif row['Описание_укр'] == '2':
         return row['html_description_good_ua']
-    elif row['Описание'] == '3':
+    elif row['Описание_укр'] == '3':
         return row['html_description_fail_ua']
-    return row['Описание']
+    return row['Описание_укр']
 
 def get_export_db(in_df):
     """Генерирует датафрейм для сохранения в файл експорта
@@ -78,6 +78,9 @@ def get_export_db(in_df):
     ex_df['Описание_укр'] = ex_df['Описание_укр'].apply(get_description)
     ex_df['Описание'] = ex_df.apply(get_html_description_rus, axis=1)
     ex_df['Описание_укр'] = ex_df.apply(get_html_description_ukr, axis=1)
+    ex_df.drop(columns=['html_description_perfect', 'html_description_good',
+    'html_description_fail', 'html_description_perfect_ua',
+    'html_description_good_ua', 'html_description_fail_ua'], axis=1, inplace=True)
     return ex_df
 
 def export_xlsx(model_obj):
