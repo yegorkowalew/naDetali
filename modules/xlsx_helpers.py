@@ -1,4 +1,6 @@
 import os
+from datetime import datetime
+from random import random
 import pandas as pd
 from modules.exports import make_folder
 from settings import logger
@@ -40,6 +42,12 @@ def get_html_description_ukr(row):
         return row['html_description_fail_ua']
     return row['Описание_укр']
 
+def get_time_rand_string(e):
+    """Генерация уникального ключа из даты и рандомного числа"""
+    this_datetime = datetime.now()
+    str_date_time = f'{this_datetime.strftime("%d%m%Y%H%M%S.%f")}.{str(random())}'
+    return str_date_time
+
 def get_export_db(in_df):
     """Генерирует датафрейм для сохранения в файл експорта
     db_columns: имена столбцов датафрейма
@@ -70,7 +78,8 @@ def get_export_db(in_df):
     ex_df['html_description_perfect_ua'] = in_df['html_description_perfect_ua']
     ex_df['html_description_good_ua'] = in_df['html_description_good_ua']
     ex_df['html_description_fail_ua'] = in_df['html_description_fail_ua']
-
+    # генерация поля Уникальный_идентификатор
+    ex_df['Идентификатор_товара'] = ex_df['Идентификатор_товара'].apply(get_time_rand_string)
     # изменения в столбцах таблицы
     ex_df['Адрес_подраздела'] = ex_df['Адрес_подраздела'].apply(get_portal_link)
     # Генерация описания
@@ -99,8 +108,12 @@ def export_xlsx(model_obj):
     make_folder(export_path)
 
     ex_df = get_export_db(in_df)
+    this_datetime = datetime.now()
+    vendor_repl = model_obj.vendor.replace(' ', '_')
+    model_repl = model_obj.model.replace(' ', '_')
+    file_name_date = this_datetime.strftime('%d_%m_%Y_%H_%M')
     ex_df.to_excel(
         os.path.join(export_path,
-        f"{model_obj.vendor} {model_obj.model} export.xlsx"),
+        f"{vendor_repl}_{model_repl}_{file_name_date}.xlsx"),
         index= False,
         sheet_name= "Export Products Sheet")
