@@ -113,6 +113,8 @@ def get_export_db(in_df):
         ex_df.rename(columns={f"Название_Характеристики_{iter_num}": "Название_Характеристики"}, inplace=True)
         ex_df.rename(columns={f"Измерение_Характеристики_{iter_num}": "Измерение_Характеристики"}, inplace=True)
         ex_df.rename(columns={f"Значение_Характеристики_{iter_num}": "Значение_Характеристики"}, inplace=True)
+
+    ex_df["Цена"] = in_df["default_price"]
     return ex_df
 
 def export_xlsx(model_obj):
