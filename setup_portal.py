@@ -52,4 +52,8 @@ portal_names = [
         "portal": "Матрицы для ноутбуков, планшетов и мониторов",
         "portal_link": "https://prom.ua/Matritsy-dlya-noutbukov-i-netbukov",
     },
+    {
+        "portal": "Зарядные устройства для ноутбуков",
+        "portal_link": "https://prom.ua/ua/Bloki-pitaniya-dlya-noutbukov-i-netbukov",
+    },
 ]
