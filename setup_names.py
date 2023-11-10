@@ -799,8 +799,8 @@ detail_names = [
         "default_price":270,
     },
     {
-        "name": 'Панель тачпада (трекпада) %s' % (model_name),
-        "name_ua": 'Панель тачпада (трекпада) %s' % (model_name),
+        "name": 'Панель тачпада %s (палмрест)' % (model_name),
+        "name_ua": 'Панель тачпада %s (палмрест)' % (model_name),
 
         "description_small": f"Панель тачпада к ноутбуку {model_name}, оригинальная, {state}",
         "description_small_ua": f"Панель тачпада до ноутбука {model_name}, оригінальна, {state_ua}",
@@ -4262,6 +4262,46 @@ detail_names = [
         "default_price":190,
     },
     {
+        "name": 'Антенна Wi-Fi %s' % (model_name),
+        "name_ua": 'Антена Wi-Fi %s' % (model_name),
+
+        "description_small": f"Комплект антенн Wi-Fi к ноутбуку {model_name}, оригинальные, {state}",
+        "description_small_ua": f"Комплект антен Wi-Fi до ноутбука {model_name}, оригінальні, {state_ua}",
+
+        "keywords": "антенна Wi-Fi, антенна, wi-fi, wifi",
+        "keywords_ua": "антена Wi-Fi, антена, wi-fi, wifi",
+        "portal": "Шлейфы и разъемы для ноутбуков, компьютеров, планшетов",
+        
+        "description_perfect": "",
+        "description_good": "",
+        "description_fail": "",
+
+        "description_perfect_ua": "",
+        "description_good_ua": "",
+        "description_fail_ua": "",
+
+        "flaw_perfect": "При осмотре недостатков не обнаружено.",
+        "flaw_good": "При осмотре недостатков не обнаружено.",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "При огляді камери недоліків не виявлено.",
+        "flaw_good_ua": "При огляді камери недоліків не виявлено.",
+        "flaw_fail_ua": "",
+
+        "Название_Характеристики_1":"Производитель",
+        "Название_Характеристики_2":"Страна производитель",
+        "Название_Характеристики_3":"Состояние",
+        "Название_Характеристики_4":"Класс качества",
+        "Название_Характеристики_5":"Назначение",
+        "Значение_Характеристики_1":vendor,
+        "Значение_Характеристики_2":manufacturer_country,
+        "Значение_Характеристики_3":state,
+        "Значение_Характеристики_4":quality_class,
+        "Значение_Характеристики_5":purpose,
+
+        "default_price":90,
+    },
+    {
         "name": 'Антенна Wi-Fi левая %s' % (model_name),
         "name_ua": 'Антена Wi-Fi ліва %s' % (model_name),
 
@@ -4280,12 +4320,12 @@ detail_names = [
         "description_good_ua": "",
         "description_fail_ua": "",
 
-        "flaw_perfect": "",
-        "flaw_good": "",
+        "flaw_perfect": "При осмотре недостатков не обнаружено.",
+        "flaw_good": "При осмотре недостатков не обнаружено.",
         "flaw_fail": "",
 
-        "flaw_perfect_ua": "",
-        "flaw_good_ua": "",
+        "flaw_perfect_ua": "При огляді камери недоліків не виявлено.",
+        "flaw_good_ua": "При огляді камери недоліків не виявлено.",
         "flaw_fail_ua": "",
 
         "Название_Характеристики_1":"Производитель",
@@ -4320,12 +4360,12 @@ detail_names = [
         "description_good_ua": "",
         "description_fail_ua": "",
 
-        "flaw_perfect": "",
-        "flaw_good": "",
+        "flaw_perfect": "При осмотре недостатков не обнаружено.",
+        "flaw_good": "При осмотре недостатков не обнаружено.",
         "flaw_fail": "",
 
-        "flaw_perfect_ua": "",
-        "flaw_good_ua": "",
+        "flaw_perfect_ua": "При огляді камери недоліків не виявлено.",
+        "flaw_good_ua": "При огляді камери недоліків не виявлено.",
         "flaw_fail_ua": "",
 
         "Название_Характеристики_1":"Производитель",
