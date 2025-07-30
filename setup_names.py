@@ -1,4 +1,7 @@
 from settings import model
+from settings import hdd
+
+
 vendor = model['vendor']
 manufacturer_country = model['manufacturer_country']
 quality_class = model['quality_class']
@@ -11,11 +14,107 @@ purpose = model['purpose']
 platform = model['platform']
 model = model['model']
 
+hdd_brand = hdd['hdd_brand']
+hdd_model = hdd['hdd_model']
+hdd_size = hdd['hdd_size']
+
 state = "Б/У"
 state_ua = "Б/В"
 model_name = f"{vendor} {model}"
 
 detail_names = [
+    {
+        "name": f"HDD 2.5 {hdd_size}Gb SATA {hdd_brand} {hdd_model}",
+        "name_ua": f"HDD 2.5 {hdd_size}Gb SATA {hdd_brand} {hdd_model}",
+
+        "description_small": f"HDD (винчестер, НЖМД, жесткий диск), 2.5 {hdd_size}Gb SATA {hdd_brand} {hdd_model}, снятый с ноутбука {model_name}, оригинальный, {state}",
+        "description_small_ua": f"HDD (вінчестер, НЖМД, жорсткий диск), 2.5 {hdd_size}Gb SATA {hdd_brand} {hdd_model}, знятий з ноутбуку {model_name}, оригінальний, {state_ua}",
+
+        "keywords": "hdd, винчестер, нжмд, жесткий диск, SATA",
+        "keywords_ua": "hdd, вінчестер, нжмд, жорсткий диск, SATA",
+        "portal": "Части корпуса ноутбука",
+        
+        "description_perfect": "Рабочий, проверен, протестирован программой Victoria.",
+        "description_good": "Рабочий, проверен, протестирован программой Victoria.",
+        "description_fail": "Рабочий, проверен, протестирован программой Victoria.",
+
+        "description_perfect_ua": "Робочий, перевірений, протестований програмою Victoria.",
+        "description_good_ua": "Робочий, перевірений, протестований програмою Victoria.",
+        "description_fail_ua": "Робочий, перевірений, протестований програмою Victoria.",
+
+        "flaw_perfect": "Недостатков не обнаружено.",
+        "flaw_good": "Недостатков не обнаружено.",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "Недоліків не виявлено.",
+        "flaw_good_ua": "Недоліків не виявлено.",
+        "flaw_fail_ua": "",
+
+        "Название_Характеристики_1":"Производитель",
+        "Название_Характеристики_2":"Тип диска",
+        "Название_Характеристики_3":"Состояние",
+        "Название_Характеристики_4":"Класс качества",
+        "Название_Характеристики_5":"Назначение",
+        "Название_Характеристики_6":"Вид",
+        "Название_Характеристики_7":"Объем накопителя (GB)",
+        "Название_Характеристики_8":"Форм-фактор",
+        "Значение_Характеристики_1":hdd_brand,
+        "Значение_Характеристики_2":"HDD",
+        "Значение_Характеристики_3":state,
+        "Значение_Характеристики_4":quality_class,
+        "Значение_Характеристики_5":"Для ноутбука",
+        "Значение_Характеристики_6":"Внутренний",
+        "Значение_Характеристики_7":hdd_size,
+        "Значение_Характеристики_8":'2.5"',
+
+        "default_price":8900,
+    },
+    {
+        "name": f"HDD 2.5 {hdd_size}Gb IDE {hdd_brand} {hdd_model}",
+        "name_ua": f"HDD 2.5 {hdd_size}Gb IDE {hdd_brand} {hdd_model}",
+
+        "description_small": f"HDD (винчестер, НЖМД, жесткий диск), 2.5 {hdd_size}Gb IDE {hdd_brand} {hdd_model}, снятый с ноутбука {model_name}, оригинальный, {state}",
+        "description_small_ua": f"HDD (вінчестер, НЖМД, жорсткий диск), 2.5 {hdd_size}Gb IDE {hdd_brand} {hdd_model}, знятий з ноутбуку {model_name}, оригінальний, {state_ua}",
+
+        "keywords": "hdd, винчестер, нжмд, жесткий диск, ide",
+        "keywords_ua": "hdd, вінчестер, нжмд, жорсткий диск, ide",
+        "portal": "Части корпуса ноутбука",
+        
+        "description_perfect": "Рабочий, проверен, протестирован программой Victoria.",
+        "description_good": "Рабочий, проверен, протестирован программой Victoria.",
+        "description_fail": "Рабочий, проверен, протестирован программой Victoria.",
+
+        "description_perfect_ua": "Робочий, перевірений, протестований програмою Victoria.",
+        "description_good_ua": "Робочий, перевірений, протестований програмою Victoria.",
+        "description_fail_ua": "Робочий, перевірений, протестований програмою Victoria.",
+
+        "flaw_perfect": "Недостатков не обнаружено.",
+        "flaw_good": "Недостатков не обнаружено.",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "Недоліків не виявлено.",
+        "flaw_good_ua": "Недоліків не виявлено.",
+        "flaw_fail_ua": "",
+
+        "Название_Характеристики_1":"Производитель",
+        "Название_Характеристики_2":"Тип диска",
+        "Название_Характеристики_3":"Состояние",
+        "Название_Характеристики_4":"Класс качества",
+        "Название_Характеристики_5":"Назначение",
+        "Название_Характеристики_6":"Вид",
+        "Название_Характеристики_7":"Объем накопителя (GB)",
+        "Название_Характеристики_8":"Форм-фактор",
+        "Значение_Характеристики_1":hdd_brand,
+        "Значение_Характеристики_2":"HDD",
+        "Значение_Характеристики_3":state,
+        "Значение_Характеристики_4":quality_class,
+        "Значение_Характеристики_5":"Для ноутбука",
+        "Значение_Характеристики_6":"Внутренний",
+        "Значение_Характеристики_7":hdd_size,
+        "Значение_Характеристики_8":'2.5"',
+
+        "default_price":8900,
+    },
     {
         "name": 'Петли %s (левая и правая)' % (model_name),
         "name_ua": 'Петлі %s (ліва та права)' % (model_name),
@@ -36,11 +135,11 @@ detail_names = [
         "description_fail_ua": "Петлі почищені, згинаються-розгинаються нормально. Ліва та права петля продаються разом.",
 
         "flaw_perfect": "",
-        "flaw_good": "Недостатков не обнаружено.",
+        "flaw_good": "При осмотре и проверке недостатков не обнаружено.",
         "flaw_fail": "",
 
         "flaw_perfect_ua": "",
-        "flaw_good_ua": "",
+        "flaw_good_ua": "При огляді та перевірці недоліків не виявлено.",
         "flaw_fail_ua": "",
 
         "Название_Характеристики_1":"Производитель",
@@ -60,11 +159,11 @@ detail_names = [
         "Значение_Характеристики_7":"Петли матрицы",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":180,
+        "default_price":1800,
     },
     {
-        "name": 'Петля левая (петли) %s' % (model_name),
-        "name_ua": 'Петля ліва (петлі) %s' % (model_name),
+        "name": 'Петля левая %s' % (model_name),
+        "name_ua": 'Петля ліва %s' % (model_name),
 
         "description_small": f"Петля левая к ноутбуку {model_name}, оригинальная, {state}",
         "description_small_ua": f"Петля ліва до ноутбуку, {model_name}, оригінальна, {state_ua}",
@@ -106,11 +205,11 @@ detail_names = [
         "Значение_Характеристики_7":"Петли матрицы",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":80,
+        "default_price":800,
     },
     {
-        "name": 'Петля правая (петли) %s' % (model_name),
-        "name_ua": 'Петля права (петлі) %s' % (model_name),
+        "name": 'Петля правая %s' % (model_name),
+        "name_ua": 'Петля права %s' % (model_name),
 
         "description_small": f"Петля правая к ноутбуку {model_name}, оригинальная, {state}",
         "description_small_ua": f"Петля права до ноутбуку, {model_name}, оригінальна, {state_ua}",
@@ -152,7 +251,7 @@ detail_names = [
         "Значение_Характеристики_7":"Петли матрицы",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":80,
+        "default_price":800,
     },
     {
         "name": 'Нижняя часть корпуса %s (низ, дно, поддон, корыто)' % (model_name),
@@ -198,7 +297,7 @@ detail_names = [
         "Значение_Характеристики_7":"Нижняя крышка базы",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":290,
+        "default_price":2900,
     },
     {
         "name": 'Накладка на разъёмы %s' % (model_name),
@@ -244,7 +343,7 @@ detail_names = [
         "Значение_Характеристики_7":"Нижняя крышка базы",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Рама корпуса %s' % (model_name),
@@ -290,7 +389,7 @@ detail_names = [
         "Значение_Характеристики_7":"Нижняя крышка базы",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":0,
+        "default_price":900,
     },
     {
         "name": 'Панель поддержки клавиатуры %s' % (model_name),
@@ -312,11 +411,11 @@ detail_names = [
         "description_fail_ua": "Всі кріплення цілі.",
 
         "flaw_perfect": "",
-        "flaw_good": "",
+        "flaw_good": "Недостатков не обнаружено.",
         "flaw_fail": "",
 
         "flaw_perfect_ua": "",
-        "flaw_good_ua": "",
+        "flaw_good_ua": "Недоліків не виявлено.",
         "flaw_fail_ua": "",
 
         "Название_Характеристики_1":"Производитель",
@@ -336,7 +435,7 @@ detail_names = [
         "Значение_Характеристики_7":"Нижняя крышка базы",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":0,
+        "default_price":900,
     },
     {
         "name": 'Крышка матрицы %s (крышка экрана, дисплея)' % (model_name),
@@ -353,9 +452,9 @@ detail_names = [
         "description_good": "Все крепления и резьбы целые. Крышка матрицы вымыта и почищена.",
         "description_fail": "Все крепления и резьбы целые. Крышка матрицы вымыта и почищена.",
 
-        "description_perfect_ua": "Всі кріплення та різьби цілі. Кришка матриці вымита та почищена.",
-        "description_good_ua": "Всі кріплення та різьби цілі. Кришка матриці вымита та почищена.",
-        "description_fail_ua": "Всі кріплення та різьби цілі. Кришка матриці вымита та почищена.",
+        "description_perfect_ua": "Всі кріплення та різьби цілі. Кришка матриці вимита та почищена.",
+        "description_good_ua": "Всі кріплення та різьби цілі. Кришка матриці вимита та почищена.",
+        "description_fail_ua": "Всі кріплення та різьби цілі. Кришка матриці вимита та почищена.",
 
         "flaw_perfect": "",
         "flaw_good": "При осмотре обнаружены мелкие царапины, потертости. На функціональность детали никак не влияет.",
@@ -382,7 +481,7 @@ detail_names = [
         "Значение_Характеристики_7":"Крышка экрана",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Рамка матрицы (дисплея) %s' % (model_name),
@@ -428,7 +527,53 @@ detail_names = [
         "Значение_Характеристики_7":"Рамка экрана",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":190,
+        "default_price":1900,
+    },
+    {
+        "name": 'Панель матрицы (дисплея) %s' % (model_name),
+        "name_ua": 'Панель матриці (дисплею) %s' % (model_name),
+
+        "description_small": f"Панель матрицы к ноутбуку {model_name}, оригинальная, {state}",
+        "description_small_ua": f"Панель матриці до ноутбуку {model_name}, оригінальна, {state_ua}",
+
+        "keywords": "панель матрицы, панель экрана, панель дисплея",
+        "keywords_ua": "панель матриці, панель екрану, панель дисплея, панель дисплею",
+        "portal": "Части корпуса ноутбука",
+        
+        "description_perfect": "Все крепления целые. Панель матрицы вымыта и почищена.",
+        "description_good": "Все крепления целые. Панель матрицы вымыта и почищена.",
+        "description_fail": "Все крепления целые. Панель матрицы вымыта и почищена.",
+
+        "description_perfect_ua": "Всі кріплення цілі. Панель матриці вимита та почищена.",
+        "description_good_ua": "Всі кріплення цілі. Панель матриці вимита та почищена.",
+        "description_fail_ua": "Всі кріплення цілі. Панель матриці вимита та почищена.",
+
+        "flaw_perfect": "",
+        "flaw_good": "При осмотре обнаружены мелкие царапины, потертости. На функциональность детали никак не влияет.",
+        "flaw_fail": "При осмотре обнаружены мелкие царапины, потертости. На функциональность детали никак не влияет.",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "При огляді виявлені мілкі царапки, потертості. На функціональність деталі ніяк не впливає.",
+        "flaw_fail_ua": "При огляді виявлені мілкі царапки, потертості. На функціональність деталі ніяк не впливає.",
+
+        "Название_Характеристики_1":"Производитель",
+        "Название_Характеристики_2":"Страна производитель",
+        "Название_Характеристики_3":"Состояние",
+        "Название_Характеристики_4":"Класс качества",
+        "Название_Характеристики_5":"Цвет",
+        "Название_Характеристики_6":"Совместимость с брендом",
+        "Название_Характеристики_7":"Комплектующие",
+        "Название_Характеристики_8":"Материал",
+        "Значение_Характеристики_1":vendor,
+        "Значение_Характеристики_2":manufacturer_country,
+        "Значение_Характеристики_3":state,
+        "Значение_Характеристики_4":quality_class,
+        "Значение_Характеристики_5":color,
+        "Значение_Характеристики_6":brand_compatibility,
+        "Значение_Характеристики_7":"Рамка экрана",
+        "Значение_Характеристики_8":housing_material,
+
+        "default_price":1400,
     },
     {
         "name": 'Декоративные накладки матрицы (дисплея) %s' % (model_name),
@@ -474,7 +619,7 @@ detail_names = [
         "Значение_Характеристики_7":"Рамка экрана",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Панель с кнопками %s' % (model_name),
@@ -520,7 +665,7 @@ detail_names = [
         "Значение_Характеристики_7":"Панель с кнопками",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Панель кнопки включения %s (вкл/выкл)' % (model_name),
@@ -566,7 +711,7 @@ detail_names = [
         "Значение_Характеристики_7":"Панель с кнопками",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Заглушки (крышки) петель %s' % (model_name),
@@ -612,7 +757,7 @@ detail_names = [
         "Значение_Характеристики_7":"Крышки петель",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Накладка на петли %s' % (model_name),
@@ -658,7 +803,7 @@ detail_names = [
         "Значение_Характеристики_7":"Крышки петель",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Накладка на петли, левая %s' % (model_name),
@@ -704,7 +849,7 @@ detail_names = [
         "Значение_Характеристики_7":"Крышки петель",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":70,
+        "default_price":700,
     },
     {
         "name": 'Накладка на петли, правая %s' % (model_name),
@@ -750,7 +895,7 @@ detail_names = [
         "Значение_Характеристики_7":"Крышки петель",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":70,
+        "default_price":700,
     },
     {
         "name": 'Тачпад (трекпад) %s (touchpad)' % (model_name),
@@ -796,7 +941,7 @@ detail_names = [
         "Значение_Характеристики_7":"Тачпад",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":270,
+        "default_price":2700,
     },
     {
         "name": 'Панель тачпада %s (палмрест)' % (model_name),
@@ -809,9 +954,9 @@ detail_names = [
         "keywords_ua": "панель тачпада, тачпад, touchpad",
         "portal": "Части корпуса ноутбука",
         
-        "description_perfect": "Панель вымита и почищена.",
-        "description_good": "Панель вымита и почищена.",
-        "description_fail": "Панель вымита и почищена.",
+        "description_perfect": "Панель вымыта и почищена.",
+        "description_good": "Панель вымыта и почищена.",
+        "description_fail": "Панель вымыта и почищена.",
 
         "description_perfect_ua": "Панель вимита та почищена.",
         "description_good_ua": "Панель вимита та почищена.",
@@ -842,7 +987,7 @@ detail_names = [
         "Значение_Характеристики_7":"Верхняя крышка базы",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":270,
+        "default_price":2700,
     },
     {
         "name": 'Плата, шлейф, кнопки тачпада %s (touchpad)' % (model_name),
@@ -856,19 +1001,19 @@ detail_names = [
         "portal": "Адаптеры и платы расширения портов",
         
         "description_perfect": "",
-        "description_good": "",
+        "description_good": "Кнопки работают. Контактные дорожки шлейфа целые.",
         "description_fail": "",
 
         "description_perfect_ua": "",
-        "description_good_ua": "",
+        "description_good_ua": "Кнопки працюють. Контактні дорожки шлейфа цілі.",
         "description_fail_ua": "",
 
         "flaw_perfect": "",
-        "flaw_good": "",
+        "flaw_good": "Недостатков не обнаружено.",
         "flaw_fail": "",
 
         "flaw_perfect_ua": "",
-        "flaw_good_ua": "",
+        "flaw_good_ua": "Недоліків не виявлено.",
         "flaw_fail_ua": "",
 
         "Название_Характеристики_1":"Производитель",
@@ -880,7 +1025,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":170,
+        "default_price":1700,
     },
     {
         "name": 'Плата, кнопки тачпада %s (touchpad)' % (model_name),
@@ -902,11 +1047,11 @@ detail_names = [
         "description_fail_ua": "",
 
         "flaw_perfect": "",
-        "flaw_good": "",
+        "flaw_good": "Недостатков не обнаружено.",
         "flaw_fail": "",
 
         "flaw_perfect_ua": "",
-        "flaw_good_ua": "",
+        "flaw_good_ua": "Недоліків не виявлено.",
         "flaw_fail_ua": "",
 
         "Название_Характеристики_1":"Производитель",
@@ -918,7 +1063,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":120,
+        "default_price":1200,
     },
     {
         "name": 'Сервисная крышка корпуса %s' % (model_name),
@@ -964,7 +1109,53 @@ detail_names = [
         "Значение_Характеристики_7":"Сервисная крышка",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":90,
+        "default_price":900,
+    },
+    {
+        "name": 'Холдер для стилуса %s' % (model_name),
+        "name_ua": 'Холдер для стилусу %s' % (model_name),
+
+        "description_small": f"Холдер для стилуса к ноутбуку {model_name}, оригинальный, {state}",
+        "description_small_ua": f"Холдер для стилусу до нутбуку {model_name}, оригінальний, {state_ua}",
+
+        "keywords": "холдер, карман, корпус",
+        "keywords_ua": "холдер, карман, корпус",
+        "portal": "Части корпуса ноутбука",
+        
+        "description_perfect": "",
+        "description_good": "",
+        "description_fail": "",
+
+        "description_perfect_ua": "",
+        "description_good_ua": "",
+        "description_fail_ua": "",
+
+        "flaw_perfect": "",
+        "flaw_good": "Недостатков не обнаружено.",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "Недоліків не виявлено",
+        "flaw_fail_ua": "",
+
+        "Название_Характеристики_1":"Производитель",
+        "Название_Характеристики_2":"Страна производитель",
+        "Название_Характеристики_3":"Состояние",
+        "Название_Характеристики_4":"Класс качества",
+        "Название_Характеристики_5":"Цвет",
+        "Название_Характеристики_6":"Совместимость с брендом",
+        "Название_Характеристики_7":"Комплектующие",
+        "Название_Характеристики_8":"Материал",
+        "Значение_Характеристики_1":vendor,
+        "Значение_Характеристики_2":manufacturer_country,
+        "Значение_Характеристики_3":state,
+        "Значение_Характеристики_4":quality_class,
+        "Значение_Характеристики_5":color,
+        "Значение_Характеристики_6":brand_compatibility,
+        "Значение_Характеристики_7":"Сервисная крышка",
+        "Значение_Характеристики_8":housing_material,
+
+        "default_price":900,
     },
     {
         "name": 'Сервисная крышка батареи %s' % (model_name),
@@ -1010,7 +1201,7 @@ detail_names = [
         "Значение_Характеристики_7":"Сервисная крышка",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Сервисная крышка HDD/SSD %s' % (model_name),
@@ -1056,7 +1247,7 @@ detail_names = [
         "Значение_Характеристики_7":"Сервисная крышка",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Сервисная крышка HDD/SSD 1 %s' % (model_name),
@@ -1102,7 +1293,7 @@ detail_names = [
         "Значение_Характеристики_7":"Сервисная крышка",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Сервисная крышка HDD/SSD 2 %s' % (model_name),
@@ -1148,7 +1339,7 @@ detail_names = [
         "Значение_Характеристики_7":"Сервисная крышка",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Сервисная крышка память, ОЗУ, RAM %s' % (model_name),
@@ -1194,7 +1385,7 @@ detail_names = [
         "Значение_Характеристики_7":"Сервисная крышка",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Сервисная крышка охлаждение %s' % (model_name),
@@ -1240,7 +1431,7 @@ detail_names = [
         "Значение_Характеристики_7":"Сервисная крышка",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Сервисная крышка блютуз %s' % (model_name),
@@ -1286,11 +1477,11 @@ detail_names = [
         "Значение_Характеристики_7":"Сервисная крышка",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":90,
+        "default_price":900,
     },
     {
-        "name": 'Клавиатура %s' % (model_name),
-        "name_ua": 'Клавіатура %s' % (model_name),
+        "name": 'Клавиатура ноутбука %s' % (model_name),
+        "name_ua": 'Клавіатура ноутбуку %s' % (model_name),
 
         "description_small": f"Клавиатура ноутбука {model_name}, оригинальная, {state}",
         "description_small_ua": f"Клавіатура ноутбука {model_name}, оригінальна, {state_ua}",
@@ -1308,11 +1499,11 @@ detail_names = [
         "description_fail_ua": "Всі кріплення та різьби цілі. Клавіатура вимита, почищена, протестована спеціальним прибором. Всі кнопки працюють та не мають хрусту.",
 
         "flaw_perfect": "",
-        "flaw_good": "",
+        "flaw_good": "Недостатков не обнаружено.",
         "flaw_fail": "",
 
         "flaw_perfect_ua": "",
-        "flaw_good_ua": "",
+        "flaw_good_ua": "Недоліків не виявлено",
         "flaw_fail_ua": "",
 
         "Название_Характеристики_1":"Производитель",
@@ -1323,6 +1514,7 @@ detail_names = [
         "Название_Характеристики_6":"Совместимость с брендом",
         "Название_Характеристики_7":"Поверхность",
         "Название_Характеристики_8":"Раскладка клавиатуры",
+        "Название_Характеристики_9":"Вид запчасти",
         "Значение_Характеристики_1":vendor,
         "Значение_Характеристики_2":manufacturer_country,
         "Значение_Характеристики_3":state,
@@ -1331,8 +1523,9 @@ detail_names = [
         "Значение_Характеристики_6":brand_compatibility,
         "Значение_Характеристики_7":surface,
         "Значение_Характеристики_8":keyboard_layout,
+        "Значение_Характеристики_9":"Клавиатура для ноутбуков",
 
-        "default_price":490,
+        "default_price":4900,
     },
     {
         "name": 'Клавиатура %s нр' % (model_name),
@@ -1378,7 +1571,7 @@ detail_names = [
         "Значение_Характеристики_7":surface,
         "Значение_Характеристики_8":keyboard_layout,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Рамка клавиатуры %s' % (model_name),
@@ -1424,7 +1617,7 @@ detail_names = [
         "Значение_Характеристики_7":"Верхняя крышка базы",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":120,
+        "default_price":1200,
     },
     {
         "name": 'Шлейф клавиатуры %s (keyboard)' % (model_name),
@@ -1464,7 +1657,7 @@ detail_names = [
         "Значение_Характеристики_4":quality_class,
         "Значение_Характеристики_5":purpose,
 
-        "default_price":90,
+        "default_price":900,
     },
 
     {
@@ -1479,19 +1672,19 @@ detail_names = [
         "portal": "Материнские платы",
         
         "description_perfect": "",
-        "description_good": "",
+        "description_good": "Материнская плата снята с рабочего ноутбука, прошла нагрузочные тесты программой AIDA.",
         "description_fail": "",
 
         "description_perfect_ua": "",
-        "description_good_ua": "",
+        "description_good_ua": "Материнська плата знята з працюючого ноутбуку, пройшла тести програмою AIDA.",
         "description_fail_ua": "",
 
         "flaw_perfect": "",
-        "flaw_good": "",
+        "flaw_good": "При осмотре и тестировании недостатков не обнаружено.",
         "flaw_fail": "",
 
         "flaw_perfect_ua": "",
-        "flaw_good_ua": "",
+        "flaw_good_ua": "При огляді та тестуванні недоліків не виявлено.",
         "flaw_fail_ua": "",
 
         "Название_Характеристики_1":"Производитель",
@@ -1507,7 +1700,7 @@ detail_names = [
         "Значение_Характеристики_5":purpose,
         "Значение_Характеристики_6":platform,
 
-        "default_price":1990,
+        "default_price":19900,
     },
     {
         "name": 'Материнская плата %s (Системная плата, нр)' % (model_name),
@@ -1549,7 +1742,7 @@ detail_names = [
         "Значение_Характеристики_5":purpose,
         "Значение_Характеристики_6":platform,
 
-        "default_price":290,
+        "default_price":2900,
     },
     {
         "name": 'Кулер, вентилятор %s (FAN)' % (model_name),
@@ -1589,7 +1782,7 @@ detail_names = [
         "Значение_Характеристики_4":quality_class,
         "Значение_Характеристики_5":"Активное охлаждение",
 
-        "default_price":290,
+        "default_price":2900,
     },
     {
         "name": 'Кулер, вентилятор для процессора %s (FAN)' % (model_name),
@@ -1629,7 +1822,7 @@ detail_names = [
         "Значение_Характеристики_4":quality_class,
         "Значение_Характеристики_5":"Активное охлаждение",
 
-        "default_price":290,
+        "default_price":2900,
     },
     {
         "name": 'Кулер, вентилятор для видеокарты %s (FAN)' % (model_name),
@@ -1669,7 +1862,7 @@ detail_names = [
         "Значение_Характеристики_4":quality_class,
         "Значение_Характеристики_5":"Активное охлаждение",
 
-        "default_price":290,
+        "default_price":2900,
     },
     {
         "name": 'Система охлаждения, термотрубка %s DIS' % (model_name),
@@ -1691,11 +1884,11 @@ detail_names = [
         "description_fail_ua": "",
 
         "flaw_perfect": "",
-        "flaw_good": "",
+        "flaw_good": "Недостатков не обнаружено.",
         "flaw_fail": "",
 
         "flaw_perfect_ua": "",
-        "flaw_good_ua": "",
+        "flaw_good_ua": "Недоліків не виявлено.",
         "flaw_fail_ua": "",
 
         "Название_Характеристики_1":"Производитель",
@@ -1713,7 +1906,7 @@ detail_names = [
         "Значение_Характеристики_6":"",
         "Значение_Характеристики_7":"",
 
-        "default_price":290,
+        "default_price":2900,
     },
     {
         "name": 'Система охлаждения, термотрубка %s UMA' % (model_name),
@@ -1757,7 +1950,7 @@ detail_names = [
         "Значение_Характеристики_6":"",
         "Значение_Характеристики_7":"",
 
-        "default_price":290,
+        "default_price":2900,
     },
     {
         "name": 'Система охлаждения, термотрубка %s для видеокарты' % (model_name),
@@ -1801,7 +1994,7 @@ detail_names = [
         "Значение_Характеристики_6":"",
         "Значение_Характеристики_7":"",
 
-        "default_price":290,
+        "default_price":2900,
     },
     {
         "name": 'Система охлаждения, термотрубка %s для процессора' % (model_name),
@@ -1845,7 +2038,7 @@ detail_names = [
         "Значение_Характеристики_6":"",
         "Значение_Характеристики_7":"",
 
-        "default_price":290,
+        "default_price":2900,
     },
     {
         "name": 'Система охлаждения, радиатор %s' % (model_name),
@@ -1866,12 +2059,12 @@ detail_names = [
         "description_good_ua": "Радіатор перевірений на теплопровідність - все в нормі.",
         "description_fail_ua": "Радіатор перевірений на теплопровідність - все в нормі.",
 
-        "flaw_perfect": "",
-        "flaw_good": "",
+        "flaw_perfect": "Недостатков не обнаружено.",
+        "flaw_good": "Недостатков не обнаружено.",
         "flaw_fail": "",
 
-        "flaw_perfect_ua": "",
-        "flaw_good_ua": "",
+        "flaw_perfect_ua": "Недоліків не виявлено.",
+        "flaw_good_ua": "Недоліків не виявлено.",
         "flaw_fail_ua": "",
 
         "Название_Характеристики_1":"Производитель",
@@ -1889,11 +2082,11 @@ detail_names = [
         "Значение_Характеристики_6":"",
         "Значение_Характеристики_7":"",
 
-        "default_price":290,
+        "default_price":2900,
     },
     {
-        "name": 'Радиатор чипсета %s' % (model_name),
-        "name_ua": 'Радіатор чіпсету %s' % (model_name),
+        "name": 'Радиатор чипсета ноутбука %s' % (model_name),
+        "name_ua": 'Радіатор чіпсету ноутбуку %s' % (model_name),
 
         "description_small": f"Радиатор чипсета, снятый с ноутбука {model_name}, оригинальный, {state}",
         "description_small_ua": f"Радіатор чіпсету, знятий з ноутбука {model_name}, оригінальний, {state_ua}",
@@ -1933,7 +2126,7 @@ detail_names = [
         "Значение_Характеристики_6":"",
         "Значение_Характеристики_7":"",
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Заглушка оптического привода ODD %s' % (model_name),
@@ -1979,7 +2172,7 @@ detail_names = [
         "Значение_Характеристики_7":"",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":140,
+        "default_price":1400,
     },
     {
         "name": 'Оптический привод DVD-RW %s' % (model_name),
@@ -2027,7 +2220,7 @@ detail_names = [
         "Значение_Характеристики_8":"Внутреннее",
         "Значение_Характеристики_9":"SATA",
 
-        "default_price":290,
+        "default_price":2900,
     },
     {
         "name": 'Оптический привод DVD-RW %s IDE нр' % (model_name),
@@ -2075,7 +2268,7 @@ detail_names = [
         "Значение_Характеристики_8":"Внутреннее",
         "Значение_Характеристики_9":"IDE",
 
-        "default_price":140,
+        "default_price":1400,
     },
     {
         "name": 'Оптический привод DVD-RW %s IDE, накладка' % (model_name),
@@ -2123,7 +2316,7 @@ detail_names = [
         "Значение_Характеристики_8":"Внутреннее",
         "Значение_Характеристики_9":"IDE",
 
-        "default_price":290,
+        "default_price":2900,
     },
     {
         "name": 'Оптический привод DVD-RW %s SATA' % (model_name),
@@ -2171,7 +2364,7 @@ detail_names = [
         "Значение_Характеристики_8":"Внутреннее",
         "Значение_Характеристики_9":"SATA",
 
-        "default_price":290,
+        "default_price":2900,
     },
     {
         "name": 'Оптический привод DVD-RW %s SATA нр' % (model_name),
@@ -2219,7 +2412,7 @@ detail_names = [
         "Значение_Характеристики_8":"Внутреннее",
         "Значение_Характеристики_9":"SATA",
 
-        "default_price":140,
+        "default_price":1400,
     },
     {
         "name": 'Оптический привод DVD-RW %s SATA, накладка' % (model_name),
@@ -2241,11 +2434,11 @@ detail_names = [
         "description_fail_ua": "Роз'єм приводу SATA. Оригінальна, сервісна накладка, в комплекті з приводом.",
 
         "flaw_perfect": "",
-        "flaw_good": "",
+        "flaw_good": "При осмотре и тестировании недостатков не обнаружено.",
         "flaw_fail": "",
 
         "flaw_perfect_ua": "",
-        "flaw_good_ua": "",
+        "flaw_good_ua": "При огляді та тестуванні недоліків не виявлено.",
         "flaw_fail_ua": "",
 
         "Название_Характеристики_1":"Производитель",
@@ -2267,7 +2460,7 @@ detail_names = [
         "Значение_Характеристики_8":"Внутреннее",
         "Значение_Характеристики_9":"SATA",
 
-        "default_price":290,
+        "default_price":2900,
     },
     {
         "name": 'Оптический привод CD-RW %s' % (model_name),
@@ -2315,7 +2508,7 @@ detail_names = [
         "Значение_Характеристики_8":"Внутреннее",
         "Значение_Характеристики_9":"SATA",
 
-        "default_price":290,
+        "default_price":2900,
     },
     {
         "name": 'Оптический привод CD-RW %s IDE нр' % (model_name),
@@ -2363,7 +2556,7 @@ detail_names = [
         "Значение_Характеристики_8":"Внутреннее",
         "Значение_Характеристики_9":"IDE",
 
-        "default_price":140,
+        "default_price":1400,
     },
     {
         "name": 'Оптический привод CD-RW %s IDE, накладка' % (model_name),
@@ -2411,7 +2604,7 @@ detail_names = [
         "Значение_Характеристики_8":"Внутреннее",
         "Значение_Характеристики_9":"IDE",
 
-        "default_price":290,
+        "default_price":2900,
     },
     {
         "name": 'Оптический привод CD-RW %s SATA' % (model_name),
@@ -2459,7 +2652,7 @@ detail_names = [
         "Значение_Характеристики_8":"Внутреннее",
         "Значение_Характеристики_9":"SATA",
 
-        "default_price":290,
+        "default_price":2900,
     },
     {
         "name": 'Оптический привод CD-RW %s SATA нр' % (model_name),
@@ -2507,7 +2700,7 @@ detail_names = [
         "Значение_Характеристики_8":"Внутреннее",
         "Значение_Характеристики_9":"SATA",
 
-        "default_price":140,
+        "default_price":1400,
     },
     {
         "name": 'Оптический привод CD-RW %s SATA, накладка' % (model_name),
@@ -2555,7 +2748,7 @@ detail_names = [
         "Значение_Характеристики_8":"Внутреннее",
         "Значение_Характеристики_9":"SATA",
 
-        "default_price":290,
+        "default_price":2900,
     },
     {
         "name": 'Динамики, колонки %s' % (model_name),
@@ -2577,11 +2770,11 @@ detail_names = [
         "description_fail_ua": "Динаміки перевірені на працездатність - працюють обидва.",
 
         "flaw_perfect": "",
-        "flaw_good": "",
+        "flaw_good": "Недостатков не обнаружено.",
         "flaw_fail": "",
 
         "flaw_perfect_ua": "",
-        "flaw_good_ua": "",
+        "flaw_good_ua": "Недоліків не виявлено.",
         "flaw_fail_ua": "",
 
         "Название_Характеристики_1":"Производитель",
@@ -2593,7 +2786,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Сабвуфер, динамик %s' % (model_name),
@@ -2631,7 +2824,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Плата USB %s (юсб)' % (model_name),
@@ -2653,11 +2846,11 @@ detail_names = [
         "description_fail_ua": "",
 
         "flaw_perfect": "",
-        "flaw_good": "",
+        "flaw_good": "Недостатков не обнаружно.",
         "flaw_fail": "",
 
         "flaw_perfect_ua": "",
-        "flaw_good_ua": "",
+        "flaw_good_ua": "Недоліків не виявлено.",
         "flaw_fail_ua": "",
 
         "Название_Характеристики_1":"Производитель",
@@ -2669,7 +2862,45 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
+    },
+    {
+        "name": 'Плата SIM-карты %s (юсб)' % (model_name),
+        "name_ua": 'Плата SIM-карти %s (юсб)' % (model_name),
+
+        "description_small": f"Плата SIM-карты к ноутбуку {model_name}, оригинальная, {state}",
+        "description_small_ua": f"Плата SIM-карти до ноутбука {model_name}, оригінальна, {state_ua}",
+
+        "keywords": "плата SIM-карти, сим карта, сим",
+        "keywords_ua": "плата SIM-карти, сім карта, сім",
+        "portal": "Адаптеры и платы расширения портов",
+        
+        "description_perfect": "",
+        "description_good": "",
+        "description_fail": "",
+
+        "description_perfect_ua": "",
+        "description_good_ua": "",
+        "description_fail_ua": "",
+
+        "flaw_perfect": "",
+        "flaw_good": "Недостатков не обнаружно.",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "Недоліків не виявлено.",
+        "flaw_fail_ua": "",
+
+        "Название_Характеристики_1":"Производитель",
+        "Название_Характеристики_2":"Страна производитель",
+        "Название_Характеристики_3":"Состояние",
+        "Название_Характеристики_4":"Класс качества",
+        "Значение_Характеристики_1":vendor,
+        "Значение_Характеристики_2":manufacturer_country,
+        "Значение_Характеристики_3":state,
+        "Значение_Характеристики_4":quality_class,
+
+        "default_price":1900,
     },
     {
         "name": 'Плата USB 2 %s (юсб)' % (model_name),
@@ -2707,7 +2938,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Плата кардридер %s (cardreader)' % (model_name),
@@ -2745,7 +2976,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Плата USB, гнездо питания %s (юсб)' % (model_name),
@@ -2783,7 +3014,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Плата COM-порта %s (ком-порт)' % (model_name),
@@ -2821,7 +3052,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Плата s-video %s' % (model_name),
@@ -2859,7 +3090,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Плата USB, audio %s (юсб, аудио)' % (model_name),
@@ -2897,7 +3128,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Плата USB, audio, cardreader %s (юсб, аудио, кардридер)' % (model_name),
@@ -2919,11 +3150,11 @@ detail_names = [
         "description_fail_ua": "",
 
         "flaw_perfect": "",
-        "flaw_good": "",
+        "flaw_good": "Недостатков не обнаружено.",
         "flaw_fail": "",
 
         "flaw_perfect_ua": "",
-        "flaw_good_ua": "",
+        "flaw_good_ua": "Недоліків не виявлено.",
         "flaw_fail_ua": "",
 
         "Название_Характеристики_1":"Производитель",
@@ -2935,7 +3166,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Плата USB, RJ45, RJ14 %s (юсб, сеть, модем)' % (model_name),
@@ -2973,7 +3204,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Плата audio %s (аудио)' % (model_name),
@@ -3011,7 +3242,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Плата VGA %s (видео)' % (model_name),
@@ -3049,7 +3280,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Плата HDMI %s (видео)' % (model_name),
@@ -3087,7 +3318,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Плата VGA, USB, audio, HDMI %s (видео, юсб, аудио)' % (model_name),
@@ -3125,7 +3356,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Плата мультимедиа, кардридер %s (multimedia, cardreader)' % (model_name),
@@ -3163,7 +3394,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Смарт-кардридер %s (Smart Card Reader Board)' % (model_name),
@@ -3201,7 +3432,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Плата, шлейф мультимедийные кнопки %s (multimedia)' % (model_name),
@@ -3215,19 +3446,19 @@ detail_names = [
         "portal": "Адаптеры и платы расширения портов",
         
         "description_perfect": "Шлейф не помятый. Контактные дорожки не повреждены.",
-        "description_good": "Шлейф не помятый. Контактные дорожки не повреждены.",
+        "description_good": "Шлейф не помятый. Контактные дорожки не повреждены. Кнопки работают.",
         "description_fail": "Шлейф не помятый. Контактные дорожки не повреждены.",
 
         "description_perfect_ua": "Шлейф не пом'ятий. Контактні дорожки не пошкоджені.",
-        "description_good_ua": "Шлейф не пом'ятий. Контактні дорожки не пошкоджені.",
+        "description_good_ua": "Шлейф не пом'ятий. Контактні дорожки не пошкоджені. Кнопки працюють.",
         "description_fail_ua": "Шлейф не пом'ятий. Контактні дорожки не пошкоджені.",
 
         "flaw_perfect": "",
-        "flaw_good": "",
+        "flaw_good": "Недостатков не обнаружено.",
         "flaw_fail": "",
 
         "flaw_perfect_ua": "",
-        "flaw_good_ua": "",
+        "flaw_good_ua": "Недоліків не виявлено.",
         "flaw_fail_ua": "",
 
         "Название_Характеристики_1":"Производитель",
@@ -3239,7 +3470,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Плата, шлейф мультимедийные кнопки 2 %s (multimedia)' % (model_name),
@@ -3277,7 +3508,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Плата, шлейф, кнопка включения (питания) %s (вкл/выкл)' % (model_name),
@@ -3299,11 +3530,11 @@ detail_names = [
         "description_fail_ua": "Шлейф не пом'ятий. Контактні дорожки не пошкоджені.",
 
         "flaw_perfect": "",
-        "flaw_good": "",
+        "flaw_good": "При осмотре недостатков не обнаружено.",
         "flaw_fail": "",
 
         "flaw_perfect_ua": "",
-        "flaw_good_ua": "",
+        "flaw_good_ua": "При огляді недоліків не виявлено.",
         "flaw_fail_ua": "",
 
         "Название_Характеристики_1":"Производитель",
@@ -3315,7 +3546,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Плата, шлейф, энкодер %s' % (model_name),
@@ -3353,7 +3584,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Плата USB, кнопка включения (питания) %s (вкл/выкл)' % (model_name),
@@ -3391,7 +3622,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Плата, шлейф, кнопка включения, громкости %s' % (model_name),
@@ -3429,7 +3660,45 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
+    },
+    {
+        "name": 'Плата, шлейф, регулятор громкости %s' % (model_name),
+        "name_ua": 'Плата, шлейф, регулятор гучності %s' % (model_name),
+
+        "description_small": f"Дополнительная плата регулятора громкости и шлейф к ноутбуку {model_name}, оригинальная, {state}",
+        "description_small_ua": f"Додаткова плата ругулятора гучності та шлейф до ноутбука {model_name}, оригінальна, {state_ua}",
+
+        "keywords": "плата, шлейф, громкость, кнопки громкости, регулятор громкости",
+        "keywords_ua": "плата, шлейф, гучність, кнопки гучності, регулятор гучності",
+        "portal": "Адаптеры и платы расширения портов",
+        
+        "description_perfect": "Шлейф не помятый. Контактные дорожки не повреждены.",
+        "description_good": "Шлейф не помятый. Контактные дорожки не повреждены.",
+        "description_fail": "Шлейф не помятый. Контактные дорожки не повреждены.",
+
+        "description_perfect_ua": "Шлейф не пом'ятий. Контактні дорожки не пошкоджені.",
+        "description_good_ua": "Шлейф не пом'ятий. Контактні дорожки не пошкоджені.",
+        "description_fail_ua": "Шлейф не пом'ятий. Контактні дорожки не пошкоджені.",
+
+        "flaw_perfect": "",
+        "flaw_good": "При осмотре и тестировании недостатков не обнаружено.",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "При огляді та тестуванні недоліків не виявлено.",
+        "flaw_fail_ua": "",
+
+        "Название_Характеристики_1":"Производитель",
+        "Название_Характеристики_2":"Страна производитель",
+        "Название_Характеристики_3":"Состояние",
+        "Название_Характеристики_4":"Класс качества",
+        "Значение_Характеристики_1":vendor,
+        "Значение_Характеристики_2":manufacturer_country,
+        "Значение_Характеристики_3":state,
+        "Значение_Характеристики_4":quality_class,
+
+        "default_price":1900,
     },
     {
         "name": 'Плата индикации %s' % (model_name),
@@ -3467,7 +3736,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Плата индикации 2 %s' % (model_name),
@@ -3505,7 +3774,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Плата индикации 1 %s' % (model_name),
@@ -3543,7 +3812,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Корзина, крепление HDD/SSD %s (caddy)' % (model_name),
@@ -3585,7 +3854,7 @@ detail_names = [
         "Значение_Характеристики_5":"Внутренний",
         "Значение_Характеристики_6":'2.5"',
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Корзина, крепление HDD/SSD 1 %s (caddy)' % (model_name),
@@ -3607,11 +3876,11 @@ detail_names = [
         "description_fail_ua": "Зверніть увагу, в ноутбук встановлені декілька кріплень і вони різні.",
 
         "flaw_perfect": "",
-        "flaw_good": "",
+        "flaw_good": "При осмотре недостатков не обнаружено.",
         "flaw_fail": "",
 
         "flaw_perfect_ua": "",
-        "flaw_good_ua": "",
+        "flaw_good_ua": "При огляді недоліків не виявлено.",
         "flaw_fail_ua": "",
 
         "Название_Характеристики_1":"Производитель",
@@ -3627,7 +3896,7 @@ detail_names = [
         "Значение_Характеристики_5":"Внутренний",
         "Значение_Характеристики_6":'2.5"',
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Корзина, крепление HDD/SSD 2 %s (caddy)' % (model_name),
@@ -3649,11 +3918,11 @@ detail_names = [
         "description_fail_ua": "Зверніть увагу, в ноутбук встановлені декілька кріплень і вони різні.",
 
         "flaw_perfect": "",
-        "flaw_good": "",
+        "flaw_good": "При осмотре недостатков не обнаружено.",
         "flaw_fail": "",
 
         "flaw_perfect_ua": "",
-        "flaw_good_ua": "",
+        "flaw_good_ua": "При огляді недоліків не виявлено.",
         "flaw_fail_ua": "",
 
         "Название_Характеристики_1":"Производитель",
@@ -3669,7 +3938,7 @@ detail_names = [
         "Значение_Характеристики_5":"Внутренний",
         "Значение_Характеристики_6":'2.5"',
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Резиновые направляющие корзины, крепления HDD/SSD %s (caddy)' % (model_name),
@@ -3711,7 +3980,7 @@ detail_names = [
         "Значение_Характеристики_5":"Внутренний",
         "Значение_Характеристики_6":'2.5"',
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Шлейф матрицы %s' % (model_name),
@@ -3751,7 +4020,7 @@ detail_names = [
         "Значение_Характеристики_4":quality_class,
         "Значение_Характеристики_5":purpose,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Разьем, адаптер, шлейф SATA HDD/SSD %s' % (model_name),
@@ -3791,7 +4060,7 @@ detail_names = [
         "Значение_Характеристики_4":quality_class,
         "Значение_Характеристики_5":purpose,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'ODD переходник SATA DVD %s' % (model_name),
@@ -3831,7 +4100,47 @@ detail_names = [
         "Значение_Характеристики_4":quality_class,
         "Значение_Характеристики_5":purpose,
 
-        "default_price":190,
+        "default_price":1900,
+    },
+    {
+        "name": 'Плата переходник на 2 SATA HDD/SSD %s' % (model_name),
+        "name_ua": "Плата перехідник на 2 SATA HDD/SSD %s" % (model_name),
+
+        "description_small": f"Плата переходник на 2 SATA HDD/SSD к ноутбуку {model_name}, оригинальный, {state}",
+        "description_small_ua": f"Плата перехідник на 2 SATA HDD/SSD до ноутбуку {model_name}, оригінальний, {state_ua}",
+
+        "keywords": "плата, переходник, адаптер",
+        "keywords_ua": "плата, перехідник, адаптер",
+        "portal": "Шлейфы и разъемы для ноутбуков, компьютеров, планшетов",
+        
+        "description_perfect": "Шлейф не помятый. Контактные дорожки не повреждены.",
+        "description_good": "Шлейф не помятый. Контактные дорожки не повреждены.",
+        "description_fail": "Шлейф не помятый. Контактные дорожки не повреждены.",
+
+        "description_perfect_ua": "Шлейф не пом'ятий. Контактні дорожки не пошкоджені.",
+        "description_good_ua": "Шлейф не пом'ятий. Контактні дорожки не пошкоджені.",
+        "description_fail_ua": "Шлейф не пом'ятий. Контактні дорожки не пошкоджені.",
+
+        "flaw_perfect": "",
+        "flaw_good": "",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "",
+        "flaw_fail_ua": "",
+
+        "Название_Характеристики_1":"Производитель",
+        "Название_Характеристики_2":"Страна производитель",
+        "Название_Характеристики_3":"Состояние",
+        "Название_Характеристики_4":"Класс качества",
+        "Название_Характеристики_5":"Назначение",
+        "Значение_Характеристики_1":vendor,
+        "Значение_Характеристики_2":manufacturer_country,
+        "Значение_Характеристики_3":state,
+        "Значение_Характеристики_4":quality_class,
+        "Значение_Характеристики_5":purpose,
+
+        "default_price":1900,
     },
     {
         "name": 'Шлейф ODD/DVD %s' % (model_name),
@@ -3871,7 +4180,7 @@ detail_names = [
         "Значение_Характеристики_4":quality_class,
         "Значение_Характеристики_5":purpose,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Шлейф SATA HDD/SSD %s' % (model_name),
@@ -3911,7 +4220,7 @@ detail_names = [
         "Значение_Характеристики_4":quality_class,
         "Значение_Характеристики_5":purpose,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Разъем, гнездо, кабель питания %s' % (model_name),
@@ -3933,11 +4242,11 @@ detail_names = [
         "description_fail_ua": "",
 
         "flaw_perfect": "",
-        "flaw_good": "",
+        "flaw_good": "Недостатков не обнаружено.",
         "flaw_fail": "",
 
         "flaw_perfect_ua": "",
-        "flaw_good_ua": "",
+        "flaw_good_ua": "Недоліків не виявлено.",
         "flaw_fail_ua": "",
 
         "Название_Характеристики_1":"Производитель",
@@ -3951,7 +4260,7 @@ detail_names = [
         "Значение_Характеристики_4":quality_class,
         "Значение_Характеристики_5":purpose,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Разъем LAN, гнездо RJ45, кабель RJ45 %s' % (model_name),
@@ -3991,7 +4300,7 @@ detail_names = [
         "Значение_Характеристики_4":quality_class,
         "Значение_Характеристики_5":purpose,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Разъем, гнездо антенное, телевизионное %s' % (model_name),
@@ -4031,7 +4340,7 @@ detail_names = [
         "Значение_Характеристики_4":quality_class,
         "Значение_Характеристики_5":purpose,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Модуль Wi-Fi %s' % (model_name),
@@ -4069,7 +4378,45 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":180,
+        "default_price":1800,
+    },
+    {
+        "name": 'Модуль подсветки клавиатуры и шлейф %s' % (model_name),
+        "name_ua": 'Модуль підсвітки клавіатури та шлейф %s' % (model_name),
+
+        "description_small": f"Модуль подсветки клавиатуры и шлейф к ноутбуку {model_name}, оригинальный, {state}",
+        "description_small_ua": f"Модуль підсвітки клавіатури та шлейф до ноутбука {model_name}, оригінальний, {state_ua}",
+
+        "keywords": "модуль подсветки клавиатуры, модуль, подсветка клавиатуры, подсветка",
+        "keywords_ua": "модуль підсвітки клавіатури, модуль, підсвітка клавіатури, підсвітка",
+        "portal": "Адаптеры и платы расширения портов",
+        
+        "description_perfect": "",
+        "description_good": "",
+        "description_fail": "",
+
+        "description_perfect_ua": "",
+        "description_good_ua": "",
+        "description_fail_ua": "",
+
+        "flaw_perfect": "Недостатков не обнаружено.",
+        "flaw_good": "Недостатков не обнаружено.",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "Недоліків не виявлено.",
+        "flaw_good_ua": "Недоліків не виявлено.",
+        "flaw_fail_ua": "",
+
+        "Название_Характеристики_1":"Производитель",
+        "Название_Характеристики_2":"Страна производитель",
+        "Название_Характеристики_3":"Состояние",
+        "Название_Характеристики_4":"Класс качества",
+        "Значение_Характеристики_1":vendor,
+        "Значение_Характеристики_2":manufacturer_country,
+        "Значение_Характеристики_3":state,
+        "Значение_Характеристики_4":quality_class,
+
+        "default_price":1800,
     },
     {
         "name": 'Видеокарта %s' % (model_name),
@@ -4107,7 +4454,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":790,
+        "default_price":7900,
     },
     {
         "name": 'Модуль 3G-модем %s' % (model_name),
@@ -4145,7 +4492,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Модуль звуковая карта %s' % (model_name),
@@ -4183,7 +4530,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Модуль ТВ-тюнер %s (TV-тюнер)' % (model_name),
@@ -4221,7 +4568,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Ssd Intel Turbo Memory Flesh память %s (TV-тюнер)' % (model_name),
@@ -4259,7 +4606,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Антенна Wi-Fi %s' % (model_name),
@@ -4299,7 +4646,7 @@ detail_names = [
         "Значение_Характеристики_4":quality_class,
         "Значение_Характеристики_5":purpose,
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Антенна Wi-Fi левая %s' % (model_name),
@@ -4339,7 +4686,7 @@ detail_names = [
         "Значение_Характеристики_4":quality_class,
         "Значение_Характеристики_5":purpose,
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Антенна Wi-Fi правая %s' % (model_name),
@@ -4379,7 +4726,7 @@ detail_names = [
         "Значение_Характеристики_4":quality_class,
         "Значение_Характеристики_5":purpose,
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Модуль блютуз, bluetooth %s' % (model_name),
@@ -4401,11 +4748,11 @@ detail_names = [
         "description_fail_ua": "",
 
         "flaw_perfect": "",
-        "flaw_good": "",
+        "flaw_good": "Недостатков не обнаружено.",
         "flaw_fail": "",
 
         "flaw_perfect_ua": "",
-        "flaw_good_ua": "",
+        "flaw_good_ua": "Недоліків не виявлено.",
         "flaw_fail_ua": "",
 
         "Название_Характеристики_1":"Производитель",
@@ -4417,7 +4764,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'ВЕБ-камера %s (WEB-camera)' % (model_name),
@@ -4457,7 +4804,7 @@ detail_names = [
         "Значение_Характеристики_4":quality_class,
         "Значение_Характеристики_5":purpose,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Декоративная рамка ВЕБ-камеры %s (WEB-camera)' % (model_name),
@@ -4503,7 +4850,7 @@ detail_names = [
         "Значение_Характеристики_7":"Крышка экрана|Рамка экрана",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":140,
+        "default_price":1400,
     },
     {
         "name": 'Фильтр охлаждения ноутбука %s (WEB-camera)' % (model_name),
@@ -4549,7 +4896,7 @@ detail_names = [
         "Значение_Характеристики_7":"Нижняя крышка базы",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":50,
+        "default_price":500,
     },
     {
         "name": 'Шлейф ВЕБ-камеры %s (WEB-camera)' % (model_name),
@@ -4589,7 +4936,7 @@ detail_names = [
         "Значение_Характеристики_4":quality_class,
         "Значение_Характеристики_5":purpose,
 
-        "default_price":120,
+        "default_price":1200,
     },
     {
         "name": 'Шлейф инвертера %s (inverter)' % (model_name),
@@ -4629,7 +4976,7 @@ detail_names = [
         "Значение_Характеристики_4":quality_class,
         "Значение_Характеристики_5":purpose,
 
-        "default_price":120,
+        "default_price":1200,
     },
     {
         "name": 'Инвертор матрицы %s' % (model_name),
@@ -4651,11 +4998,11 @@ detail_names = [
         "description_fail_ua": "",
 
         "flaw_perfect": "",
-        "flaw_good": "",
+        "flaw_good": "Недостатков не обнаружено. ",
         "flaw_fail": "",
 
         "flaw_perfect_ua": "",
-        "flaw_good_ua": "",
+        "flaw_good_ua": "Недоліків не виявлено. ",
         "flaw_fail_ua": "",
 
         "Название_Характеристики_1":"Производитель",
@@ -4669,7 +5016,7 @@ detail_names = [
         "Значение_Характеристики_4":quality_class,
         "Значение_Характеристики_5":purpose,
 
-        "default_price":140,
+        "default_price":1400,
     },
     {
         "name": 'Микрофон %s' % (model_name),
@@ -4707,45 +5054,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":60,
-    },
-    {
-        "name": 'Антенна Wi-Fi %s' % (model_name),
-        "name_ua": 'Антена Wi-Fi %s' % (model_name),
-
-        "description_small": f"Антенна Wi-Fi к ноутбуку {model_name}, оригинальная, {state}",
-        "description_small_ua": f"Антена Wi-Fi до ноутбука {model_name}, оригінальна, {state_ua}",
-
-        "keywords": "антенна wi-fi, антенна wifi, антенна, антена, антена wifi, антена wi-fi, wifi, wi-fi",
-        "keywords_ua": "антена wi-fi, антена wifi, антена, wi-fi, wifi",
-        "portal": "Адаптеры и платы расширения портов",
-        
-        "description_perfect": "",
-        "description_good": "",
-        "description_fail": "",
-
-        "description_perfect_ua": "",
-        "description_good_ua": "",
-        "description_fail_ua": "",
-
-        "flaw_perfect": "",
-        "flaw_good": "",
-        "flaw_fail": "",
-
-        "flaw_perfect_ua": "",
-        "flaw_good_ua": "",
-        "flaw_fail_ua": "",
-
-        "Название_Характеристики_1":"Производитель",
-        "Название_Характеристики_2":"Страна производитель",
-        "Название_Характеристики_3":"Состояние",
-        "Название_Характеристики_4":"Класс качества",
-        "Значение_Характеристики_1":vendor,
-        "Значение_Характеристики_2":manufacturer_country,
-        "Значение_Характеристики_3":state,
-        "Значение_Характеристики_4":quality_class,
-
-        "default_price":90,
+        "default_price":600,
     },
     {
         "name": 'Модуль шифрования TPM %s' % (model_name),
@@ -4783,7 +5092,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Батарея оригинальная %s' % (model_name),
@@ -4829,7 +5138,7 @@ detail_names = [
         "Значение_Характеристики_7":purpose,
         "Значение_Характеристики_8":"Li-Ion",
 
-        "default_price":890,
+        "default_price":8900,
     },
     {
         "name": 'Батарея оригинальная %s нр' % (model_name),
@@ -4875,7 +5184,7 @@ detail_names = [
         "Значение_Характеристики_7":purpose,
         "Значение_Характеристики_8":"Li-Ion",
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Батарея %s' % (model_name),
@@ -4921,7 +5230,7 @@ detail_names = [
         "Значение_Характеристики_7":purpose,
         "Значение_Характеристики_8":"Li-Ion",
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Плата LED %s' % (model_name),
@@ -4959,7 +5268,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Плата HDD/SSD %s' % (model_name),
@@ -4997,7 +5306,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":190,
+        "default_price":1900,
     },
     {
         "name": 'Плата сим-карты %s' % (model_name),
@@ -5035,7 +5344,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Модем %s' % (model_name),
@@ -5057,11 +5366,11 @@ detail_names = [
         "description_fail_ua": "",
 
         "flaw_perfect": "",
-        "flaw_good": "",
+        "flaw_good": "Недостатков не обнаружено.",
         "flaw_fail": "",
 
         "flaw_perfect_ua": "",
-        "flaw_good_ua": "",
+        "flaw_good_ua": "Недоліків не виявлено.",
         "flaw_fail_ua": "",
 
         "Название_Характеристики_1":"Производитель",
@@ -5073,7 +5382,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Матрица, экран, дисплей %s' % (model_name),
@@ -5113,7 +5422,7 @@ detail_names = [
         "Значение_Характеристики_4":quality_class,
         "Значение_Характеристики_5":purpose,
 
-        "default_price":1590,
+        "default_price":15900,
     },
     {
         "name": 'Разъем модема %s' % (model_name),
@@ -5153,7 +5462,7 @@ detail_names = [
         "Значение_Характеристики_4":quality_class,
         "Значение_Характеристики_5":purpose,
 
-        "default_price":50,
+        "default_price":500,
     },
     {
         "name": 'Динамик левый %s' % (model_name),
@@ -5191,7 +5500,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Динамик правый %s' % (model_name),
@@ -5229,7 +5538,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Накладка, на среднюю часть корпуса %s' % (model_name),
@@ -5275,7 +5584,7 @@ detail_names = [
         "Значение_Характеристики_7":"Панель с кнопками",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":140,
+        "default_price":1400,
     },
     {
         "name": 'Накладка оптического привода %s' % (model_name),
@@ -5321,7 +5630,7 @@ detail_names = [
         "Значение_Характеристики_7":"Панель с кнопками",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":140,
+        "default_price":1400,
     },
     {
         "name": 'Накладка на WEB-камеру %s' % (model_name),
@@ -5367,7 +5676,7 @@ detail_names = [
         "Значение_Характеристики_7":"Рамка экрана",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": 'Топкейс, средняя часть %s (верхняя крышка)' % (model_name),
@@ -5413,7 +5722,7 @@ detail_names = [
         "Значение_Характеристики_7":"Верхняя крышка базы",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":290,
+        "default_price":2900,
     },
     {
         "name": 'Задняя часть топкейса %s (верхняя крышка)' % (model_name),
@@ -5459,7 +5768,7 @@ detail_names = [
         "Значение_Характеристики_7":"Верхняя крышка базы",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":120,
+        "default_price":1200,
     },
     {
         "name": 'Топкейс, средняя часть с клавиатурой %s (верхняя крышка)' % (model_name),
@@ -5505,7 +5814,7 @@ detail_names = [
         "Значение_Характеристики_7":"Верхняя крышка базы, Клавиатура",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":1190,
+        "default_price":11900,
     },
     {
         "name": 'Рамка клавиатуры %s (верхняя крышка)' % (model_name),
@@ -5551,11 +5860,11 @@ detail_names = [
         "Значение_Характеристики_7":"Верхняя крышка базы",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":120,
+        "default_price":1200,
     },
     {
-        "name": 'Топкейс, средняя часть с клавиатурой и тачпадом %s (верхняя крышка)' % (model_name),
-        "name_ua": 'Топкейс, средня частина з клавіатурою та тачпадом %s (верхня кришка)' % (model_name),
+        "name": 'Топкейс, средняя часть, клавиатура, тачпад %s (верхняя крышка)' % (model_name),
+        "name_ua": 'Топкейс, средня частина, клавіатура, тачпад %s (верхня кришка)' % (model_name),
 
         "description_small": f"Топкейс, средняя часть с клавиатурой и тачпадом к ноутбуку {model_name}, оригинальный, {state}",
         "description_small_ua": f"Топкейс, средня частина з клавіатурою та тачпадом до ноутбука {model_name}, оригінальний, {state_ua}",
@@ -5597,7 +5906,7 @@ detail_names = [
         "Значение_Характеристики_7":"Верхняя крышка базы, Клавиатура, Тачпад",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":1390,
+        "default_price":13900,
     },
     {
         "name": 'Топкейс, средняя часть с тачпадом %s (верхняя крышка)' % (model_name),
@@ -5643,7 +5952,7 @@ detail_names = [
         "Значение_Характеристики_7":"Верхняя крышка базы, Тачпад",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":390,
+        "default_price":3900,
     },
     {
         "name": 'Направляющие матрицы %s' % (model_name),
@@ -5689,7 +5998,7 @@ detail_names = [
         "Значение_Характеристики_7":"Петли матрицы",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":120,
+        "default_price":1200,
     },
     {
         "name": 'Направляющие топкейса %s' % (model_name),
@@ -5735,7 +6044,7 @@ detail_names = [
         "Значение_Характеристики_7":"Верхняя крышка базы",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":120,
+        "default_price":1200,
     },
     {
         "name": 'Кнопка включения %s (вкл/выкл)' % (model_name),
@@ -5781,7 +6090,7 @@ detail_names = [
         "Значение_Характеристики_7":"Верхняя крышка базы",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": "Соединительная плата %s" % (model_name),
@@ -5819,7 +6128,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":290,
+        "default_price":2900,
     },
     {
         "name": "Шлейф нотбука %s" % (model_name),
@@ -5857,7 +6166,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":90,
+        "default_price":900,
     },
     {
         "name": "Шлейф тачпада нотбука %s" % (model_name),
@@ -5895,7 +6204,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":60,
+        "default_price":600,
     },
     {
         "name": "Шлейф кнопки включения %s" % (model_name),
@@ -5933,7 +6242,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":60,
+        "default_price":600,
     },
     {
         "name": "Шлейф подключения батареи %s" % (model_name),
@@ -5971,7 +6280,7 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":60,
+        "default_price":600,
     },
     {
         "name": "Датчик закрытия крышки (кнопка) %s" % (model_name),
@@ -6009,7 +6318,45 @@ detail_names = [
         "Значение_Характеристики_3":state,
         "Значение_Характеристики_4":quality_class,
 
-        "default_price":60,
+        "default_price":600,
+    },
+    {
+        "name": "Плата сканер отпечатка пальцев %s" % (model_name),
+        "name_ua": "Плата сканер відбитку пальців %s" % (model_name),
+
+        "description_small": f"Плата сканер отпечатка пальцев к ноутбуку {model_name}, оригинальный, {state}",
+        "description_small_ua": f"Плата сканер відбитка пальців до ноутбука {model_name}, оригінальний, {state_ua}",
+
+        "keywords": "датчик, кнопка, датчик отпечатка, датчик отпечатка пальцев, сканер отпечатка",
+        "keywords_ua": "датчик, кнопка, датчик відбитку, датчик відбитку пальців, сканер відбитка",
+        "portal": "Адаптеры и платы расширения портов",
+        
+        "description_perfect": "",
+        "description_good": "",
+        "description_fail": "",
+
+        "description_perfect_ua": "",
+        "description_good_ua": "",
+        "description_fail_ua": "",
+
+        "flaw_perfect": "",
+        "flaw_good": "Недостатков не обнаружено.",
+        "flaw_fail": "",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "Недоліків не виявлено.",
+        "flaw_fail_ua": "",
+
+        "Название_Характеристики_1":"Производитель",
+        "Название_Характеристики_2":"Страна производитель",
+        "Название_Характеристики_3":"Состояние",
+        "Название_Характеристики_4":"Класс качества",
+        "Значение_Характеристики_1":vendor,
+        "Значение_Характеристики_2":manufacturer_country,
+        "Значение_Характеристики_3":state,
+        "Значение_Характеристики_4":quality_class,
+
+        "default_price":600,
     },
     {
         "name": 'Заглушка кардридера SD %s' % (model_name),
@@ -6031,11 +6378,11 @@ detail_names = [
         "description_fail_ua": "",
 
         "flaw_perfect": "",
-        "flaw_good": "",
+        "flaw_good": "Недостатков не обнаружено.",
         "flaw_fail": "При осмотре обнаружены мелкие царапины, потертости. На функціональность детали никак не влияет.",
 
         "flaw_perfect_ua": "",
-        "flaw_good_ua": "",
+        "flaw_good_ua": "Недоліків не виявлено.",
         "flaw_fail_ua": "При огляді виявлені мілкі царапки, потертості. На функціональность деталі ніяк не впливає.",
 
         "Название_Характеристики_1":"Производитель",
@@ -6055,7 +6402,53 @@ detail_names = [
         "Значение_Характеристики_7":"",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":50,
+        "default_price":500,
+    },
+    {
+        "name": 'Заглушка разъёма докстанции %s' % (model_name),
+        "name_ua": "Заглушка роз'єму докстанції %s" % (model_name),
+
+        "description_small": f"Заглушка разъёма докстанции к ноутбуку {model_name}, оригинальная, {state}",
+        "description_small_ua": f"Заглушка роз'єму докстанції до ноутбука {model_name}, оригінальна, {state_ua}",
+
+        "keywords": "заглушка докстанции, заглушка разъёма докстанции, докстанция, заглушка",
+        "keywords_ua": "заглушка докстанції, заглушка роз'єму докстанції, докстанція, заглушка",
+        "portal": "Части корпуса ноутбука",
+        
+        "description_perfect": "",
+        "description_good": "",
+        "description_fail": "",
+
+        "description_perfect_ua": "",
+        "description_good_ua": "",
+        "description_fail_ua": "",
+
+        "flaw_perfect": "",
+        "flaw_good": "Недостатков не обнаружено.",
+        "flaw_fail": "При осмотре обнаружены легкие следы эксплуатации. На функціональность детали никак не влияет.",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "Недоліків не виявлено.",
+        "flaw_fail_ua": "При огляді виявлені легкі сліди експлуатації. На функціональность деталі ніяк не впливає.",
+
+        "Название_Характеристики_1":"Производитель",
+        "Название_Характеристики_2":"Страна производитель",
+        "Название_Характеристики_3":"Состояние",
+        "Название_Характеристики_4":"Класс качества",
+        "Название_Характеристики_5":"Цвет",
+        "Название_Характеристики_6":"Совместимость с брендом",
+        "Название_Характеристики_7":"Комплектующие",
+        "Название_Характеристики_8":"Материал",
+        "Значение_Характеристики_1":vendor,
+        "Значение_Характеристики_2":manufacturer_country,
+        "Значение_Характеристики_3":state,
+        "Значение_Характеристики_4":quality_class,
+        "Значение_Характеристики_5":color,
+        "Значение_Характеристики_6":brand_compatibility,
+        "Значение_Характеристики_7":"",
+        "Значение_Характеристики_8":housing_material,
+
+        "default_price":500,
     },
     {
         "name": 'Заглушка кардридера PCMCIA %s' % (model_name),
@@ -6069,11 +6462,11 @@ detail_names = [
         "portal": "Части корпуса ноутбука",
         
         "description_perfect": "",
-        "description_good": "",
+        "description_good": "Недостатков не обнаружено. ",
         "description_fail": "",
 
         "description_perfect_ua": "",
-        "description_good_ua": "",
+        "description_good_ua": "Недоліків не виявлено. ",
         "description_fail_ua": "",
 
         "flaw_perfect": "",
@@ -6101,7 +6494,7 @@ detail_names = [
         "Значение_Характеристики_7":"",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":50,
+        "default_price":500,
     },
     {
         "name": 'Блок питания %s, оригинал' % (model_name),
@@ -6147,7 +6540,7 @@ detail_names = [
         "Значение_Характеристики_7":"",
         "Значение_Характеристики_8":housing_material,
 
-        "default_price":50,
+        "default_price":500,
     },
     {
         "name": 'ВЕБ-камера, шлейф инвертера, микрофон %s (WEB-camera)' % (model_name),
@@ -6187,7 +6580,47 @@ detail_names = [
         "Значение_Характеристики_4":quality_class,
         "Значение_Характеристики_5":purpose,
 
-        "default_price":290,
+        "default_price":2900,
+    },
+    {
+        "name": 'Пульт для ноутбука %s (ПДУ)' % (model_name),
+        "name_ua": 'Пульт для ноутбуку %s (ПДУ)' % (model_name),
+
+        "description_small": f"Пульт дистанционного управления к ноутбуку {model_name}, оригинальная, {state}",
+        "description_small_ua": f"Пульт дистанційного керування до ноутбука {model_name}, оригінальна, {state_ua}",
+
+        "keywords": "Пульт дистанционного управления, WEB-camera, шлейф инвертера, шлейф, микрофон",
+        "keywords_ua": "Пульт дистанційного керування, WEB-camera, шлейф інвертора, шлейф, микрофон",
+        "portal": "Пульты управления для мультимедиа",
+        
+        "description_perfect": "Пульт целый, не поврежденный.",
+        "description_good": "Пульт целый, не поврежденный.",
+        "description_fail": "Пульт целый, не поврежденный.",
+
+        "description_perfect_ua": "Пульт цілий, не пошкоджений.",
+        "description_good_ua": "Пульт цілий, не пошкоджений.",
+        "description_fail_ua": "Пульт цілий, не пошкоджений.",
+
+        "flaw_perfect": "",
+        "flaw_good": "Не значительные следы использования, на функциональность не влияет.",
+        "flaw_fail": "Не значительные следы использования, на функциональность не влияет.",
+
+        "flaw_perfect_ua": "",
+        "flaw_good_ua": "Не значні сліди використання, на функціональність не впливає.",
+        "flaw_fail_ua": "Не значні сліди використання, на функціональність не впливає.",
+
+        "Название_Характеристики_1":"Производитель",
+        "Название_Характеристики_2":"Страна производитель",
+        "Название_Характеристики_3":"Состояние",
+        "Название_Характеристики_4":"Класс качества",
+        "Название_Характеристики_5":"Назначение",
+        "Значение_Характеристики_1":vendor,
+        "Значение_Характеристики_2":manufacturer_country,
+        "Значение_Характеристики_3":state,
+        "Значение_Характеристики_4":quality_class,
+        "Значение_Характеристики_5":"",
+
+        "default_price":3900,
     },
 ]
 

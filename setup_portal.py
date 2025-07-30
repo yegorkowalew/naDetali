@@ -5,6 +5,10 @@ portal_names = [
         "portal_link": "https://prom.ua/Chasti-korpusa-noutbuka",
     },
     {
+        "portal": "Пульты управления для мультимедиа",
+        "portal_link": "https://prom.ua/ua/Pulty-upravleniya",
+    },
+    {
         "portal": "Адаптеры и платы расширения портов",
         "portal_link": "https://prom.ua/Adaptery-i-platy-rasshireniya-portov",
     },

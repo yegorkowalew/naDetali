@@ -40,6 +40,8 @@ model = config['Model']
 dir_path = config["Path"]["directory"]
 all_photos_dir_name = config["Path"]["all_photos_dir_name"]
 
+hdd = config['Hdd']
+
 # description.ini
 config.read(os.path.join(BASE_DIR, 'description.ini'), encoding="utf-8")  # читаем конфиг
 description = config['Description']
